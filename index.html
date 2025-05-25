@@ -1,12 +1,82 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Simple Porto</title>
-  </head>
-<body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdisamad Yusuf - Cybersecurity Professional</title>
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <header class="bg-blue-600 text-white p-6">
+        <h1 class="text-3xl font-bold">Abdisamad Yusuf</h1>
+        <p class="text-lg">Cybersecurity Professional</p>
+    </header>
+    
+    <nav class="bg-gray-200 p-4">
+        <ul class="flex space-x-4">
+            <li><a class="text-blue-600 hover:underline" href="#introduction">Introduction</a></li>
+            <li><a class="text-blue-600 hover:underline" href="#skills">Skills</a></li>
+            <li><a class="text-blue-600 hover:underline" href="#projects">Projects</a></li>
+            <li><a class="text-blue-600 hover:underline" href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-<h1>My First Heading</h1>
-<p>My first paragraph.</p>
+    <section id="introduction" class="p-6">
+        <h2 class="text-2xl font-semibold">Introduction</h2>
+        <p class="mt-2">Welcome to my portfolio! I am a dedicated cybersecurity professional with a passion for protecting systems and networks from cyber threats. My goal is to leverage my skills to enhance security measures and safeguard sensitive information.</p>
+    </section>
 
+    <section id="skills" class="p-6 bg-gray-50">
+        <h2 class="text-2xl font-semibold">Skills</h2>
+        <ul class="list-disc list-inside mt-2">
+            <li>Network Security</li>
+            <li>Penetration Testing</li>
+            <li>Incident Response</li>
+            <li>Risk Assessment</li>
+            <li>Security Auditing</li>
+            <li>Malware Analysis</li>
+        </ul>
+    </section>
+
+    <section id="projects" class="p-6">
+        <h2 class="text-2xl font-semibold">Projects</h2>
+        <div class="mt-4">
+            <div class="project bg-white p-4 shadow-md mb-4">
+                <h3 class="font-bold">Project Title 1</h3>
+                <p>Description of project 1, highlighting the objectives and outcomes.</p>
+            </div>
+            <div class="project bg-white p-4 shadow-md mb-4">
+                <h3 class="font-bold">Project Title 2</h3>
+                <p>Description of project 2, highlighting the objectives and outcomes.</p>
+            </div>
+            <div class="project bg-white p-4 shadow-md mb-4">
+                <h3 class="font-bold">Project Title 3</h3>
+                <p>Description of project 3, highlighting the objectives and outcomes.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="p-6 bg-gray-50">
+        <h2 class="text-2xl font-semibold">Contact Me</h2>
+        <form action="#" method="post" class="mt-4">
+            <label class="block mb-2" for="name">Name:</label>
+            <input class="border border-gray-300 p-2 w-full" type="text" id="name" name="name" required>
+            
+            <label class="block mt-4 mb-2" for="email">Email:</label>
+            <input class="border border-gray-300 p-2 w-full" type="email" id="email" name="email" required>
+            
+            <label class="block mt-4 mb-2" for="message">Message:</label>
+            <textarea class="border border-gray-300 p-2 w-full" id="message" name="message" required></textarea>
+            
+            <button class="mt-4 bg-blue-600 text-white p-2" type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer class="bg-blue-600 text-white p-4 text-center">
+        <p>&copy; 2023 Abdisamad Yusuf. All rights reserved.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
 </body>
 </html>
