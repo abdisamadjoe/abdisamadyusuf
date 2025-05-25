@@ -1,82 +1,408 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abdisamad Yusuf - Cybersecurity Professional</title>
-    <link href="css/style.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abdisamad Yusuf – Cybersecurity Professional</title>
+  <meta name="description" content="Portfolio of Abdisamad Yusuf, cybersecurity professional and founder of GuardAura.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code:wght@500&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        fontFamily: { inter: ['Inter', 'sans-serif'], mono: ['Fira Code', 'monospace'] },
+        extend: {
+          colors: {
+            navy: '#0f172a',
+            mint: '#00ff9d',
+            glass: 'rgba(15,23,42,0.7)'
+          },
+          boxShadow: {
+            'neon': '0 0 16px 2px #00ff9d99',
+            'neon-lg': '0 0 32px 4px #00ff9d99',
+          },
+          borderColor: {
+            'mint': '#00ff9d'
+          },
+          keyframes: {
+            pulseGlow: {
+              '0%, 100%': { boxShadow: '0 0 0 0 #00ff9d66' },
+              '50%': { boxShadow: '0 0 24px 8px #00ff9d99' }
+            },
+            glitch: {
+              '0%': { transform: 'translate(0,0)' },
+              '20%': { transform: 'translate(-2px,2px)' },
+              '40%': { transform: 'translate(2px,-2px)' },
+              '60%': { transform: 'translate(-1px,1px)' },
+              '80%': { transform: 'translate(1px,-1px)' },
+              '100%': { transform: 'translate(0,0)' }
+            },
+            typing: {
+              'from': { width: '0' },
+              'to': { width: '100%' }
+            },
+            blink: {
+              '50%': { borderColor: 'transparent' }
+            }
+          },
+          animation: {
+            'pulse-glow': 'pulseGlow 2s infinite',
+            'glitch': 'glitch 0.3s linear',
+            'typing': 'typing 2.5s steps(40, end) 1s 1 normal both',
+            'blink': 'blink 1s steps(2, start) infinite'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    ::selection { background: #00ff9d; color: #0f172a; }
+    .glass {
+      background: rgba(15,23,42,0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(0,255,157,0.15);
+    }
+    .glass-thin {
+      background: rgba(15,23,42,0.5);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(0,255,157,0.08);
+    }
+    .neon-border {
+      box-shadow: 0 0 0 2px #00ff9d, 0 0 16px 2px #00ff9d55;
+      border-color: #00ff9d !important;
+    }
+    .glitch:hover, .glitch:focus {
+      animation: glitch 0.3s linear;
+    }
+    .tilt-card {
+      transition: transform 0.2s cubic-bezier(.25,.46,.45,.94), box-shadow 0.2s;
+    }
+    .tilt-card:hover {
+      transform: perspective(600px) rotateY(6deg) scale(1.03);
+      box-shadow: 0 0 32px 4px #00ff9d44;
+      z-index: 2;
+    }
+    .typing-demo {
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: .15em solid #00ff9d;
+      animation: typing 2.5s steps(40, end) 1s 1 normal both, blink 1s steps(2, start) infinite;
+      font-family: 'Fira Code', monospace;
+    }
+    .particles-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.18;
+    }
+  </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
-    <header class="bg-blue-600 text-white p-6">
-        <h1 class="text-3xl font-bold">Abdisamad Yusuf</h1>
-        <p class="text-lg">Cybersecurity Professional</p>
-    </header>
-    
-    <nav class="bg-gray-200 p-4">
-        <ul class="flex space-x-4">
-            <li><a class="text-blue-600 hover:underline" href="#introduction">Introduction</a></li>
-            <li><a class="text-blue-600 hover:underline" href="#skills">Skills</a></li>
-            <li><a class="text-blue-600 hover:underline" href="#projects">Projects</a></li>
-            <li><a class="text-blue-600 hover:underline" href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+<body class="bg-navy text-white min-h-screen flex flex-col relative overflow-x-hidden">
+  <!-- Floating Particles Background -->
+  <div class="particles-bg">
+    <!-- SVG animated particles -->
+    <svg width="100vw" height="100vh">
+      <circle cx="10%" cy="20%" r="2.5" fill="#00ff9d">
+        <animate attributeName="cy" values="20%;80%;20%" dur="12s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="80%" cy="60%" r="2" fill="#00ff9d">
+        <animate attributeName="cy" values="60%;30%;60%" dur="10s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="50%" cy="80%" r="1.5" fill="#00ff9d">
+        <animate attributeName="cy" values="80%;10%;80%" dur="14s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="30%" cy="40%" r="2" fill="#00ff9d">
+        <animate attributeName="cy" values="40%;70%;40%" dur="11s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="70%" cy="10%" r="1.8" fill="#00ff9d">
+        <animate attributeName="cy" values="10%;90%;10%" dur="13s" repeatCount="indefinite"/>
+      </circle>
+    </svg>
+  </div>
 
-    <section id="introduction" class="p-6">
-        <h2 class="text-2xl font-semibold">Introduction</h2>
-        <p class="mt-2">Welcome to my portfolio! I am a dedicated cybersecurity professional with a passion for protecting systems and networks from cyber threats. My goal is to leverage my skills to enhance security measures and safeguard sensitive information.</p>
-    </section>
+  <!-- Sticky Frosted Glass Navbar -->
+  <nav class="glass fixed top-0 left-0 w-full py-4 px-6 flex justify-between items-center z-50 shadow-lg backdrop-blur-lg border-b border-mint/20">
+    <span class="font-bold text-xl tracking-tight text-mint">Abdisamad Yusuf</span>
+    <ul class="flex gap-6 text-white font-medium">
+      <li><a href="#about" class="hover:text-mint transition">About</a></li>
+      <li><a href="#experience" class="hover:text-mint transition">Experience</a></li>
+      <li><a href="#projects" class="hover:text-mint transition">Projects</a></li>
+      <li><a href="#contact" class="hover:text-mint transition">Contact</a></li>
+    </ul>
+  </nav>
 
-    <section id="skills" class="p-6 bg-gray-50">
-        <h2 class="text-2xl font-semibold">Skills</h2>
-        <ul class="list-disc list-inside mt-2">
-            <li>Network Security</li>
-            <li>Penetration Testing</li>
-            <li>Incident Response</li>
-            <li>Risk Assessment</li>
-            <li>Security Auditing</li>
-            <li>Malware Analysis</li>
-        </ul>
-    </section>
-
-    <section id="projects" class="p-6">
-        <h2 class="text-2xl font-semibold">Projects</h2>
-        <div class="mt-4">
-            <div class="project bg-white p-4 shadow-md mb-4">
-                <h3 class="font-bold">Project Title 1</h3>
-                <p>Description of project 1, highlighting the objectives and outcomes.</p>
-            </div>
-            <div class="project bg-white p-4 shadow-md mb-4">
-                <h3 class="font-bold">Project Title 2</h3>
-                <p>Description of project 2, highlighting the objectives and outcomes.</p>
-            </div>
-            <div class="project bg-white p-4 shadow-md mb-4">
-                <h3 class="font-bold">Project Title 3</h3>
-                <p>Description of project 3, highlighting the objectives and outcomes.</p>
-            </div>
+  <!-- Hero Section -->
+  <section class="relative pt-36 pb-20 px-4 md:px-0 bg-navy z-10">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
+      <!-- Left: Text -->
+      <div class="flex-1 text-center md:text-left relative z-10">
+        <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
+          <span class="typing-demo block text-mint">I’m Abdisamad Yusuf</span>
+          <span class="text-2xl md:text-3xl font-semibold block mt-2">Cybersecurity Professional</span>
+        </h1>
+        <p class="max-w-xl text-lg md:text-xl mb-8 text-slate-300">
+          I help businesses and individuals stay <span class="text-mint font-semibold">bulletproof</span> against digital threats through cloud security and expert cybersecurity awareness training.
+        </p>
+        <a href="Abdisamad_Yusuf_Resume.pdf" download
+          class="inline-block px-8 py-3 bg-mint text-navy font-bold rounded-full shadow-neon hover:bg-white hover:text-navy transition text-lg mb-6 relative glitch"
+          style="animation: pulseGlow 2s infinite;">
+          Download Resume
+          <span class="absolute -inset-2 rounded-full pointer-events-none animate-pulse-glow" style="z-index:-1;"></span>
+        </a>
+        <div class="flex gap-4 mt-6 justify-center md:justify-start">
+          <a href="https://github.com/abdisamadjoe" target="_blank" aria-label="GitHub" class="hover:text-mint text-2xl"><svg fill="currentColor" viewBox="0 0 24 24" class="w-7 h-7"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.3-1.7-1.3-1.7-1.06-.72.08-.71.08-.71 1.17.08 1.79 1.2 1.79 1.2 1.04 1.78 2.73 1.27 3.4.97.11-.75.41-1.27.74-1.56-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.45.11-3.02 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 2.9-.39c.98.01 1.97.13 2.9.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.57.23 2.73.12 3.02.74.8 1.19 1.83 1.19 3.09 0 4.43-2.7 5.41-5.27 5.7.42.36.79 1.09.79 2.2 0 1.59-.01 2.87-.01 3.26 0 .31.21.68.8.56C20.71 21.39 24 17.08 24 12c0-6.27-5.23-11.5-12-11.5z"/></svg></a>
+          <a href="https://linkedin.com/in/abdisamadjoe" target="_blank" aria-label="LinkedIn" class="hover:text-mint text-2xl"><svg fill="currentColor" viewBox="0 0 24 24" class="w-7 h-7"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.25c-.97 0-1.75-.78-1.75-1.75s.78-1.75 1.75-1.75 1.75.78 1.75 1.75-.78 1.75-1.75 1.75zm15.5 11.25h-3v-5.5c0-1.1-.9-2-2-2s-2 .9-2 2v5.5h-3v-10h3v1.5c.41-.59 1.19-1.5 2.5-1.5 1.93 0 3.5 1.57 3.5 3.5v6.5z"/></svg></a>
+          <a href="mailto:abdisamadjoe@gmail.com" aria-label="Email" class="hover:text-mint text-2xl"><svg fill="currentColor" viewBox="0 0 24 24" class="w-7 h-7"><path d="M12 13.065l-11.99-8.065h23.98l-11.99 8.065zm-12-7.065v14h24v-14l-12 8.065-12-8.065z"/></svg></a>
+          <a href="https://twitter.com/abdisamadjoe" target="_blank" aria-label="Twitter" class="hover:text-mint text-2xl"><svg fill="currentColor" viewBox="0 0 24 24" class="w-7 h-7"><path d="M24 4.557a9.93 9.93 0 0 1-2.828.775 4.932 4.932 0 0 0 2.165-2.724c-.951.564-2.005.974-3.127 1.195a4.916 4.916 0 0 0-8.38 4.482c-4.083-.205-7.697-2.162-10.123-5.134a4.822 4.822 0 0 0-.664 2.475c0 1.708.87 3.216 2.188 4.099a4.904 4.904 0 0 1-2.229-.616c-.054 2.281 1.581 4.415 3.949 4.89a4.936 4.936 0 0 1-2.224.084c.627 1.956 2.444 3.377 4.6 3.417a9.867 9.867 0 0 1-6.102 2.104c-.396 0-.787-.023-1.175-.069a13.945 13.945 0 0 0 7.548 2.212c9.057 0 14.009-7.513 14.009-14.009 0-.213-.005-.425-.014-.636a10.025 10.025 0 0 0 2.457-2.548z"/></svg></a>
         </div>
-    </section>
+      </div>
+      <!-- Right: Image -->
+      <div class="flex-1 flex justify-center md:justify-end relative z-10">
+        <div class="tilt-card glass shadow-neon border border-mint/30 rounded-2xl p-2">
+          <img src="https://avatars.githubusercontent.com/u/1516743?s=400&v=4" alt="Abdisamad Yusuf" class="w-64 h-64 rounded-xl object-cover border-4 border-mint/40 bg-navy/80">
+        </div>
+      </div>
+    </div>
+    <!-- CTA Pulse Effect -->
+    <div class="absolute left-1/2 -translate-x-1/2 top-2/3 w-80 h-80 rounded-full bg-mint opacity-10 blur-3xl pointer-events-none animate-pulse-glow"></div>
+  </section>
 
-    <section id="contact" class="p-6 bg-gray-50">
-        <h2 class="text-2xl font-semibold">Contact Me</h2>
-        <form action="#" method="post" class="mt-4">
-            <label class="block mb-2" for="name">Name:</label>
-            <input class="border border-gray-300 p-2 w-full" type="text" id="name" name="name" required>
-            
-            <label class="block mt-4 mb-2" for="email">Email:</label>
-            <input class="border border-gray-300 p-2 w-full" type="email" id="email" name="email" required>
-            
-            <label class="block mt-4 mb-2" for="message">Message:</label>
-            <textarea class="border border-gray-300 p-2 w-full" id="message" name="message" required></textarea>
-            
-            <button class="mt-4 bg-blue-600 text-white p-2" type="submit">Send Message</button>
-        </form>
-    </section>
+  <!-- Hacker Terminal Box -->
+  <section class="max-w-2xl mx-auto px-4 py-8">
+    <div class="glass-thin rounded-xl p-6 border border-mint/30 shadow-lg mb-8">
+      <div class="flex items-center gap-2 mb-2">
+        <svg class="w-5 h-5 text-mint" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 17l6-6-6-6"/><rect x="12" y="17" width="8" height="2" rx="1" fill="currentColor"/></svg>
+        <span class="font-mono text-mint text-base">abdisamad@guardaura:~$</span>
+      </div>
+      <div class="font-mono text-slate-100 text-lg">
+        <span class="typing-demo" style="animation-delay:0.5s;">Protect. Educate. Empower.</span>
+      </div>
+      <div class="flex gap-4 mt-4">
+        <span class="bg-mint/20 text-mint font-mono px-3 py-1 rounded">TryHackMe Top 1%</span>
+        <span class="bg-mint/20 text-mint font-mono px-3 py-1 rounded">Google/ISC2 Certified</span>
+        <span class="bg-mint/20 text-mint font-mono px-3 py-1 rounded">Founder: GuardAura</span>
+      </div>
+    </div>
+  </section>
 
-    <footer class="bg-blue-600 text-white p-4 text-center">
-        <p>&copy; 2023 Abdisamad Yusuf. All rights reserved.</p>
-    </footer>
+  <!-- About Me -->
+  <section id="about" class="max-w-3xl mx-auto px-4 py-16 border-l-2 border-mint/40">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-mint">About Me</h2>
+    <p class="text-lg text-slate-200 mb-4">
+      It all started back in 2021, during my final year of university. I remember scrolling through Twitter and seeing everyone talking about the Colonial Pipeline ransomware attack. That moment made me realize just how critical cybersecurity is, and that’s when my journey into this field began.
+    </p>
+    <p class="text-lg text-slate-200 mb-4">
+      I started experimenting with tools like <span class="text-mint font-semibold">Kali Linux</span> and <span class="text-mint font-semibold">Splunk</span>, and I learned how to script in <span class="text-mint font-semibold">Python</span> to automate tasks. I joined <span class="text-mint font-semibold">TryHackMe</span>, where I ranked in the top 1% of learners, and began participating in CTF challenges. Along the way, I earned my <span class="text-mint font-semibold">Google Cybersecurity Professional Certificate</span> and <span class="text-mint font-semibold">ISC2 Certified in Cybersecurity</span>.
+    </p>
+    <p class="text-lg text-slate-200 mb-4">
+      Today, I’m the founder of <span class="text-mint font-semibold">GuardAura</span>, a startup and the first of its kind in Somalia, where I help businesses and individuals secure their online presence. My mission is to help people stay safe in an increasingly connected world.
+    </p>
+    <div class="flex flex-wrap gap-4 mt-6">
+      <span class="bg-mint text-navy px-4 py-2 rounded-full font-semibold">Kali Linux</span>
+      <span class="bg-mint text-navy px-4 py-2 rounded-full font-semibold">Splunk</span>
+      <span class="bg-mint text-navy px-4 py-2 rounded-full font-semibold">Python</span>
+      <span class="bg-mint text-navy px-4 py-2 rounded-full font-semibold">TryHackMe Top 1%</span>
+      <span class="bg-mint text-navy px-4 py-2 rounded-full font-semibold">Google/ISC2 Certified</span>
+      <span class="bg-mint text-navy px-4 py-2 rounded-full font-semibold">GuardAura Founder</span>
+    </div>
+  </section>
 
-    <script src="js/main.js"></script>
+  <!-- Certifications & Achievements Timeline -->
+  <section class="max-w-3xl mx-auto px-4 py-12">
+    <h2 class="text-2xl md:text-3xl font-bold mb-6 text-mint">Certifications & Achievements</h2>
+    <div class="relative pl-8">
+      <div class="absolute left-2 top-0 bottom-0 w-1 bg-gradient-to-b from-mint via-mint/30 to-transparent rounded-full shadow-neon"></div>
+      <div class="space-y-8">
+        <div class="flex items-center gap-4 relative group">
+          <span class="w-5 h-5 rounded-full bg-mint shadow-neon border-2 border-mint absolute -left-4"></span>
+          <div class="glass-thin p-4 rounded-xl flex items-center gap-4 tilt-card border border-mint/20">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" alt="Google" class="w-10 h-10">
+            <div>
+              <div class="font-bold text-mint">Google Cybersecurity</div>
+              <div class="text-slate-200 text-sm">Professional Certificate</div>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center gap-4 relative group">
+          <span class="w-5 h-5 rounded-full bg-mint shadow-neon border-2 border-mint absolute -left-4"></span>
+          <div class="glass-thin p-4 rounded-xl flex items-center gap-4 tilt-card border border-mint/20">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="ISC2" class="w-10 h-10">
+            <div>
+              <div class="font-bold text-mint">ISC2 Certified</div>
+              <div class="text-slate-200 text-sm">Certified in Cybersecurity</div>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center gap-4 relative group">
+          <span class="w-5 h-5 rounded-full bg-mint shadow-neon border-2 border-mint absolute -left-4"></span>
+          <div class="glass-thin p-4 rounded-xl flex items-center gap-4 tilt-card border border-mint/20">
+            <img src="https://tryhackme-images.s3.amazonaws.com/THMlogo.png" alt="TryHackMe" class="w-10 h-10 rounded-full">
+            <div>
+              <div class="font-bold text-mint">TryHackMe</div>
+              <div class="text-slate-200 text-sm">Top 1% Learner</div>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center gap-4 relative group">
+          <span class="w-5 h-5 rounded-full bg-mint shadow-neon border-2 border-mint absolute -left-4"></span>
+          <div class="glass-thin p-4 rounded-xl flex items-center gap-4 tilt-card border border-mint/20">
+            <img src="https://avatars.githubusercontent.com/u/1516743?s=200&v=4" alt="GuardAura" class="w-10 h-10 rounded-full bg-white">
+            <div>
+              <div class="font-bold text-mint">GuardAura</div>
+              <div class="text-slate-200 text-sm">Founder</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Timeline -->
+  <section id="experience" class="max-w-3xl mx-auto px-4 py-12">
+    <h2 class="text-2xl md:text-3xl font-bold mb-6 text-mint">Work Experience</h2>
+    <div class="relative pl-8">
+      <div class="absolute left-2 top-0 bottom-0 w-1 bg-gradient-to-b from-mint via-mint/30 to-transparent rounded-full shadow-neon"></div>
+      <div class="space-y-8">
+        <div class="flex items-center gap-4 relative group">
+          <span class="w-5 h-5 rounded-full bg-mint shadow-neon border-2 border-mint absolute -left-4"></span>
+          <div class="glass-thin p-4 rounded-xl flex items-center gap-4 tilt-card border border-mint/20">
+            <svg class="w-8 h-8 text-mint" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+            <div>
+              <div class="font-bold text-mint">Ministry of Finance</div>
+              <div class="text-slate-200 text-sm">Cybersecurity Analyst – Led risk assessments and improved security posture for government systems.</div>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center gap-4 relative group">
+          <span class="w-5 h-5 rounded-full bg-mint shadow-neon border-2 border-mint absolute -left-4"></span>
+          <div class="glass-thin p-4 rounded-xl flex items-center gap-4 tilt-card border border-mint/20">
+            <svg class="w-8 h-8 text-mint" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 20v-6M6 20v-4M18 20v-2"/></svg>
+            <div>
+              <div class="font-bold text-mint">Koor Jobs</div>
+              <div class="text-slate-200 text-sm">Security Consultant – Provided security awareness training and implemented best practices for startups.</div>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center gap-4 relative group">
+          <span class="w-5 h-5 rounded-full bg-mint shadow-neon border-2 border-mint absolute -left-4"></span>
+          <div class="glass-thin p-4 rounded-xl flex items-center gap-4 tilt-card border border-mint/20">
+            <svg class="w-8 h-8 text-mint" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+            <div>
+              <div class="font-bold text-mint">Samakaal Hospital</div>
+              <div class="text-slate-200 text-sm">IT Security Specialist – Secured patient data and improved hospital network security.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects with Glassmorphism Cards and Tilt -->
+  <section id="projects" class="max-w-5xl mx-auto px-4 py-12 border-l-2 border-mint/40">
+    <h2 class="text-2xl md:text-3xl font-bold mb-8 text-mint">Featured Projects</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="glass tilt-card border border-mint/30 rounded-xl p-6 shadow-neon hover:shadow-neon-lg transition group">
+        <div class="flex items-center gap-3 mb-2">
+          <svg class="w-6 h-6 text-mint" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 9h8M8 13h6"/></svg>
+          <h3 class="font-semibold text-xl text-mint group-hover:underline">Security Audit for GuardAura Client</h3>
+        </div>
+        <p class="text-slate-200 mb-2">Led a comprehensive security audit for a major Somali business, identifying vulnerabilities and implementing robust defenses.</p>
+        <span class="inline-block bg-mint text-navy px-3 py-1 rounded-full text-xs font-semibold">Security Audit</span>
+      </div>
+      <div class="glass tilt-card border border-mint/30 rounded-xl p-6 shadow-neon hover:shadow-neon-lg transition group">
+        <div class="flex items-center gap-3 mb-2">
+          <svg class="w-6 h-6 text-mint" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 20v-6M6 20v-4M18 20v-2"/></svg>
+          <h3 class="font-semibold text-xl text-mint group-hover:underline">Cybersecurity Awareness Training</h3>
+        </div>
+        <p class="text-slate-200 mb-2">Developed and delivered training sessions for organizations, boosting staff awareness and reducing phishing incidents.</p>
+        <span class="inline-block bg-mint text-navy px-3 py-1 rounded-full text-xs font-semibold">Training</span>
+      </div>
+      <div class="glass tilt-card border border-mint/30 rounded-xl p-6 shadow-neon hover:shadow-neon-lg transition group">
+        <div class="flex items-center gap-3 mb-2">
+          <svg class="w-6 h-6 text-mint" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+          <h3 class="font-semibold text-xl text-mint group-hover:underline">Cloud Security Implementation</h3>
+        </div>
+        <p class="text-slate-200 mb-2">Secured AWS and Azure environments for clients, ensuring compliance and data protection.</p>
+        <span class="inline-block bg-mint text-navy px-3 py-1 rounded-full text-xs font-semibold">Cloud Security</span>
+      </div>
+      <div class="glass tilt-card border border-mint/30 rounded-xl p-6 shadow-neon hover:shadow-neon-lg transition group">
+        <div class="flex items-center gap-3 mb-2">
+          <svg class="w-6 h-6 text-mint" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 9h8M8 13h6"/></svg>
+          <h3 class="font-semibold text-xl text-mint group-hover:underline">Website Design Portfolio</h3>
+        </div>
+        <p class="text-slate-200 mb-2">Showcased versatility by designing secure, modern websites for various clients.</p>
+        <span class="inline-block bg-mint text-navy px-3 py-1 rounded-full text-xs font-semibold">Web Design</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="max-w-2xl mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold mb-6 text-mint">Let’s Work Together</h2>
+    <p class="mb-6 text-slate-200">Ready to secure your business or need expert advice? Send me a message or reach out on WhatsApp!</p>
+    <form class="glass-thin space-y-4 p-6 rounded-xl border border-mint/20 shadow-lg" action="mailto:abdisamadjoe@gmail.com" method="POST" enctype="text/plain">
+      <div>
+        <label for="name" class="block mb-1 text-slate-300">Name</label>
+        <input type="text" id="name" name="name" required class="w-full px-4 py-2 rounded-lg bg-navy border border-mint/30 text-white focus:outline-none focus:border-mint transition font-mono">
+      </div>
+      <div>
+        <label for="email" class="block mb-1 text-slate-300">Email</label>
+        <input type="email" id="email" name="email" required class="w-full px-4 py-2 rounded-lg bg-navy border border-mint/30 text-white focus:outline-none focus:border-mint transition font-mono">
+      </div>
+      <div>
+        <label for="message" class="block mb-1 text-slate-300">Message</label>
+        <textarea id="message" name="message" rows="5" required class="w-full px-4 py-2 rounded-lg bg-navy border border-mint/30 text-white focus:outline-none focus:border-mint transition font-mono"></textarea>
+      </div>
+      <button type="submit" class="bg-mint text-navy font-bold px-8 py-2 rounded-full shadow-neon hover:bg-white transition relative glitch" style="animation: pulseGlow 2s infinite;">
+        Send Message
+        <span class="absolute -inset-2 rounded-full pointer-events-none animate-pulse-glow" style="z-index:-1;"></span>
+      </button>
+    </form>
+    <a href="https://wa.me/252612345678" target="_blank" class="inline-flex items-center gap-2 mt-6 text-mint font-semibold hover:underline">
+      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 32 32"><path d="M16.001 3.2c-7.07 0-12.8 5.73-12.8 12.8 0 2.26.6 4.47 1.74 6.41l-1.85 6.77 6.94-1.82c1.86 1.02 3.96 1.56 6.09 1.56h.01c7.07 0 12.8-5.73 12.8-12.8s-5.73-12.8-12.8-12.8zm0 23.04c-1.87 0-3.7-.5-5.3-1.44l-.38-.22-4.12 1.08 1.1-4.01-.25-.41c-1.08-1.74-1.65-3.75-1.65-5.82 0-6.01 4.89-10.9 10.9-10.9s10.9 4.89 10.9 10.9-4.89 10.9-10.9 10.9zm6.01-8.18c-.33-.17-1.95-.96-2.25-1.07-.3-.11-.52-.17-.74.17-.22.33-.85 1.07-1.05 1.29-.19.22-.39.25-.72.08-.33-.17-1.38-.51-2.63-1.62-.97-.86-1.62-1.92-1.81-2.25-.19-.33-.02-.51.15-.68.16-.16.36-.42.54-.63.18-.21.24-.36.36-.6.12-.24.06-.45-.03-.62-.09-.17-.74-1.78-1.01-2.43-.27-.65-.54-.56-.74-.57-.19-.01-.41-.01-.63-.01-.22 0-.57.08-.87.39-.3.31-1.14 1.12-1.14 2.73 0 1.61 1.17 3.17 1.33 3.39.16.22 2.3 3.51 5.57 4.79.78.3 1.39.48 1.86.62.78.25 1.49.22 2.05.13.63-.09 1.95-.8 2.23-1.57.28-.77.28-1.43.2-1.57-.08-.14-.3-.22-.63-.39z"/></svg>
+      Message me on WhatsApp
+    </a>
+  </section>
+
+  <!-- Footer with Glassmorphism and Terminal Quote -->
+  <footer class="glass-thin border-t border-mint/20 py-8 mt-auto">
+    <div class="max-w-4xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex gap-4 mb-2 md:mb-0">
+        <a href="Abdisamad_Yusuf_Resume.pdf" class="hover:text-mint font-semibold">Resume</a>
+        <a href="https://github.com/abdisamadjoe" target="_blank" class="hover:text-mint font-semibold">GitHub</a>
+        <a href="https://linkedin.com/in/abdisamadjoe" target="_blank" class="hover:text-mint font-semibold">LinkedIn</a>
+        <a href="mailto:abdisamadjoe@gmail.com" class="hover:text-mint font-semibold">Email</a>
+      </div>
+      <span class="text-slate-400 text-sm font-mono">&copy; 2025 Abdisamad Yusuf. <span class="text-mint">Protect. Educate. Empower.</span></span>
+    </div>
+    <div class="max-w-2xl mx-auto mt-4 px-4">
+      <div class="glass-thin rounded-lg p-4 border border-mint/20 flex items-center gap-2 font-mono text-mint text-base">
+        <svg class="w-5 h-5 text-mint" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 17l6-6-6-6"/><rect x="12" y="17" width="8" height="2" rx="1" fill="currentColor"/></svg>
+        <span>echo "Stay safe. Stay secure."</span>
+      </div>
+    </div>
+  </footer>
+  <!-- Scroll Animations (fade/slide) -->
+  <script>
+    // Simple fade-in/slide-up on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('opacity-100', 'translate-y-0');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('section, .tilt-card').forEach(el => {
+      el.classList.add('opacity-0', 'translate-y-8', 'transition-all', 'duration-700');
+      observer.observe(el);
+    });
+  </script>
 </body>
 </html>
