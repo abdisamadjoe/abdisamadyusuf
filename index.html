@@ -5,53 +5,59 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Abdisamad Yusuf – Cybersecurity Professional</title>
   <meta name="description" content="Portfolio of Abdisamad Yusuf, cybersecurity professional and founder of GuardAura.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code:wght@500&display=swap" rel="stylesheet">
+  <meta name="keywords" content="Abdisamad Yusuf, Cybersecurity, GuardAura, Cloud Security, Cybersecurity Professional, Security Portfolio, Abdisamad Yusuf Portfolio">
+  <meta name="author" content="Abdisamad Yusuf">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="icon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Abdisamad Yusuf – Cybersecurity Professional">
+  <meta property="og:description" content="Portfolio of Abdisamad Yusuf, cybersecurity professional and founder of GuardAura.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://abdisamadjoe.com/">
+  <meta property="og:image" content="https://abdisamadjoe.com/hero.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Abdisamad Yusuf – Cybersecurity Professional">
+  <meta name="twitter:description" content="Portfolio of Abdisamad Yusuf, cybersecurity professional and founder of GuardAura.">
+  <meta name="twitter:image" content="https://abdisamadjoe.com/hero.png">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Abdisamad Yusuf",
+    "url": "https://abdisamadjoe.com/",
+    "image": "https://abdisamadjoe.com/hero.png",
+    "sameAs": [
+      "https://linkedin.com/in/abdisamadjoe",
+      "https://x.com/abdisamadjoe",
+      "https://medium.com/@abdisamadjoe"
+    ],
+    "jobTitle": "Cybersecurity Professional",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "GuardAura"
+    }
+  }
+  </script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
-        fontFamily: { inter: ['Inter', 'sans-serif'], mono: ['Fira Code', 'monospace'] },
+        fontFamily: { inter: ['Inter', 'sans-serif'] },
         extend: {
           colors: {
             navy: '#0f172a',
-            mint: '#00ff9d',
-            glass: 'rgba(15,23,42,0.7)'
-          },
-          boxShadow: {
-            'neon': '0 0 16px 2px #00ff9d99',
-            'neon-lg': '0 0 32px 4px #00ff9d99',
-          },
-          borderColor: {
-            'mint': '#00ff9d'
-          },
-          keyframes: {
-            pulseGlow: {
-              '0%, 100%': { boxShadow: '0 0 0 0 #00ff9d66' },
-              '50%': { boxShadow: '0 0 24px 8px #00ff9d99' }
-            },
-            glitch: {
-              '0%': { transform: 'translate(0,0)' },
-              '20%': { transform: 'translate(-2px,2px)' },
-              '40%': { transform: 'translate(2px,-2px)' },
-              '60%': { transform: 'translate(-1px,1px)' },
-              '80%': { transform: 'translate(1px,-1px)' },
-              '100%': { transform: 'translate(0,0)' }
-            },
-            typing: {
-              'from': { width: '0' },
-              'to': { width: '100%' }
-            },
-            blink: {
-              '50%': { borderColor: 'transparent' }
-            }
-          },
-          animation: {
-            'pulse-glow': 'pulseGlow 2s infinite',
-            'glitch': 'glitch 0.3s linear',
-            'typing': 'typing 2.5s steps(40, end) 1s 1 normal both',
-            'blink': 'blink 1s steps(2, start) infinite'
+            mint: '#00ff9d'
           }
         }
       }
@@ -60,349 +66,430 @@
   <style>
     body { font-family: 'Inter', sans-serif; }
     ::selection { background: #00ff9d; color: #0f172a; }
-    .glass {
-      background: rgba(15,23,42,0.7);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(0,255,157,0.15);
+    @keyframes typing {
+      0% { width: 0 }
+      40% { width: 100% }
+      60% { width: 100% }
+      100% { width: 0 }
     }
-    .glass-thin {
-      background: rgba(15,23,42,0.5);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      border: 1px solid rgba(0,255,157,0.08);
-    }
-    .neon-border {
-      box-shadow: 0 0 0 2px #00ff9d, 0 0 16px 2px #00ff9d55;
-      border-color: #00ff9d !important;
-    }
-    .glitch:hover, .glitch:focus {
-      animation: glitch 0.3s linear;
-    }
-    .tilt-card {
-      transition: transform 0.2s cubic-bezier(.25,.46,.45,.94), box-shadow 0.2s;
-    }
-    .tilt-card:hover {
-      transform: perspective(600px) rotateY(6deg) scale(1.03);
-      box-shadow: 0 0 32px 4px #00ff9d44;
-      z-index: 2;
+    @keyframes blink {
+      50% { border-color: transparent }
     }
     .typing-demo {
+      width: 0;
+      animation:
+        typing 4s steps(32, end) infinite,
+        blink 1s steps(2, start) infinite;
+      display: inline-block;
       overflow: hidden;
       white-space: nowrap;
       border-right: .15em solid #00ff9d;
-      animation: typing 2.5s steps(40, end) 1s 1 normal both, blink 1s steps(2, start) infinite;
-      font-family: 'Fira Code', monospace;
     }
-    .particles-bg {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-      opacity: 0.18;
+    @keyframes float1 {
+      0%, 100% { transform: translateY(0) scale(0.8);}
+      50% { transform: translateY(-18px) scale(0.85);}
+    }
+    @keyframes float2 {
+      0%, 100% { transform: translateY(0) scale(0.8);}
+      50% { transform: translateY(14px) scale(0.84);}
+    }
+    @keyframes float3 {
+      0%, 100% { transform: translateY(0) scale(0.8);}
+      50% { transform: translateY(-10px) scale(0.82);}
+    }
+    .animate-float1 { animation: float1 4s ease-in-out infinite; }
+    .animate-float2 { animation: float2 5s ease-in-out infinite; }
+    .animate-float3 { animation: float3 3.5s ease-in-out infinite; }
+    .glass-tag {
+      background: rgba(15,23,42,0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 0 8px 1px #00ff9d55;
+      font-size: 0.8rem;
+      padding: 0.25rem 0.75rem;
+    }
+    @keyframes wave {
+      0% { transform: rotate(0deg);}
+      10% { transform: rotate(14deg);}
+      20% { transform: rotate(-8deg);}
+      30% { transform: rotate(14deg);}
+      40% { transform: rotate(-4deg);}
+      50% { transform: rotate(10deg);}
+      60% { transform: rotate(0deg);}
+      100% { transform: rotate(0deg);}
+    }
+    .animate-wave {
+      animation: wave 2s infinite;
+      display: inline-block;
+    }
+    .badge-mint:hover {
+      background-color: #00ff9d !important;
+      color: #0f172a !important;
+    }
+    @media (max-width: 900px) {
+      .hero-headline, .hero-typing { font-size: 1.2rem !important; }
     }
   </style>
 </head>
-<body class="bg-navy text-white min-h-screen flex flex-col relative overflow-x-hidden">
+<body class="bg-[#0f172a] text-white min-h-screen flex flex-col relative overflow-x-hidden font-inter">
+
   <!-- Floating Particles Background -->
-  <div class="particles-bg">
-    <!-- SVG animated particles -->
-    <svg width="100vw" height="100vh">
-      <circle cx="10%" cy="20%" r="2.5" fill="#00ff9d">
+  <div class="pointer-events-none fixed inset-0 z-0">
+    <svg class="w-full h-full" style="opacity:0.18">
+      <circle cx="10%" cy="20%" r="3" fill="#00ff9d">
         <animate attributeName="cy" values="20%;80%;20%" dur="12s" repeatCount="indefinite"/>
       </circle>
-      <circle cx="80%" cy="60%" r="2" fill="#00ff9d">
+      <circle cx="80%" cy="60%" r="2.5" fill="#00ff9d">
         <animate attributeName="cy" values="60%;30%;60%" dur="10s" repeatCount="indefinite"/>
       </circle>
-      <circle cx="50%" cy="80%" r="1.5" fill="#00ff9d">
+      <circle cx="50%" cy="80%" r="2" fill="#00ff9d">
         <animate attributeName="cy" values="80%;10%;80%" dur="14s" repeatCount="indefinite"/>
       </circle>
-      <circle cx="30%" cy="40%" r="2" fill="#00ff9d">
+      <circle cx="30%" cy="40%" r="2.5" fill="#00ff9d">
         <animate attributeName="cy" values="40%;70%;40%" dur="11s" repeatCount="indefinite"/>
       </circle>
-      <circle cx="70%" cy="10%" r="1.8" fill="#00ff9d">
+      <circle cx="70%" cy="10%" r="2" fill="#00ff9d">
         <animate attributeName="cy" values="10%;90%;10%" dur="13s" repeatCount="indefinite"/>
       </circle>
     </svg>
   </div>
 
-  <!-- Sticky Frosted Glass Navbar -->
-  <nav class="glass fixed top-0 left-0 w-full py-4 px-6 flex justify-between items-center z-50 shadow-lg backdrop-blur-lg border-b border-mint/20">
-    <span class="font-bold text-xl tracking-tight text-mint">Abdisamad Yusuf</span>
-    <ul class="flex gap-6 text-white font-medium">
-      <li><a href="#about" class="hover:text-mint transition">About</a></li>
-      <li><a href="#experience" class="hover:text-mint transition">Experience</a></li>
-      <li><a href="#projects" class="hover:text-mint transition">Projects</a></li>
-      <li><a href="#contact" class="hover:text-mint transition">Contact</a></li>
-    </ul>
-  </nav>
+<!-- Centered Frosted Glass Navbar -->
+<nav class="fixed z-50 left-1/2 -translate-x-1/2 w-[90vw] max-w-md h-fit flex justify-center items-center
+  backdrop-blur-md bg-white/10 rounded-2xl shadow-lg
+  top-auto bottom-4 sm:top-4 sm:bottom-auto
+  px-4 py-1.5 sm:px-8 sm:py-2">
+  <ul class="flex gap-5 sm:gap-8 items-center justify-center w-full">
+    <!-- Home Icon -->
+    <li>
+      <a href="#home" class="relative p-1.5 text-white transition-colors duration-200 hover:text-mint group" aria-label="Home">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l9-9 9 9M4 10v10a1 1 0 001 1h3m10-11v10a1 1 0 01-1 1h-3m-6 0h6"/>
+        </svg>
+      </a>
+    </li>
+    <!-- Work Icon -->
+    <li>
+      <a href="#work" class="relative p-1.5 text-white transition-colors duration-200 hover:text-mint group" aria-label="Work">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <rect x="3" y="7" width="18" height="13" rx="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M16 3v4M8 3v4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </li>
+    <!-- Blogs Icon -->
+    <li>
+      <a href="https://medium.com/@abdisamadjoe" target="_blank" rel="noopener" class="relative p-1.5 text-white transition-colors duration-200 hover:text-mint group" aria-label="Blogs">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <rect x="3" y="5" width="18" height="14" rx="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M7 8h10M7 12h6M7 16h4"/>
+        </svg>
+      </a>
+    </li>
+    <!-- Contact Icon -->
+    <li>
+      <a href="#contact" class="relative p-1.5 text-white transition-colors duration-200 hover:text-mint group" aria-label="Contact">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 10.5V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2h14a2 2 0 002-2v-4.5"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 10.5l-9 6.5-9-6.5"/>
+        </svg>
+      </a>
+    </li>
+  </ul>
+</nav>
 
+<!-- ...existing code... -->
   <!-- Hero Section -->
-  <section class="relative pt-36 pb-20 px-4 md:px-0 bg-navy z-10">
-    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
-      <!-- Left: Text -->
-      <div class="flex-1 text-center md:text-left relative z-10">
-        <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
-          <span class="typing-demo block text-mint">I’m Abdisamad Yusuf</span>
-          <span class="text-2xl md:text-3xl font-semibold block mt-2">Cybersecurity Professional</span>
-        </h1>
-        <p class="max-w-xl text-lg md:text-xl mb-8 text-slate-300">
-          I help businesses and individuals stay <span class="text-mint font-semibold">bulletproof</span> against digital threats through cloud security and expert cybersecurity awareness training.
-        </p>
-        <a href="Abdisamad_Yusuf_Resume.pdf" download
-          class="inline-block px-8 py-3 bg-mint text-navy font-bold rounded-full shadow-neon hover:bg-white hover:text-navy transition text-lg mb-6 relative glitch"
-          style="animation: pulseGlow 2s infinite;">
-          Download Resume
-          <span class="absolute -inset-2 rounded-full pointer-events-none animate-pulse-glow" style="z-index:-1;"></span>
+<section id="home" class="relative min-h-screen flex items-center justify-center">
+  <div class="relative z-10 w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12 px-4 py-16 pb-28 md:pb-16 mt-8 md:mt-0">
+    <!-- Left: Text Content -->
+    <div class="flex-1 flex flex-col items-center md:items-start justify-center text-center md:text-left">
+      <h3 class="hero-headline text-[1.56rem] sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-white mb-2 whitespace-nowrap" style="line-height:1.1;">
+        Hi,<span class="inline-block animate-wave origin-[70%_70%]">👋</span> I’m Abdisamad Yusuf
+      </h3>
+      <h3 class="hero-typing block text-[1.56rem] sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#00ff9d] font-mono typing-demo mb-2 whitespace-nowrap" style="line-height:1.1;">
+        – Cybersecurity Professional
+      </h3>
+      <p class="mt-2 text-base sm:text-base md:text-lg text-white/90 max-w-xl">
+        I help businesses and individuals stay protected from digital threats with cloud security and expert cybersecurity training.
+      </p>
+      <a href="resume.pdf" download
+        class="mt-8 inline-flex items-center gap-2 px-7 py-3 rounded-full bg-[#00ff9d] text-black font-semibold text-lg transition-all duration-200 hover:bg-white hover:text-black focus:outline-none group">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m0 0l-6-6m6 6l6-6"/>
+        </svg>
+        Download Resume
+      </a>
+    </div>
+    <!-- Right: Image & Floating Tags -->
+    <div class="flex-1 flex items-center justify-center relative min-w-[220px] min-h-[220px] mt-10 md:mt-0">
+      <!-- Hero Image (130% of default) -->
+      <div class="relative z-10">
+        <img src="hero.png" alt="Abdisamad Yusuf" class="w-[220px] h-[220px] sm:w-[312px] sm:h-[312px] md:w-[384px] md:h-[384px] rounded-2xl object-cover mx-auto">
+      </div>
+      <!-- Tag 1: Lower part, half outside -->
+      <div class="absolute bottom-[-1.5rem] left-6 sm:left-12 animate-float1">
+        <div class="flex items-center glass-tag rounded-full">
+          <svg class="w-3 h-3 mr-1 text-[#00ff9d]" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+          </svg>
+          <span class="text-[#00ff9d] font-semibold">AWS Certified</span>
+        </div>
+      </div>
+      <!-- Tag 2: Inside left -->
+      <div class="absolute top-1/3 -left-4 sm:-left-6 animate-float2">
+        <div class="flex items-center glass-tag rounded-full">
+          <svg class="w-3 h-3 mr-1 text-[#00ff9d]" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+          </svg>
+          <span class="text-[#00ff9d] font-semibold">TryHackMe Top 1%</span>
+        </div>
+      </div>
+      <!-- Tag 3: Inside right -->
+      <div class="absolute top-2/3 right-0 animate-float3">
+        <div class="flex items-center glass-tag rounded-full">
+          <svg class="w-3 h-3 mr-1 text-[#00ff9d]" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+          </svg>
+          <span class="text-[#00ff9d] font-semibold">CompTIA Certified</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Featured Projects Section -->
+  <section id="work" class="relative z-10 w-full max-w-6xl mx-auto py-10 px-4">
+  <div class="flex flex-col items-center mb-14">
+    <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-2">Featured Projects</h2>
+    <p class="text-base md:text-lg text-white/80 text-center max-w-2xl">
+      I’ve built several home lab projects while learning cybersecurity. Check out some of my favorite ones below.
+    </p>
+  </div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+    <!-- Card 1 -->
+    <div class="bg-[#0f172a]/60 border border-white/50 backdrop-blur-lg rounded-2xl shadow-lg p-8 w-full max-w-sm flex flex-col items-center transition-transform duration-200 hover:shadow-2xl hover:scale-105">
+      <img src="activedirectory.png" alt="Active Directory Lab Setup" class="w-full h-48 object-cover rounded-xl mb-4">
+      <h3 class="text-lg font-bold text-white text-center mb-2">Active Directory Lab Setup</h3>
+      <p class="text-gray-300 text-sm text-center mb-3">
+        Configured a home lab with Active Directory using Oracle VirtualBox, enabling user management and administration through PowerShell.
+      </p>
+      <div class="flex flex-wrap justify-center gap-2 mb-4">
+        <span class="inline-block bg-slate-800 text-gray-100 px-3 py-1 rounded-full text-sm font-medium transition-transform duration-200 badge-mint hover:scale-105 cursor-pointer">Active Directory</span>
+        <span class="inline-block bg-slate-800 text-gray-100 px-3 py-1 rounded-full text-sm font-medium transition-transform duration-200 badge-mint hover:scale-105 cursor-pointer">Identity Management (IAM)</span>
+        <span class="inline-block bg-slate-800 text-gray-100 px-3 py-1 rounded-full text-sm font-medium transition-transform duration-200 badge-mint hover:scale-105 cursor-pointer">PowerShell</span>
+        <span class="inline-block bg-slate-800 text-gray-100 px-3 py-1 rounded-full text-sm font-medium transition-transform duration-200 badge-mint hover:scale-105 cursor-pointer">Virtual Machine</span>
+      </div>
+      <a href="https://github.com/abdisamadjoe/AD-PS-User-Management" target="_blank"
+         class="inline-flex items-center gap-2 px-4 py-2 bg-mint text-black font-semibold rounded-full transition-colors duration-200 hover:bg-white hover:text-black focus:outline-none">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.184 6.839 9.504.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.339-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.987 1.029-2.686-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.025 2.748-1.025.546 1.378.202 2.397.1 2.65.64.699 1.028 1.593 1.028 2.686 0 3.847-2.338 4.695-4.566 4.944.36.31.68.921.68 1.857 0 1.34-.012 2.422-.012 2.753 0 .267.18.578.688.48C19.138 20.203 22 16.447 22 12.021 22 6.484 17.523 2 12 2z"/>
+        </svg>
+        GitHub
+      </a>
+    </div>
+    <!-- Card 2 -->
+    <div class="bg-[#0f172a]/60 border border-white/50 backdrop-blur-lg rounded-2xl shadow-lg p-8 w-full max-w-sm flex flex-col items-center transition-transform duration-200 hover:shadow-2xl hover:scale-105">
+      <img src="VulnerabilityGVM.png" alt="Vulnerability Management Lab" class="w-full h-48 object-cover rounded-xl mb-4">
+      <h3 class="text-lg font-bold text-white text-center mb-2">Vulnerability Management Lab</h3>
+      <p class="text-gray-300 text-sm text-center mb-3">
+        Set up a lab using OpenVAS on a Kali Linux VM for vulnerability scanning and remediation.
+      </p>
+      <div class="flex flex-wrap justify-center gap-2 mb-4">
+        <span class="inline-block bg-slate-800 text-gray-100 px-3 py-1 rounded-full text-sm font-medium transition-transform duration-200 badge-mint hover:scale-105 cursor-pointer">Vulnerability Scanner</span>
+        <span class="inline-block bg-slate-800 text-gray-100 px-3 py-1 rounded-full text-sm font-medium transition-transform duration-200 badge-mint hover:scale-105 cursor-pointer">OpenVAS</span>
+        <span class="inline-block bg-slate-800 text-gray-100 px-3 py-1 rounded-full text-sm font-medium transition-transform duration-200 badge-mint hover:scale-105 cursor-pointer">Kali Linux</span>
+      </div>
+      <a href="https://github.com/abdisamadjoe/VulnerabilityGVM-Kali-Setup" target="_blank"
+         class="inline-flex items-center gap-2 px-4 py-2 bg-mint text-black font-semibold rounded-full transition-colors duration-200 hover:bg-white hover:text-black focus:outline-none">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.184 6.839 9.504.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.339-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.987 1.029-2.686-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.025 2.748-1.025.546 1.378.202 2.397.1 2.65.64.699 1.028 1.593 1.028 2.686 0 3.847-2.338 4.695-4.566 4.944.36.31.68.921.68 1.857 0 1.34-.012 2.422-.012 2.753 0 .267.18.578.688.48C19.138 20.203 22 16.447 22 12.021 22 6.484 17.523 2 12 2z"/>
+        </svg>
+        GitHub
+      </a>
+    </div>
+    <!-- Card 3 -->
+    <div class="bg-[#0f172a]/60 border border-white/50 backdrop-blur-lg rounded-2xl shadow-lg p-8 w-full max-w-sm flex flex-col items-center transition-transform duration-200 hover:shadow-2xl hover:scale-105">
+      <img src="AmazonS3.png" alt="Static Website Hosting on Amazon S3" class="w-full h-48 object-cover rounded-xl mb-4">
+      <h3 class="text-lg font-bold text-white text-center mb-2">Static Website Hosting on Amazon S3</h3>
+      <p class="text-gray-300 text-sm text-center mb-3">
+        Deployed a static site on Amazon S3 with versioning, access control, and security.
+      </p>
+      <div class="flex flex-wrap justify-center gap-2 mb-4">
+        <span class="inline-block bg-slate-800 text-gray-100 px-3 py-1 rounded-full text-sm font-medium transition-transform duration-200 badge-mint hover:scale-105 cursor-pointer">AWS</span>
+        <span class="inline-block bg-slate-800 text-gray-100 px-3 py-1 rounded-full text-sm font-medium transition-transform duration-200 badge-mint hover:scale-105 cursor-pointer">Amazon S3</span>
+        <span class="inline-block bg-slate-800 text-gray-100 px-3 py-1 rounded-full text-sm font-medium transition-transform duration-200 badge-mint hover:scale-105 cursor-pointer">Encryption</span>
+        <span class="inline-block bg-slate-800 text-gray-100 px-3 py-1 rounded-full text-sm font-medium transition-transform duration-200 badge-mint hover:scale-105 cursor-pointer">Identity Management (IAM)</span>
+      </div>
+      <a href="https://github.com/abdisamadjoe/host-website-on-s3" target="_blank"
+         class="inline-flex items-center gap-2 px-4 py-2 bg-mint text-black font-semibold rounded-full transition-colors duration-200 hover:bg-white hover:text-black focus:outline-none">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.184 6.839 9.504.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.339-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.987 1.029-2.686-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.025 2.748-1.025.546 1.378.202 2.397.1 2.65.64.699 1.028 1.593 1.028 2.686 0 3.847-2.338 4.695-4.566 4.944.36.31.68.921.68 1.857 0 1.34-.012 2.422-.012 2.753 0 .267.18.578.688.48C19.138 20.203 22 16.447 22 12.021 22 6.484 17.523 2 12 2z"/>
+        </svg>
+        GitHub
+      </a>
+    </div>
+    <!-- Card 4 -->
+    <div class="bg-[#0f172a]/60 border border-white/50 backdrop-blur-lg rounded-2xl shadow-lg p-8 w-full max-w-sm flex flex-col items-center transition-transform duration-200 hover:shadow-2xl hover:scale-105">
+      <img src="PasswordChecker.png" alt="Password Complexity Checker" class="w-full h-48 object-cover rounded-xl mb-4">
+      <h3 class="text-lg font-bold text-white text-center mb-2">Password Complexity Checker</h3>
+      <p class="text-gray-300 text-sm text-center mb-3">
+        Created a Python tool that checks password strength using complexity rules.
+      </p>
+      <div class="flex flex-wrap justify-center gap-2 mb-4">
+        <span class="inline-block bg-slate-800 text-gray-100 px-3 py-1 rounded-full text-sm font-medium transition-transform duration-200 badge-mint hover:scale-105 cursor-pointer">Python</span>
+        <span class="inline-block bg-slate-800 text-gray-100 px-3 py-1 rounded-full text-sm font-medium transition-transform duration-200 badge-mint hover:scale-105 cursor-pointer">Password policy</span>
+      </div>
+      <a href="https://github.com/abdisamadjoe/Password-Checker" target="_blank"
+         class="inline-flex items-center gap-2 px-4 py-2 bg-mint text-black font-semibold rounded-full transition-colors duration-200 hover:bg-white hover:text-black focus:outline-none">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.184 6.839 9.504.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.339-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.987 1.029-2.686-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.025 2.748-1.025.546 1.378.202 2.397.1 2.65.64.699 1.028 1.593 1.028 2.686 0 3.847-2.338 4.695-4.566 4.944.36.31.68.921.68 1.857 0 1.34-.012 2.422-.012 2.753 0 .267.18.578.688.48C19.138 20.203 22 16.447 22 12.021 22 6.484 17.523 2 12 2z"/>
+        </svg>
+        GitHub
+      </a>
+    </div>
+    <!-- Card 5 -->
+    <div class="bg-[#0f172a]/60 border border-white/50 backdrop-blur-lg rounded-2xl shadow-lg p-8 w-full max-w-sm flex flex-col items-center transition-transform duration-200 hover:shadow-2xl hover:scale-105">
+      <img src="SimpleKeylogger.png" alt="Simple Python Keylogger" class="w-full h-48 object-cover rounded-xl mb-4">
+      <h3 class="text-lg font-bold text-white text-center mb-2">Simple Python Keylogger</h3>
+      <p class="text-gray-300 text-sm text-center mb-3">
+        Built a simple Python keylogger for educational use.
+      </p>
+      <div class="flex flex-wrap justify-center gap-2 mb-4">
+        <span class="inline-block bg-slate-800 text-gray-100 px-3 py-1 rounded-full text-sm font-medium transition-transform duration-200 badge-mint hover:scale-105 cursor-pointer">Python</span>
+        <span class="inline-block bg-slate-800 text-gray-100 px-3 py-1 rounded-full text-sm font-medium transition-transform duration-200 badge-mint hover:scale-105 cursor-pointer">Ethical Hacking</span>
+      </div>
+      <a href="https://github.com/abdisamadjoe/Simple-Python-Keylogger" target="_blank"
+         class="inline-flex items-center gap-2 px-4 py-2 bg-mint text-black font-semibold rounded-full transition-colors duration-200 hover:bg-white hover:text-black focus:outline-none">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.184 6.839 9.504.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.339-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.987 1.029-2.686-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.025 2.748-1.025.546 1.378.202 2.397.1 2.65.64.699 1.028 1.593 1.028 2.686 0 3.847-2.338 4.695-4.566 4.944.36.31.68.921.68 1.857 0 1.34-.012 2.422-.012 2.753 0 .267.18.578.688.48C19.138 20.203 22 16.447 22 12.021 22 6.484 17.523 2 12 2z"/>
+        </svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+</section>
+<!-- Certifications Section -->
+<section class="bg-[#0f172a] py-20 px-6">
+  <div class="max-w-6xl mx-auto text-center">
+    <!-- Headline and Subheadline (match Featured Projects, both white) -->
+    <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-2 text-white">Certifications</h2>
+    <p class="text-base md:text-lg text-white text-center mb-10 max-w-2xl mx-auto">
+      Professional Certifications That Set Me Apart
+    </p>
+    <!-- Certifications Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+      <!-- AWS Certified Cloud Practitioner -->
+      <div class="rounded-xl bg-white/5 border border-white/10 p-6 backdrop-blur-sm shadow-lg hover:ring-1 hover:ring-[#00ff9d]/30 transition flex flex-col items-center h-full">
+        <div class="h-12 w-12 mx-auto mb-4 rounded-full bg-white flex items-center justify-center">
+          <img src="aws.svg" alt="AWS Logo" class="h-8 w-8 object-contain" />
+        </div>
+        <div class="text-lg font-semibold mb-1">AWS Certified Cloud Practitioner</div>
+        <div class="text-sm text-white/70 mb-1">Amazon Web Services (AWS)</div>
+        <div class="text-xs text-white/50 mt-1 mb-2">May 2025</div>
+        <div class="flex flex-wrap justify-center">
+          <span class="inline-block px-3 py-1 mt-3 mr-2 text-xs rounded-full bg-[#00ff9d]/10 text-[#00ff9d]">Amazon Web Services (AWS)</span>
+          <span class="inline-block px-3 py-1 mt-3 mr-2 text-xs rounded-full bg-[#00ff9d]/10 text-[#00ff9d]">Cloud Security</span>
+          <span class="inline-block px-3 py-1 mt-3 mr-2 text-xs rounded-full bg-[#00ff9d]/10 text-[#00ff9d]">Amazon EC2</span>
+          <span class="inline-block px-3 py-1 mt-3 mr-2 text-xs rounded-full bg-[#00ff9d]/10 text-[#00ff9d]">Amazon IAM</span>
+        </div>
+        <a href="https://www.credly.com/badges/14c961cc-3018-47ff-a5b4-54a794021a06/" target="_blank"
+           class="mt-4 inline-block text-sm text-[#00ff9d] border border-[#00ff9d] px-4 py-1.5 rounded hover:bg-[#00ff9d]/10 transition">
+          View Credential
         </a>
-        <div class="flex gap-4 mt-6 justify-center md:justify-start">
-          <a href="https://github.com/abdisamadjoe" target="_blank" aria-label="GitHub" class="hover:text-mint text-2xl"><svg fill="currentColor" viewBox="0 0 24 24" class="w-7 h-7"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.3-1.7-1.3-1.7-1.06-.72.08-.71.08-.71 1.17.08 1.79 1.2 1.79 1.2 1.04 1.78 2.73 1.27 3.4.97.11-.75.41-1.27.74-1.56-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.45.11-3.02 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 2.9-.39c.98.01 1.97.13 2.9.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.57.23 2.73.12 3.02.74.8 1.19 1.83 1.19 3.09 0 4.43-2.7 5.41-5.27 5.7.42.36.79 1.09.79 2.2 0 1.59-.01 2.87-.01 3.26 0 .31.21.68.8.56C20.71 21.39 24 17.08 24 12c0-6.27-5.23-11.5-12-11.5z"/></svg></a>
-          <a href="https://linkedin.com/in/abdisamadjoe" target="_blank" aria-label="LinkedIn" class="hover:text-mint text-2xl"><svg fill="currentColor" viewBox="0 0 24 24" class="w-7 h-7"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.25c-.97 0-1.75-.78-1.75-1.75s.78-1.75 1.75-1.75 1.75.78 1.75 1.75-.78 1.75-1.75 1.75zm15.5 11.25h-3v-5.5c0-1.1-.9-2-2-2s-2 .9-2 2v5.5h-3v-10h3v1.5c.41-.59 1.19-1.5 2.5-1.5 1.93 0 3.5 1.57 3.5 3.5v6.5z"/></svg></a>
-          <a href="mailto:abdisamadjoe@gmail.com" aria-label="Email" class="hover:text-mint text-2xl"><svg fill="currentColor" viewBox="0 0 24 24" class="w-7 h-7"><path d="M12 13.065l-11.99-8.065h23.98l-11.99 8.065zm-12-7.065v14h24v-14l-12 8.065-12-8.065z"/></svg></a>
-          <a href="https://twitter.com/abdisamadjoe" target="_blank" aria-label="Twitter" class="hover:text-mint text-2xl"><svg fill="currentColor" viewBox="0 0 24 24" class="w-7 h-7"><path d="M24 4.557a9.93 9.93 0 0 1-2.828.775 4.932 4.932 0 0 0 2.165-2.724c-.951.564-2.005.974-3.127 1.195a4.916 4.916 0 0 0-8.38 4.482c-4.083-.205-7.697-2.162-10.123-5.134a4.822 4.822 0 0 0-.664 2.475c0 1.708.87 3.216 2.188 4.099a4.904 4.904 0 0 1-2.229-.616c-.054 2.281 1.581 4.415 3.949 4.89a4.936 4.936 0 0 1-2.224.084c.627 1.956 2.444 3.377 4.6 3.417a9.867 9.867 0 0 1-6.102 2.104c-.396 0-.787-.023-1.175-.069a13.945 13.945 0 0 0 7.548 2.212c9.057 0 14.009-7.513 14.009-14.009 0-.213-.005-.425-.014-.636a10.025 10.025 0 0 0 2.457-2.548z"/></svg></a>
-        </div>
       </div>
-      <!-- Right: Image -->
-      <div class="flex-1 flex justify-center md:justify-end relative z-10">
-        <div class="tilt-card glass shadow-neon border border-mint/30 rounded-2xl p-2">
-          <img src="https://avatars.githubusercontent.com/u/1516743?s=400&v=4" alt="Abdisamad Yusuf" class="w-64 h-64 rounded-xl object-cover border-4 border-mint/40 bg-navy/80">
+      <!-- Microsoft Certified: Azure Fundamentals -->
+      <div class="rounded-xl bg-white/5 border border-white/10 p-6 backdrop-blur-sm shadow-lg hover:ring-1 hover:ring-[#00ff9d]/30 transition flex flex-col items-center h-full">
+        <div class="h-12 w-12 mx-auto mb-4 rounded-full bg-white flex items-center justify-center">
+          <img src="microsoft.svg" alt="Microsoft Logo" class="h-8 w-8 object-contain" />
         </div>
+        <div class="text-lg font-semibold mb-1">Microsoft Certified: Azure Fundamentals</div>
+        <div class="text-sm text-white/70 mb-1">Microsoft</div>
+        <div class="text-xs text-white/50 mt-1 mb-2">May 2025</div>
+        <div class="flex flex-wrap justify-center">
+          <span class="inline-block px-3 py-1 mt-3 mr-2 text-xs rounded-full bg-[#00ff9d]/10 text-[#00ff9d]">Azure Cloud</span>
+          <span class="inline-block px-3 py-1 mt-3 mr-2 text-xs rounded-full bg-[#00ff9d]/10 text-[#00ff9d]">IAM</span>
+          <span class="inline-block px-3 py-1 mt-3 mr-2 text-xs rounded-full bg-[#00ff9d]/10 text-[#00ff9d]">Virtual Machines</span>
+          <span class="inline-block px-3 py-1 mt-3 mr-2 text-xs rounded-full bg-[#00ff9d]/10 text-[#00ff9d]">Microsoft Defender</span>
+        </div>
+        <a href="https://learn.microsoft.com/en-us/credentials/certifications/azure-fundamentals/" target="_blank"
+           class="mt-4 inline-block text-sm text-[#00ff9d] border border-[#00ff9d] px-4 py-1.5 rounded hover:bg-[#00ff9d]/10 transition">
+          View Credential
+        </a>
+      </div>
+      <!-- Certified in Cybersecurity (CC) -->
+      <div class="rounded-xl bg-white/5 border border-white/10 p-6 backdrop-blur-sm shadow-lg hover:ring-1 hover:ring-[#00ff9d]/30 transition flex flex-col items-center h-full">
+        <div class="h-12 w-12 mx-auto mb-4 rounded-full bg-white flex items-center justify-center">
+          <img src="isc2.svg" alt="ISC2 Logo" class="h-8 w-8 object-contain" />
+        </div>
+        <div class="text-lg font-semibold mb-1">Certified in Cybersecurity (CC)</div>
+        <div class="text-sm text-white/70 mb-1">ISC2</div>
+        <div class="text-xs text-white/50 mt-1 mb-2">October 2024</div>
+        <div class="flex flex-wrap justify-center">
+          <span class="inline-block px-3 py-1 mt-3 mr-2 text-xs rounded-full bg-[#00ff9d]/10 text-[#00ff9d]">SIEM</span>
+          <span class="inline-block px-3 py-1 mt-3 mr-2 text-xs rounded-full bg-[#00ff9d]/10 text-[#00ff9d]">Incident Response</span>
+          <span class="inline-block px-3 py-1 mt-3 mr-2 text-xs rounded-full bg-[#00ff9d]/10 text-[#00ff9d]">Network Security</span>
+        </div>
+        <a href="https://www.credly.com/earner/earned/badge/1189dc54-859c-4c7f-aaa2-435a42adf5d5" target="_blank"
+           class="mt-4 inline-block text-sm text-[#00ff9d] border border-[#00ff9d] px-4 py-1.5 rounded hover:bg-[#00ff9d]/10 transition">
+          View Credential
+        </a>
+      </div>
+      <!-- Google Cybersecurity Certificate -->
+      <div class="rounded-xl bg-white/5 border border-white/10 p-6 backdrop-blur-sm shadow-lg hover:ring-1 hover:ring-[#00ff9d]/30 transition flex flex-col items-center h-full">
+        <div class="h-12 w-12 mx-auto mb-4 rounded-full bg-white flex items-center justify-center">
+          <img src="google.svg" alt="Google G Logo" class="h-8 w-8 object-contain" />
+        </div>
+        <div class="text-lg font-semibold mb-1">Google Cybersecurity Certificate</div>
+        <div class="text-sm text-white/70 mb-1">Google</div>
+        <div class="text-xs text-white/50 mt-1 mb-2">August 2024</div>
+        <div class="flex flex-wrap justify-center">
+          <span class="inline-block px-3 py-1 mt-3 mr-2 text-xs rounded-full bg-[#00ff9d]/10 text-[#00ff9d]">Linux</span>
+          <span class="inline-block px-3 py-1 mt-3 mr-2 text-xs rounded-full bg-[#00ff9d]/10 text-[#00ff9d]">Bash</span>
+          <span class="inline-block px-3 py-1 mt-3 mr-2 text-xs rounded-full bg-[#00ff9d]/10 text-[#00ff9d]">Python</span>
+          <span class="inline-block px-3 py-1 mt-3 mr-2 text-xs rounded-full bg-[#00ff9d]/10 text-[#00ff9d]">SQL</span>
+          <span class="inline-block px-3 py-1 mt-3 mr-2 text-xs rounded-full bg-[#00ff9d]/10 text-[#00ff9d]">Splunk</span>
+        </div>
+        <a href="https://www.credly.com/badges/1daf591b-11df-4d72-bbd3-aec1f8799479" target="_blank"
+           class="mt-4 inline-block text-sm text-[#00ff9d] border border-[#00ff9d] px-4 py-1.5 rounded hover:bg-[#00ff9d]/10 transition">
+          View Credential
+        </a>
+      </div>
+      <!-- IELTS -->
+      <div class="rounded-xl bg-white/5 border border-white/10 p-6 backdrop-blur-sm shadow-lg hover:ring-1 hover:ring-[#00ff9d]/30 transition flex flex-col items-center h-full">
+        <div class="h-12 w-12 mx-auto mb-4 rounded-full bg-white flex items-center justify-center">
+          <img src="ielts.svg" alt="IELTS Logo" class="h-8 w-8 object-contain" />
+        </div>
+        <div class="text-lg font-semibold mb-1">IELTS (The International English Language Testing System)</div>
+        <div class="text-sm text-white/70 mb-1">IELTS Official</div>
+        <div class="text-xs text-white/50 mt-1 mb-2">May 2024</div>
+        <div class="flex flex-wrap justify-center">
+          <span class="inline-block px-3 py-1 mt-3 mr-2 text-xs rounded-full bg-[#00ff9d]/10 text-[#00ff9d]">Communication</span>
+          <span class="inline-block px-3 py-1 mt-3 mr-2 text-xs rounded-full bg-[#00ff9d]/10 text-[#00ff9d]">Listening</span>
+          <span class="inline-block px-3 py-1 mt-3 mr-2 text-xs rounded-full bg-[#00ff9d]/10 text-[#00ff9d]">Academic English</span>
+          <span class="inline-block px-3 py-1 mt-3 mr-2 text-xs rounded-full bg-[#00ff9d]/10 text-[#00ff9d]">Time Management</span>
+        </div>
+        <a href="https://ielts.org/" target="_blank"
+           class="mt-4 inline-block text-sm text-[#00ff9d] border border-[#00ff9d] px-4 py-1.5 rounded hover:bg-[#00ff9d]/10 transition">
+          View Credential
+        </a>
       </div>
     </div>
-    <!-- CTA Pulse Effect -->
-    <div class="absolute left-1/2 -translate-x-1/2 top-2/3 w-80 h-80 rounded-full bg-mint opacity-10 blur-3xl pointer-events-none animate-pulse-glow"></div>
-  </section>
-
-  <!-- Hacker Terminal Box -->
-  <section class="max-w-2xl mx-auto px-4 py-8">
-    <div class="glass-thin rounded-xl p-6 border border-mint/30 shadow-lg mb-8">
-      <div class="flex items-center gap-2 mb-2">
-        <svg class="w-5 h-5 text-mint" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 17l6-6-6-6"/><rect x="12" y="17" width="8" height="2" rx="1" fill="currentColor"/></svg>
-        <span class="font-mono text-mint text-base">abdisamad@guardaura:~$</span>
-      </div>
-      <div class="font-mono text-slate-100 text-lg">
-        <span class="typing-demo" style="animation-delay:0.5s;">Protect. Educate. Empower.</span>
-      </div>
-      <div class="flex gap-4 mt-4">
-        <span class="bg-mint/20 text-mint font-mono px-3 py-1 rounded">TryHackMe Top 1%</span>
-        <span class="bg-mint/20 text-mint font-mono px-3 py-1 rounded">Google/ISC2 Certified</span>
-        <span class="bg-mint/20 text-mint font-mono px-3 py-1 rounded">Founder: GuardAura</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- About Me -->
-  <section id="about" class="max-w-3xl mx-auto px-4 py-16 border-l-2 border-mint/40">
-    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-mint">About Me</h2>
-    <p class="text-lg text-slate-200 mb-4">
-      It all started back in 2021, during my final year of university. I remember scrolling through Twitter and seeing everyone talking about the Colonial Pipeline ransomware attack. That moment made me realize just how critical cybersecurity is, and that’s when my journey into this field began.
+  </div>
+</section>
+<section id="contact" class="bg-[#0f172a] font-inter text-white">
+  <div class="max-w-4xl mx-auto px-6 py-20 text-center">
+    <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-2 text-white">Get in Touch</h2>
+    <p class="text-base text-white/70 mt-2">Let's connect!</p>
+    <p class="text-lg text-white/50 mt-6 max-w-xl mx-auto">
+      Feel free to reach out via
+      <a href="https://linkedin.com/in/abdisamadjoe" target="_blank" class="underline text-white hover:text-[#00ff9d] transition">LinkedIn</a>
+      or
+      <a href="https://x.com/abdisamadjoe" target="_blank" class="underline text-white hover:text-[#00ff9d] transition">X (Twitter)</a>
+      and I’ll get back to you as soon as I can.
     </p>
-    <p class="text-lg text-slate-200 mb-4">
-      I started experimenting with tools like <span class="text-mint font-semibold">Kali Linux</span> and <span class="text-mint font-semibold">Splunk</span>, and I learned how to script in <span class="text-mint font-semibold">Python</span> to automate tasks. I joined <span class="text-mint font-semibold">TryHackMe</span>, where I ranked in the top 1% of learners, and began participating in CTF challenges. Along the way, I earned my <span class="text-mint font-semibold">Google Cybersecurity Professional Certificate</span> and <span class="text-mint font-semibold">ISC2 Certified in Cybersecurity</span>.
-    </p>
-    <p class="text-lg text-slate-200 mb-4">
-      Today, I’m the founder of <span class="text-mint font-semibold">GuardAura</span>, a startup and the first of its kind in Somalia, where I help businesses and individuals secure their online presence. My mission is to help people stay safe in an increasingly connected world.
-    </p>
-    <div class="flex flex-wrap gap-4 mt-6">
-      <span class="bg-mint text-navy px-4 py-2 rounded-full font-semibold">Kali Linux</span>
-      <span class="bg-mint text-navy px-4 py-2 rounded-full font-semibold">Splunk</span>
-      <span class="bg-mint text-navy px-4 py-2 rounded-full font-semibold">Python</span>
-      <span class="bg-mint text-navy px-4 py-2 rounded-full font-semibold">TryHackMe Top 1%</span>
-      <span class="bg-mint text-navy px-4 py-2 rounded-full font-semibold">Google/ISC2 Certified</span>
-      <span class="bg-mint text-navy px-4 py-2 rounded-full font-semibold">GuardAura Founder</span>
-    </div>
-  </section>
-
-  <!-- Certifications & Achievements Timeline -->
-  <section class="max-w-3xl mx-auto px-4 py-12">
-    <h2 class="text-2xl md:text-3xl font-bold mb-6 text-mint">Certifications & Achievements</h2>
-    <div class="relative pl-8">
-      <div class="absolute left-2 top-0 bottom-0 w-1 bg-gradient-to-b from-mint via-mint/30 to-transparent rounded-full shadow-neon"></div>
-      <div class="space-y-8">
-        <div class="flex items-center gap-4 relative group">
-          <span class="w-5 h-5 rounded-full bg-mint shadow-neon border-2 border-mint absolute -left-4"></span>
-          <div class="glass-thin p-4 rounded-xl flex items-center gap-4 tilt-card border border-mint/20">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" alt="Google" class="w-10 h-10">
-            <div>
-              <div class="font-bold text-mint">Google Cybersecurity</div>
-              <div class="text-slate-200 text-sm">Professional Certificate</div>
-            </div>
-          </div>
-        </div>
-        <div class="flex items-center gap-4 relative group">
-          <span class="w-5 h-5 rounded-full bg-mint shadow-neon border-2 border-mint absolute -left-4"></span>
-          <div class="glass-thin p-4 rounded-xl flex items-center gap-4 tilt-card border border-mint/20">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="ISC2" class="w-10 h-10">
-            <div>
-              <div class="font-bold text-mint">ISC2 Certified</div>
-              <div class="text-slate-200 text-sm">Certified in Cybersecurity</div>
-            </div>
-          </div>
-        </div>
-        <div class="flex items-center gap-4 relative group">
-          <span class="w-5 h-5 rounded-full bg-mint shadow-neon border-2 border-mint absolute -left-4"></span>
-          <div class="glass-thin p-4 rounded-xl flex items-center gap-4 tilt-card border border-mint/20">
-            <img src="https://tryhackme-images.s3.amazonaws.com/THMlogo.png" alt="TryHackMe" class="w-10 h-10 rounded-full">
-            <div>
-              <div class="font-bold text-mint">TryHackMe</div>
-              <div class="text-slate-200 text-sm">Top 1% Learner</div>
-            </div>
-          </div>
-        </div>
-        <div class="flex items-center gap-4 relative group">
-          <span class="w-5 h-5 rounded-full bg-mint shadow-neon border-2 border-mint absolute -left-4"></span>
-          <div class="glass-thin p-4 rounded-xl flex items-center gap-4 tilt-card border border-mint/20">
-            <img src="https://avatars.githubusercontent.com/u/1516743?s=200&v=4" alt="GuardAura" class="w-10 h-10 rounded-full bg-white">
-            <div>
-              <div class="font-bold text-mint">GuardAura</div>
-              <div class="text-slate-200 text-sm">Founder</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Experience Timeline -->
-  <section id="experience" class="max-w-3xl mx-auto px-4 py-12">
-    <h2 class="text-2xl md:text-3xl font-bold mb-6 text-mint">Work Experience</h2>
-    <div class="relative pl-8">
-      <div class="absolute left-2 top-0 bottom-0 w-1 bg-gradient-to-b from-mint via-mint/30 to-transparent rounded-full shadow-neon"></div>
-      <div class="space-y-8">
-        <div class="flex items-center gap-4 relative group">
-          <span class="w-5 h-5 rounded-full bg-mint shadow-neon border-2 border-mint absolute -left-4"></span>
-          <div class="glass-thin p-4 rounded-xl flex items-center gap-4 tilt-card border border-mint/20">
-            <svg class="w-8 h-8 text-mint" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
-            <div>
-              <div class="font-bold text-mint">Ministry of Finance</div>
-              <div class="text-slate-200 text-sm">Cybersecurity Analyst – Led risk assessments and improved security posture for government systems.</div>
-            </div>
-          </div>
-        </div>
-        <div class="flex items-center gap-4 relative group">
-          <span class="w-5 h-5 rounded-full bg-mint shadow-neon border-2 border-mint absolute -left-4"></span>
-          <div class="glass-thin p-4 rounded-xl flex items-center gap-4 tilt-card border border-mint/20">
-            <svg class="w-8 h-8 text-mint" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 20v-6M6 20v-4M18 20v-2"/></svg>
-            <div>
-              <div class="font-bold text-mint">Koor Jobs</div>
-              <div class="text-slate-200 text-sm">Security Consultant – Provided security awareness training and implemented best practices for startups.</div>
-            </div>
-          </div>
-        </div>
-        <div class="flex items-center gap-4 relative group">
-          <span class="w-5 h-5 rounded-full bg-mint shadow-neon border-2 border-mint absolute -left-4"></span>
-          <div class="glass-thin p-4 rounded-xl flex items-center gap-4 tilt-card border border-mint/20">
-            <svg class="w-8 h-8 text-mint" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-            <div>
-              <div class="font-bold text-mint">Samakaal Hospital</div>
-              <div class="text-slate-200 text-sm">IT Security Specialist – Secured patient data and improved hospital network security.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects with Glassmorphism Cards and Tilt -->
-  <section id="projects" class="max-w-5xl mx-auto px-4 py-12 border-l-2 border-mint/40">
-    <h2 class="text-2xl md:text-3xl font-bold mb-8 text-mint">Featured Projects</h2>
-    <div class="grid md:grid-cols-2 gap-8">
-      <div class="glass tilt-card border border-mint/30 rounded-xl p-6 shadow-neon hover:shadow-neon-lg transition group">
-        <div class="flex items-center gap-3 mb-2">
-          <svg class="w-6 h-6 text-mint" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 9h8M8 13h6"/></svg>
-          <h3 class="font-semibold text-xl text-mint group-hover:underline">Security Audit for GuardAura Client</h3>
-        </div>
-        <p class="text-slate-200 mb-2">Led a comprehensive security audit for a major Somali business, identifying vulnerabilities and implementing robust defenses.</p>
-        <span class="inline-block bg-mint text-navy px-3 py-1 rounded-full text-xs font-semibold">Security Audit</span>
-      </div>
-      <div class="glass tilt-card border border-mint/30 rounded-xl p-6 shadow-neon hover:shadow-neon-lg transition group">
-        <div class="flex items-center gap-3 mb-2">
-          <svg class="w-6 h-6 text-mint" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 20v-6M6 20v-4M18 20v-2"/></svg>
-          <h3 class="font-semibold text-xl text-mint group-hover:underline">Cybersecurity Awareness Training</h3>
-        </div>
-        <p class="text-slate-200 mb-2">Developed and delivered training sessions for organizations, boosting staff awareness and reducing phishing incidents.</p>
-        <span class="inline-block bg-mint text-navy px-3 py-1 rounded-full text-xs font-semibold">Training</span>
-      </div>
-      <div class="glass tilt-card border border-mint/30 rounded-xl p-6 shadow-neon hover:shadow-neon-lg transition group">
-        <div class="flex items-center gap-3 mb-2">
-          <svg class="w-6 h-6 text-mint" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
-          <h3 class="font-semibold text-xl text-mint group-hover:underline">Cloud Security Implementation</h3>
-        </div>
-        <p class="text-slate-200 mb-2">Secured AWS and Azure environments for clients, ensuring compliance and data protection.</p>
-        <span class="inline-block bg-mint text-navy px-3 py-1 rounded-full text-xs font-semibold">Cloud Security</span>
-      </div>
-      <div class="glass tilt-card border border-mint/30 rounded-xl p-6 shadow-neon hover:shadow-neon-lg transition group">
-        <div class="flex items-center gap-3 mb-2">
-          <svg class="w-6 h-6 text-mint" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 9h8M8 13h6"/></svg>
-          <h3 class="font-semibold text-xl text-mint group-hover:underline">Website Design Portfolio</h3>
-        </div>
-        <p class="text-slate-200 mb-2">Showcased versatility by designing secure, modern websites for various clients.</p>
-        <span class="inline-block bg-mint text-navy px-3 py-1 rounded-full text-xs font-semibold">Web Design</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="max-w-2xl mx-auto px-4 py-16">
-    <h2 class="text-3xl font-bold mb-6 text-mint">Let’s Work Together</h2>
-    <p class="mb-6 text-slate-200">Ready to secure your business or need expert advice? Send me a message or reach out on WhatsApp!</p>
-    <form class="glass-thin space-y-4 p-6 rounded-xl border border-mint/20 shadow-lg" action="mailto:abdisamadjoe@gmail.com" method="POST" enctype="text/plain">
-      <div>
-        <label for="name" class="block mb-1 text-slate-300">Name</label>
-        <input type="text" id="name" name="name" required class="w-full px-4 py-2 rounded-lg bg-navy border border-mint/30 text-white focus:outline-none focus:border-mint transition font-mono">
-      </div>
-      <div>
-        <label for="email" class="block mb-1 text-slate-300">Email</label>
-        <input type="email" id="email" name="email" required class="w-full px-4 py-2 rounded-lg bg-navy border border-mint/30 text-white focus:outline-none focus:border-mint transition font-mono">
-      </div>
-      <div>
-        <label for="message" class="block mb-1 text-slate-300">Message</label>
-        <textarea id="message" name="message" rows="5" required class="w-full px-4 py-2 rounded-lg bg-navy border border-mint/30 text-white focus:outline-none focus:border-mint transition font-mono"></textarea>
-      </div>
-      <button type="submit" class="bg-mint text-navy font-bold px-8 py-2 rounded-full shadow-neon hover:bg-white transition relative glitch" style="animation: pulseGlow 2s infinite;">
-        Send Message
-        <span class="absolute -inset-2 rounded-full pointer-events-none animate-pulse-glow" style="z-index:-1;"></span>
-      </button>
-    </form>
-    <a href="https://wa.me/252612345678" target="_blank" class="inline-flex items-center gap-2 mt-6 text-mint font-semibold hover:underline">
-      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 32 32"><path d="M16.001 3.2c-7.07 0-12.8 5.73-12.8 12.8 0 2.26.6 4.47 1.74 6.41l-1.85 6.77 6.94-1.82c1.86 1.02 3.96 1.56 6.09 1.56h.01c7.07 0 12.8-5.73 12.8-12.8s-5.73-12.8-12.8-12.8zm0 23.04c-1.87 0-3.7-.5-5.3-1.44l-.38-.22-4.12 1.08 1.1-4.01-.25-.41c-1.08-1.74-1.65-3.75-1.65-5.82 0-6.01 4.89-10.9 10.9-10.9s10.9 4.89 10.9 10.9-4.89 10.9-10.9 10.9zm6.01-8.18c-.33-.17-1.95-.96-2.25-1.07-.3-.11-.52-.17-.74.17-.22.33-.85 1.07-1.05 1.29-.19.22-.39.25-.72.08-.33-.17-1.38-.51-2.63-1.62-.97-.86-1.62-1.92-1.81-2.25-.19-.33-.02-.51.15-.68.16-.16.36-.42.54-.63.18-.21.24-.36.36-.6.12-.24.06-.45-.03-.62-.09-.17-.74-1.78-1.01-2.43-.27-.65-.54-.56-.74-.57-.19-.01-.41-.01-.63-.01-.22 0-.57.08-.87.39-.3.31-1.14 1.12-1.14 2.73 0 1.61 1.17 3.17 1.33 3.39.16.22 2.3 3.51 5.57 4.79.78.3 1.39.48 1.86.62.78.25 1.49.22 2.05.13.63-.09 1.95-.8 2.23-1.57.28-.77.28-1.43.2-1.57-.08-.14-.3-.22-.63-.39z"/></svg>
-      Message me on WhatsApp
-    </a>
-  </section>
-
-  <!-- Footer with Glassmorphism and Terminal Quote -->
-  <footer class="glass-thin border-t border-mint/20 py-8 mt-auto">
-    <div class="max-w-4xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
-      <div class="flex gap-4 mb-2 md:mb-0">
-        <a href="Abdisamad_Yusuf_Resume.pdf" class="hover:text-mint font-semibold">Resume</a>
-        <a href="https://github.com/abdisamadjoe" target="_blank" class="hover:text-mint font-semibold">GitHub</a>
-        <a href="https://linkedin.com/in/abdisamadjoe" target="_blank" class="hover:text-mint font-semibold">LinkedIn</a>
-        <a href="mailto:abdisamadjoe@gmail.com" class="hover:text-mint font-semibold">Email</a>
-      </div>
-      <span class="text-slate-400 text-sm font-mono">&copy; 2025 Abdisamad Yusuf. <span class="text-mint">Protect. Educate. Empower.</span></span>
-    </div>
-    <div class="max-w-2xl mx-auto mt-4 px-4">
-      <div class="glass-thin rounded-lg p-4 border border-mint/20 flex items-center gap-2 font-mono text-mint text-base">
-        <svg class="w-5 h-5 text-mint" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 17l6-6-6-6"/><rect x="12" y="17" width="8" height="2" rx="1" fill="currentColor"/></svg>
-        <span>echo "Stay safe. Stay secure."</span>
-      </div>
-    </div>
-  </footer>
-  <!-- Scroll Animations (fade/slide) -->
-  <script>
-    // Simple fade-in/slide-up on scroll
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('opacity-100', 'translate-y-0');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('section, .tilt-card').forEach(el => {
-      el.classList.add('opacity-0', 'translate-y-8', 'transition-all', 'duration-700');
-      observer.observe(el);
-    });
-  </script>
+  </div>
+  <div class="h-12"></div> <!-- Extra space at the end as a footer spacer -->
+</section>
 </body>
 </html>
