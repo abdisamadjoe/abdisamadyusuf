@@ -155,53 +155,57 @@
   </div>
 
 <!-- Centered Frosted Glass Navbar -->
-<nav class="fixed z-50 left-1/2 -translate-x-1/2 w-[90vw] max-w-md h-fit flex justify-center items-center
-  backdrop-blur-md bg-white/10 rounded-2xl shadow-lg
-  top-auto bottom-4 sm:top-4 sm:bottom-auto
-  px-4 py-1.5 sm:px-8 sm:py-2">
-  <ul class="flex gap-5 sm:gap-8 items-center justify-center w-full">
-    <!-- Home Icon -->
-    <li>
-      <a href="#home" class="relative p-1.5 text-white transition-colors duration-200 hover:text-mint group" aria-label="Home">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l9-9 9 9M4 10v10a1 1 0 001 1h3m10-11v10a1 1 0 01-1 1h-3m-6 0h6"/>
-        </svg>
-      </a>
-    </li>
-    <!-- Work Icon -->
-    <li>
-      <a href="#work" class="relative p-1.5 text-white transition-colors duration-200 hover:text-mint group" aria-label="Work">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <rect x="3" y="7" width="18" height="13" rx="2" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M16 3v4M8 3v4" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </a>
-    </li>
-    <!-- Blogs Icon -->
-    <li>
-      <a href="https://medium.com/@abdisamadjoe" target="_blank" rel="noopener" class="relative p-1.5 text-white transition-colors duration-200 hover:text-mint group" aria-label="Blogs">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <rect x="3" y="5" width="18" height="14" rx="2" stroke-linecap="round" stroke-linejoin="round"/>
-          <path stroke-linecap="round" stroke-linejoin="round" d="M7 8h10M7 12h6M7 16h4"/>
-        </svg>
-      </a>
-    </li>
-    <!-- Contact Icon -->
-    <li>
-      <a href="#contact" class="relative p-1.5 text-white transition-colors duration-200 hover:text-mint group" aria-label="Contact">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M21 10.5V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2h14a2 2 0 002-2v-4.5"/>
-          <path stroke-linecap="round" stroke-linejoin="round" d="M21 10.5l-9 6.5-9-6.5"/>
-        </svg>
-      </a>
-    </li>
-  </ul>
+<nav class="sticky top-0 z-50 w-full bg-white/5 backdrop-blur-md border-b border-white/10 font-inter">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <!-- Logo (always visible) -->
+    <a href="#home" class="flex items-center">
+      <img src="abdisamadylogo.svg" alt="Abdisamad Logo" class="h-8 w-auto">
+    </a>
+    <!-- Desktop Menu -->
+    <ul class="hidden sm:flex space-x-8 text-sm font-medium">
+      <li>
+        <a href="#home" class="text-white transition hover:text-[#00ff9d]">Home</a>
+      </li>
+      <li>
+        <a href="#work" class="text-white transition hover:text-[#00ff9d]">Work</a>
+      </li>
+      <li>
+        <a href="https://medium.com/@abdisamadjoe" target="_blank" rel="noopener" class="text-white transition hover:text-[#00ff9d]">Blogs</a>
+      </li>
+      <li>
+        <a href="#contact" class="text-white transition hover:text-[#00ff9d]">Contact</a>
+      </li>
+    </ul>
+    <!-- Hamburger Button (Mobile) -->
+    <button id="mobile-menu-btn" class="block sm:hidden text-white focus:outline-none" aria-label="Open Menu">
+      <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  </div>
+  <!-- Mobile Dropdown Menu -->
+  <div id="mobile-menu" class="sm:hidden hidden px-6">
+    <div class="flex flex-col space-y-4 bg-white/5 backdrop-blur-md mt-2 rounded-lg p-4">
+      <a href="#home" class="text-white transition hover:text-[#00ff9d]">Home</a>
+      <a href="#work" class="text-white transition hover:text-[#00ff9d]">Work</a>
+      <a href="https://medium.com/@abdisamadjoe" target="_blank" rel="noopener" class="text-white transition hover:text-[#00ff9d]">Blogs</a>
+      <a href="#contact" class="text-white transition hover:text-[#00ff9d]">Contact</a>
+    </div>
+  </div>
 </nav>
+<script>
+  // Minimal JS for mobile menu toggle
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+  });
+</script>
 
 <!-- ...existing code... -->
   <!-- Hero Section -->
 <section id="home" class="relative min-h-screen flex items-center justify-center">
-  <div class="relative z-10 w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12 px-4 py-16 pb-28 md:pb-16 mt-8 md:mt-0">
+  <div class="relative z-10 w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 px-4 py-8 pb-24 md:pb-12 mt-2 md:mt-0">
     <!-- Left: Text Content -->
     <div class="flex-1 flex flex-col items-center md:items-start justify-center text-center md:text-left">
       <h3 class="hero-headline text-[1.56rem] sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-white mb-2 whitespace-nowrap" style="line-height:1.1;">
@@ -211,7 +215,7 @@
         – Cybersecurity Professional
       </h3>
       <p class="mt-2 text-base sm:text-base md:text-lg text-white/90 max-w-xl">
-        I help businesses and individuals stay protected from digital threats with cloud security and expert cybersecurity training.
+        I help businesses and individuals protect their systems from cyber threats through cloud security solutions and expert cybersecurity training.
       </p>
       <a href="resume.pdf" download
         class="mt-8 inline-flex items-center gap-2 px-7 py-3 rounded-full bg-[#00ff9d] text-black font-semibold text-lg transition-all duration-200 hover:bg-white hover:text-black focus:outline-none group">
@@ -222,7 +226,7 @@
       </a>
     </div>
     <!-- Right: Image & Floating Tags -->
-    <div class="flex-1 flex items-center justify-center relative min-w-[220px] min-h-[220px] mt-10 md:mt-0">
+    <div class="flex-1 flex items-center justify-center relative min-w-[220px] min-h-[220px] mt-8 md:mt-0">
       <!-- Hero Image (130% of default) -->
       <div class="relative z-10">
         <img src="hero.png" alt="Abdisamad Yusuf" class="w-[220px] h-[220px] sm:w-[312px] sm:h-[312px] md:w-[384px] md:h-[384px] rounded-2xl object-cover mx-auto">
@@ -255,6 +259,29 @@
         </div>
       </div>
     </div>
+  </div>
+</section>
+<!-- About Me -->
+<section id="about" class="bg-[#0f172a] font-inter text-white">
+  <div class="max-w-4xl mx-auto px-6 py-20 text-center">
+    <h2 class="text-4xl font-bold text-white">About Me</h2>
+    <p class="text-base md:text-lg text-white/80 leading-relaxed mt-6">
+      I'm Abdisamad Yusuf, an aspiring cybersecurity professional with a Computer Science degree and a strong interest in network security and cloud security. Over the past 3 years, I’ve gained hands-on experience in IT support, information security, and web design.
+    </p>
+    <p class="text-base md:text-lg text-white/80 leading-relaxed mt-6">
+      I hold certifications from Google, ISC2, AWS, and Microsoft, and I’m the founder of two startups: 
+      <a href="https://guardaura.com/" target="_blank" rel="noopener" class="underline text-white hover:text-[#00ff9d] transition">GuardAura</a>, which offers cybersecurity services, and 
+      <a href="https://www.facebook.com/TheSameelo/" target="_blank" rel="noopener" class="underline text-white hover:text-[#00ff9d] transition">Sameelo</a>, focused on web design and digital solutions.
+    </p>
+    <p class="text-base md:text-lg text-white/80 leading-relaxed mt-6">
+      I spend most of my time sharpening my skills on platforms like 
+      <a href="https://tryhackme.com/p/Bobst0ne" target="_blank" rel="noopener" class="underline text-white hover:text-[#00ff9d] transition">TryHackMe</a> (Top 1% globally), 
+      <a href="https://app.letsdefend.io/user/abdisamadjoe" target="_blank" rel="noopener" class="underline text-white hover:text-[#00ff9d] transition">LetsDefend</a>, and 
+      <a href="https://cyberdefenders.org/p/abdisamadjoe" target="_blank" rel="noopener" class="underline text-white hover:text-[#00ff9d] transition">CyberDefenders</a>. My mission is simple: to help people and businesses stay safe in today’s connected world.
+    </p>
+    <p class="text-base md:text-lg text-white/80 leading-relaxed mt-6">
+      I'm always open to new roles in cybersecurity or cloud computing, meaningful collaborations, and opportunities where I can grow and make a real impact.
+    </p>
   </div>
 </section>
 
@@ -293,7 +320,7 @@
       <img src="VulnerabilityGVM.png" alt="Vulnerability Management Lab" class="w-full h-48 object-cover rounded-xl mb-4">
       <h3 class="text-lg font-bold text-white text-center mb-2">Vulnerability Management Lab</h3>
       <p class="text-gray-300 text-sm text-center mb-3">
-        Set up a lab using OpenVAS on a Kali Linux VM for vulnerability scanning and remediation.
+        Established a vulnerability scanning lab using OpenVAS on a Kali Linux virtual machine, enhancing skills in identifying and effectively responding to security issues.
       </p>
       <div class="flex flex-wrap justify-center gap-2 mb-4">
         <span class="inline-block bg-slate-800 text-gray-100 px-3 py-1 rounded-full text-sm font-medium transition-transform duration-200 badge-mint hover:scale-105 cursor-pointer">Vulnerability Scanner</span>
@@ -369,10 +396,10 @@
     </div>
   </div>
 </section>
-<!-- Certifications Section -->
-<section class="bg-[#0f172a] py-20 px-6">
+    <!-- Certifications Grid -->
+    <section class="bg-[#0f172a] py-20 px-6">
   <div class="max-w-6xl mx-auto text-center">
-    <!-- Headline and Subheadline (match Featured Projects, both white) -->
+    <!-- Headline and Subheadline -->
     <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-2 text-white">Certifications</h2>
     <p class="text-base md:text-lg text-white text-center mb-10 max-w-2xl mx-auto">
       Professional Certifications That Set Me Apart
@@ -412,17 +439,35 @@
           <span class="inline-block px-3 py-1 mt-3 mr-2 text-xs rounded-full bg-[#00ff9d]/10 text-[#00ff9d]">Virtual Machines</span>
           <span class="inline-block px-3 py-1 mt-3 mr-2 text-xs rounded-full bg-[#00ff9d]/10 text-[#00ff9d]">Microsoft Defender</span>
         </div>
-        <a href="https://learn.microsoft.com/en-us/credentials/certifications/azure-fundamentals/" target="_blank"
+        <a href="https://learn.microsoft.com/en-us/users/abdisamadjoe/credentials/378b322201c87844" target="_blank"
            class="mt-4 inline-block text-sm text-[#00ff9d] border border-[#00ff9d] px-4 py-1.5 rounded hover:bg-[#00ff9d]/10 transition">
           View Credential
         </a>
       </div>
-      <!-- Certified in Cybersecurity (CC) -->
+      <!-- Oracle Cloud Infrastructure Foundations Associate -->
+      <div class="rounded-xl bg-white/5 border border-white/10 p-6 backdrop-blur-sm shadow-lg hover:ring-1 hover:ring-[#00ff9d]/30 transition flex flex-col items-center h-full">
+  <div class="h-12 w-12 mx-auto mb-4 rounded-full bg-white flex items-center justify-center">
+    <img src="oracle.svg" alt="Oracle Logo" class="h-8 w-8 object-contain" />
+  </div>
+  <div class="text-lg font-semibold mb-1">Oracle Cloud Infrastructure Foundations Associate</div>
+  <div class="text-sm text-white/70 mb-1">Oracle</div>
+  <div class="text-xs text-white/50 mt-1 mb-2">June 2025</div>
+  <div class="flex flex-wrap justify-center">
+    <span class="inline-block px-3 py-1 mt-3 mr-2 text-xs rounded-full bg-[#00ff9d]/10 text-[#00ff9d]">OCI Services</span>
+    <span class="inline-block px-3 py-1 mt-3 mr-2 text-xs rounded-full bg-[#00ff9d]/10 text-[#00ff9d]">OCI Infrastructure</span>
+    <span class="inline-block px-3 py-1 mt-3 mr-2 text-xs rounded-full bg-[#00ff9d]/10 text-[#00ff9d]">Security &amp; Identity Management</span>
+  </div>
+  <a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=57FBA165A4B8CAA11D3D4882597364E289D89AB180789A8948332B3CAE181383" target="_blank"
+     class="mt-4 inline-block text-sm text-[#00ff9d] border border-[#00ff9d] px-4 py-1.5 rounded hover:bg-[#00ff9d]/10 transition">
+    View Credential
+  </a>
+</div>
+      <!-- ISC2 Certified in Cybersecurity (CC) -->
       <div class="rounded-xl bg-white/5 border border-white/10 p-6 backdrop-blur-sm shadow-lg hover:ring-1 hover:ring-[#00ff9d]/30 transition flex flex-col items-center h-full">
         <div class="h-12 w-12 mx-auto mb-4 rounded-full bg-white flex items-center justify-center">
           <img src="isc2.svg" alt="ISC2 Logo" class="h-8 w-8 object-contain" />
         </div>
-        <div class="text-lg font-semibold mb-1">Certified in Cybersecurity (CC)</div>
+        <div class="text-lg font-semibold mb-1">ISC2 Certified in Cybersecurity (CC)</div>
         <div class="text-sm text-white/70 mb-1">ISC2</div>
         <div class="text-xs text-white/50 mt-1 mb-2">October 2024</div>
         <div class="flex flex-wrap justify-center">
@@ -430,17 +475,17 @@
           <span class="inline-block px-3 py-1 mt-3 mr-2 text-xs rounded-full bg-[#00ff9d]/10 text-[#00ff9d]">Incident Response</span>
           <span class="inline-block px-3 py-1 mt-3 mr-2 text-xs rounded-full bg-[#00ff9d]/10 text-[#00ff9d]">Network Security</span>
         </div>
-        <a href="https://www.credly.com/earner/earned/badge/1189dc54-859c-4c7f-aaa2-435a42adf5d5" target="_blank"
+        <a href="https://www.credly.com/badges/1189dc54-859c-4c7f-aaa2-435a42adf5d5/public_url" target="_blank"
            class="mt-4 inline-block text-sm text-[#00ff9d] border border-[#00ff9d] px-4 py-1.5 rounded hover:bg-[#00ff9d]/10 transition">
           View Credential
         </a>
       </div>
-      <!-- Google Cybersecurity Certificate -->
+      <!-- Google Cybersecurity Professional Certificate -->
       <div class="rounded-xl bg-white/5 border border-white/10 p-6 backdrop-blur-sm shadow-lg hover:ring-1 hover:ring-[#00ff9d]/30 transition flex flex-col items-center h-full">
         <div class="h-12 w-12 mx-auto mb-4 rounded-full bg-white flex items-center justify-center">
           <img src="google.svg" alt="Google G Logo" class="h-8 w-8 object-contain" />
         </div>
-        <div class="text-lg font-semibold mb-1">Google Cybersecurity Certificate</div>
+        <div class="text-lg font-semibold mb-1">Google Cybersecurity Professional Certificate</div>
         <div class="text-sm text-white/70 mb-1">Google</div>
         <div class="text-xs text-white/50 mt-1 mb-2">August 2024</div>
         <div class="flex flex-wrap justify-center">
@@ -476,20 +521,35 @@
       </div>
     </div>
   </div>
-</section>
-<section id="contact" class="bg-[#0f172a] font-inter text-white">
-  <div class="max-w-4xl mx-auto px-6 py-20 text-center">
-    <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-2 text-white">Get in Touch</h2>
-    <p class="text-base text-white/70 mt-2">Let's connect!</p>
-    <p class="text-lg text-white/50 mt-6 max-w-xl mx-auto">
-      Feel free to reach out via
-      <a href="https://linkedin.com/in/abdisamadjoe" target="_blank" class="underline text-white hover:text-[#00ff9d] transition">LinkedIn</a>
+<!-- Contact -->
+  
+  <section id="contact" class="bg-[#0f172a] font-inter text-white py-24 px-6">
+  <div class="max-w-4xl mx-auto flex flex-col items-center text-center">
+    <h2 class="text-3xl md:text-4xl font-extrabold mb-4 text-white">Get in Touch</h2>
+    <p class="text-lg md:text-xl text-white/80 max-w-2xl mx-auto flex flex-wrap justify-center items-center gap-3">
+      Let's connect! Feel free to reach out via
+      <a href="https://www.linkedin.com/in/abdisamadjoe" target="_blank" rel="noopener"
+         class="inline-flex items-center gap-1 underline text-white hover:text-[#00ff9d] transition">
+        <!-- LinkedIn Icon -->
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.27c-.97 0-1.75-.79-1.75-1.76s.78-1.76 1.75-1.76 1.75.79 1.75 1.76-.78 1.76-1.75 1.76zm13.5 11.27h-3v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97v5.7h-3v-10h2.89v1.36h.04c.4-.76 1.37-1.56 2.82-1.56 3.02 0 3.58 1.99 3.58 4.58v5.62z"/>
+        </svg>
+        LinkedIn
+      </a>
       or
-      <a href="https://x.com/abdisamadjoe" target="_blank" class="underline text-white hover:text-[#00ff9d] transition">X (Twitter)</a>
+      <a href="mailto:abdisamadjoe@gmail.com"
+         class="inline-flex items-center gap-1 underline text-white hover:text-[#00ff9d] transition">
+        <!-- Email (Gmail) Icon -->
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2v.01L12 13 4 6.01V6h16zm-16 12V8.99l7.88 7.88c.39.39 1.02.39 1.41 0L20 8.99V18H4z"/>
+        </svg>
+        Email
+      </a>
       and I’ll get back to you as soon as I can.
     </p>
   </div>
   <div class="h-12"></div> <!-- Extra space at the end as a footer spacer -->
 </section>
+  
 </body>
 </html>
