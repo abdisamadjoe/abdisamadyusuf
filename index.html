@@ -202,16 +202,17 @@
   });
 </script>
 
-<!-- ...existing code... -->
+
   <!-- Hero Section -->
 <section id="home" class="relative min-h-screen flex items-center justify-center">
-  <div class="relative z-10 w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 px-4 py-8 pb-24 md:pb-12 mt-2 md:mt-0">
+  <div class="relative z-10 w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 px-4 pt-0 pb-24 md:pb-12 mt-0 md:mt-0
+">
     <!-- Left: Text Content -->
     <div class="flex-1 flex flex-col items-center md:items-start justify-center text-center md:text-left">
       <h3 class="hero-headline text-[1.56rem] sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-white mb-2 whitespace-nowrap" style="line-height:1.1;">
         Hi,<span class="inline-block animate-wave origin-[70%_70%]">👋</span> I’m Abdisamad Yusuf
       </h3>
-      <h3 class="hero-typing block text-[1.56rem] sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#00ff9d] font-mono typing-demo mb-2 whitespace-nowrap" style="line-height:1.1;">
+      <h3 class="hero-typing block text-[1.56rem] sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#00ff9d] font-mono typing-demo mb-2 whitespace-nowrap" style="line-height:1.3;">
         – Cybersecurity Professional
       </h3>
       <p class="mt-2 text-base sm:text-base md:text-lg text-white/90 max-w-xl">
@@ -315,7 +316,38 @@
         GitHub
       </a>
     </div>
-    <!-- Card 2 -->
+
+ <!-- Card 2 -->
+    <div class="bg-[#0f172a]/60 border border-white/50 backdrop-blur-lg rounded-2xl shadow-lg p-8 w-full max-w-sm flex flex-col items-center transition-transform duration-200 hover:shadow-2xl hover:scale-105">
+      <a href="https://youtu.be/MEgc0qQ3yKE?si=z4Ktw_DZj_psexyA" target="_blank" class="block w-full mb-4 relative group">
+        <img src="aws-login.png" alt="AWS Login Alert System" class="w-full h-48 object-cover rounded-xl">
+        <span class="absolute inset-0 flex items-center justify-center">
+          <svg class="w-16 h-16 text-white/90 group-hover:text-[#00ff9d] transition" fill="currentColor" viewBox="0 0 64 64">
+            <circle cx="32" cy="32" r="32" fill="rgba(0,0,0,0.45)"/>
+            <polygon points="26,20 48,32 26,44" fill="#fff"/>
+          </svg>
+        </span>
+      </a>
+      <h3 class="text-lg font-bold text-white text-center mb-2">AWS Login Alert System with CloudTrail, EventBridge, and SNS</h3>
+      <p class="text-gray-300 text-sm text-center mb-3">
+        Built a real-time AWS login alert system that emails you whenever the root or IAM user logs in, using CloudTrail, EventBridge, and SNS.
+      </p>
+      <div class="flex flex-wrap justify-center gap-2 mb-4">
+        <span class="inline-block bg-slate-800 text-gray-100 px-3 py-1 rounded-full text-sm font-medium transition-transform duration-200 badge-mint hover:scale-105 cursor-pointer">CloudTrail</span>
+        <span class="inline-block bg-slate-800 text-gray-100 px-3 py-1 rounded-full text-sm font-medium transition-transform duration-200 badge-mint hover:scale-105 cursor-pointer">EventBridge</span>
+        <span class="inline-block bg-slate-800 text-gray-100 px-3 py-1 rounded-full text-sm font-medium transition-transform duration-200 badge-mint hover:scale-105 cursor-pointer">SNS (Simple Notification Service)</span>
+        <span class="inline-block bg-slate-800 text-gray-100 px-3 py-1 rounded-full text-sm font-medium transition-transform duration-200 badge-mint hover:scale-105 cursor-pointer">AWS Security</span>
+      </div>
+      <a href="https://github.com/abdisamadjoe/aws-login-alerts" target="_blank"
+         class="inline-flex items-center gap-2 px-4 py-2 bg-mint text-black font-semibold rounded-full transition-colors duration-200 hover:bg-white hover:text-black focus:outline-none">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.184 6.839 9.504.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.339-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.987 1.029-2.686-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.025 2.748-1.025.546 1.378.202 2.397.1 2.65.64.699 1.028 1.593 1.028 2.686 0 3.847-2.338 4.695-4.566 4.944.36.31.68.921.68 1.857 0 1.34-.012 2.422-.012 2.753 0 .267.18.578.688.48C19.138 20.203 22 16.447 22 12.021 22 6.484 17.523 2 12 2z"/>
+        </svg>
+        GitHub
+      </a>
+    </div>
+
+    <!-- Card 3 -->
     <div class="bg-[#0f172a]/60 border border-white/50 backdrop-blur-lg rounded-2xl shadow-lg p-8 w-full max-w-sm flex flex-col items-center transition-transform duration-200 hover:shadow-2xl hover:scale-105">
       <img src="VulnerabilityGVM.png" alt="Vulnerability Management Lab" class="w-full h-48 object-cover rounded-xl mb-4">
       <h3 class="text-lg font-bold text-white text-center mb-2">Vulnerability Management Lab</h3>
@@ -335,7 +367,7 @@
         GitHub
       </a>
     </div>
-    <!-- Card 3 -->
+    <!-- Card 4 -->
     <div class="bg-[#0f172a]/60 border border-white/50 backdrop-blur-lg rounded-2xl shadow-lg p-8 w-full max-w-sm flex flex-col items-center transition-transform duration-200 hover:shadow-2xl hover:scale-105">
       <img src="AmazonS3.png" alt="Static Website Hosting on Amazon S3" class="w-full h-48 object-cover rounded-xl mb-4">
       <h3 class="text-lg font-bold text-white text-center mb-2">Static Website Hosting on Amazon S3</h3>
@@ -356,9 +388,17 @@
         GitHub
       </a>
     </div>
-    <!-- Card 4 -->
+      <!-- Card 5 -->
     <div class="bg-[#0f172a]/60 border border-white/50 backdrop-blur-lg rounded-2xl shadow-lg p-8 w-full max-w-sm flex flex-col items-center transition-transform duration-200 hover:shadow-2xl hover:scale-105">
-      <img src="PasswordChecker.png" alt="Password Complexity Checker" class="w-full h-48 object-cover rounded-xl mb-4">
+      <a href="https://youtu.be/gPJyF8NFo_g?si=RY1XoSHssANVmdtV" target="_blank" class="block w-full mb-4 relative group">
+        <img src="PasswordChecker.png" alt="Password Complexity Checker" class="w-full h-48 object-cover rounded-xl">
+        <span class="absolute inset-0 flex items-center justify-center">
+          <svg class="w-16 h-16 text-white/90 group-hover:text-[#00ff9d] transition" fill="currentColor" viewBox="0 0 64 64">
+            <circle cx="32" cy="32" r="32" fill="rgba(0,0,0,0.45)"/>
+            <polygon points="26,20 48,32 26,44" fill="#fff"/>
+          </svg>
+        </span>
+      </a>
       <h3 class="text-lg font-bold text-white text-center mb-2">Password Complexity Checker</h3>
       <p class="text-gray-300 text-sm text-center mb-3">
         Created a Python tool that checks password strength using complexity rules.
@@ -375,7 +415,7 @@
         GitHub
       </a>
     </div>
-    <!-- Card 5 -->
+    <!-- Card 6 -->
     <div class="bg-[#0f172a]/60 border border-white/50 backdrop-blur-lg rounded-2xl shadow-lg p-8 w-full max-w-sm flex flex-col items-center transition-transform duration-200 hover:shadow-2xl hover:scale-105">
       <img src="SimpleKeylogger.png" alt="Simple Python Keylogger" class="w-full h-48 object-cover rounded-xl mb-4">
       <h3 class="text-lg font-bold text-white text-center mb-2">Simple Python Keylogger</h3>
@@ -444,24 +484,28 @@
           View Credential
         </a>
       </div>
-      <!-- Oracle Cloud Infrastructure Foundations Associate -->
+      <!-- SOC Analyst Learning Path -->
       <div class="rounded-xl bg-white/5 border border-white/10 p-6 backdrop-blur-sm shadow-lg hover:ring-1 hover:ring-[#00ff9d]/30 transition flex flex-col items-center h-full">
-  <div class="h-12 w-12 mx-auto mb-4 rounded-full bg-white flex items-center justify-center">
-    <img src="oracle.svg" alt="Oracle Logo" class="h-8 w-8 object-contain" />
-  </div>
-  <div class="text-lg font-semibold mb-1">Oracle Cloud Infrastructure Foundations Associate</div>
-  <div class="text-sm text-white/70 mb-1">Oracle</div>
-  <div class="text-xs text-white/50 mt-1 mb-2">June 2025</div>
-  <div class="flex flex-wrap justify-center">
-    <span class="inline-block px-3 py-1 mt-3 mr-2 text-xs rounded-full bg-[#00ff9d]/10 text-[#00ff9d]">OCI Services</span>
-    <span class="inline-block px-3 py-1 mt-3 mr-2 text-xs rounded-full bg-[#00ff9d]/10 text-[#00ff9d]">OCI Infrastructure</span>
-    <span class="inline-block px-3 py-1 mt-3 mr-2 text-xs rounded-full bg-[#00ff9d]/10 text-[#00ff9d]">Security &amp; Identity Management</span>
-  </div>
-  <a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=57FBA165A4B8CAA11D3D4882597364E289D89AB180789A8948332B3CAE181383" target="_blank"
-     class="mt-4 inline-block text-sm text-[#00ff9d] border border-[#00ff9d] px-4 py-1.5 rounded hover:bg-[#00ff9d]/10 transition">
-    View Credential
-  </a>
-</div>
+        <div class="h-12 w-12 mx-auto mb-4 rounded-full bg-white flex items-center justify-center">
+          <img src="letsdefend.svg" alt="LetsDefend Logo" class="h-8 w-8 object-contain" />
+        </div>
+        <div class="text-lg font-semibold mb-1">SOC Analyst Learning Path</div>
+        <div class="text-sm text-white/70 mb-1">LetsDefend</div>
+        <div class="text-xs text-white/50 mt-1 mb-2">July 2025</div>
+        <div class="flex flex-wrap justify-center">
+          <span class="inline-block px-3 py-1 mt-3 mr-2 text-xs rounded-full bg-[#00ff9d]/10 text-[#00ff9d]">Malware Analysis</span>
+          <span class="inline-block px-3 py-1 mt-3 mr-2 text-xs rounded-full bg-[#00ff9d]/10 text-[#00ff9d]">CTI</span>
+          <span class="inline-block px-3 py-1 mt-3 mr-2 text-xs rounded-full bg-[#00ff9d]/10 text-[#00ff9d]">Wireshark</span>
+          <span class="inline-block px-3 py-1 mt-3 mr-2 text-xs rounded-full bg-[#00ff9d]/10 text-[#00ff9d]">Web Attack Detection</span>
+          <span class="inline-block px-3 py-1 mt-3 mr-2 text-xs rounded-full bg-[#00ff9d]/10 text-[#00ff9d]">Network Log Analysis</span>
+          <span class="inline-block px-3 py-1 mt-3 mr-2 text-xs rounded-full bg-[#00ff9d]/10 text-[#00ff9d]">Splunk</span>
+          <span class="inline-block px-3 py-1 mt-3 mr-2 text-xs rounded-full bg-[#00ff9d]/10 text-[#00ff9d]">VirusTotal</span>
+        </div>
+        <a href="https://app.letsdefend.io/certificate/show/53aa91e4-cfff-47e9-b03b-b9851459df95" target="_blank"
+           class="mt-4 inline-block text-sm text-[#00ff9d] border border-[#00ff9d] px-4 py-1.5 rounded hover:bg-[#00ff9d]/10 transition">
+          View Credential
+        </a>
+      </div>
       <!-- ISC2 Certified in Cybersecurity (CC) -->
       <div class="rounded-xl bg-white/5 border border-white/10 p-6 backdrop-blur-sm shadow-lg hover:ring-1 hover:ring-[#00ff9d]/30 transition flex flex-col items-center h-full">
         <div class="h-12 w-12 mx-auto mb-4 rounded-full bg-white flex items-center justify-center">
