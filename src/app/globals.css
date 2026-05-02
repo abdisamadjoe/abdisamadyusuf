@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #0f172a;
+  --color-mint: #00ff9d;
+  --font-inter: var(--font-inter), sans-serif;
+}
+
+:root {
+  --background: #0f172a;
+  --foreground: #ffffff;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+::selection {
+  background: #00ff9d;
+  color: #0f172a;
+}
+
+@keyframes typing {
+  0% { width: 0 }
+  40% { width: 100% }
+  60% { width: 100% }
+  100% { width: 0 }
+}
+
+@keyframes blink {
+  50% { border-color: transparent }
+}
+
+.typing-demo {
+  width: 0;
+  animation:
+    typing 4s steps(32, end) infinite,
+    blink 1s steps(2, start) infinite;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: .15em solid #00ff9d;
+}
+
+@keyframes float1 {
+  0%, 100% { transform: translateY(0) scale(0.8);}
+  50% { transform: translateY(-18px) scale(0.85);}
+}
+
+@keyframes float2 {
+  0%, 100% { transform: translateY(0) scale(0.8);}
+  50% { transform: translateY(14px) scale(0.84);}
+}
+
+@keyframes float3 {
+  0%, 100% { transform: translateY(0) scale(0.8);}
+  50% { transform: translateY(-10px) scale(0.82);}
+}
+
+.animate-float1 { animation: float1 4s ease-in-out infinite; }
+.animate-float2 { animation: float2 5s ease-in-out infinite; }
+.animate-float3 { animation: float3 3.5s ease-in-out infinite; }
+
+.glass-tag {
+  background: rgba(15,23,42,0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 0 8px 1px #00ff9d55;
+  font-size: 0.8rem;
+  padding: 0.25rem 0.75rem;
+}
+
+@keyframes wave {
+  0% { transform: rotate(0deg);}
+  10% { transform: rotate(14deg);}
+  20% { transform: rotate(-8deg);}
+  30% { transform: rotate(14deg);}
+  40% { transform: rotate(-4deg);}
+  50% { transform: rotate(10deg);}
+  60% { transform: rotate(0deg);}
+  100% { transform: rotate(0deg);}
+}
+
+.animate-wave {
+  animation: wave 2s infinite;
+  display: inline-block;
+}
+
+.badge-mint:hover {
+  background-color: #00ff9d !important;
+  color: #0f172a !important;
+}
+
+@media (max-width: 900px) {
+  .hero-headline, .hero-typing { font-size: 1.2rem !important; }
+}
