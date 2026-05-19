@@ -21,12 +21,12 @@ export default function About() {
           </a>
           , which offers cybersecurity services, and{" "}
           <a
-            href="https://www.facebook.com/TheSameelo/"
+            href="https://www.groundwork.co.ke/"
             target="_blank"
             rel="noopener noreferrer"
             className="underline text-white hover:text-[#00ff9d] transition"
           >
-            Sameelo
+            Groundwork Technologies
           </a>
           , focused on web design and digital solutions.
         </p>
