@@ -1,0 +1,14 @@
+/* @scope cuts this style off at any `.style-isolate` subtree (other than its own wrapper) so a preview can override the document-default style without bleed. */
+
+@scope (.style-preview) to (.style-isolate) {
+  :scope {
+    --chart-background: var(--background);
+    --chart-foreground: var(--foreground);
+    --chart-foreground-muted: var(--muted-foreground);
+    --chart-crosshair: var(--ring);
+    --chart-grid: var(--line);
+    --chart-tooltip-background: var(--popover);
+    --chart-tooltip-foreground: var(--popover-foreground);
+    --chart-tooltip-muted: var(--muted-foreground);
+  }
+}

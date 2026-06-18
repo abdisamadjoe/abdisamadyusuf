@@ -1,0 +1,99 @@
+---
+title: Spinning Circular Text
+description: Text arranged in a circle with a continuous spinning animation.
+image: https://assets.chanhdai.com/images/blog/spinning-circular-text.webp
+category: components
+new: true
+createdAt: 2026-05-30
+updatedAt: 2026-05-30
+---
+
+<ComponentPreview
+  name="spinning-circular-text-demo"
+  openInV0Url="https://chanhdai.com/r/spinning-circular-text.json"
+/>
+
+## Features
+
+- Adjustable character spacing and font size.
+- Container size scales automatically to fit the text ring.
+- Announces the full text to screen readers via hidden content.
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ncdai/spinning-circular-text
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Add the animation to your global CSS</Step>
+
+```css title="globals.css"
+@theme inline {
+  --animate-spin-ccw: spin-ccw
+    var(--tw-animation-duration, var(--tw-duration, 6s)) linear infinite;
+
+  @keyframes spin-ccw {
+    to {
+      rotate: -360deg;
+    }
+  }
+}
+```
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource
+  name="spinning-circular-text"
+  title="components/spinning-circular-text.tsx"
+/>
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { SpinningCircularText } from "@/components/spinning-circular-text"
+```
+
+```tsx
+<SpinningCircularText text="Built with care by ncdai • " />
+```
+
+## Examples
+
+### Shimmering Text
+
+<ComponentPreview name="spinning-circular-text-demo-2" />
+
+## API Reference
+
+### SpinningCircularText
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="SpinningCircularTextProps"
+/>
+
+## Credits
+
+- [@jh3yy](https://x.com/jh3yy/status/1618297458752368640)
+
+<DocSponsors />

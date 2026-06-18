@@ -1,0 +1,107 @@
+---
+title: Copy Button
+description: Copy text to clipboard with visual, haptic, and audio feedback.
+image: https://assets.chanhdai.com/images/blog/copy-button.webp?t=1779078388
+category: components
+createdAt: 2026-02-09
+updatedAt: 2026-05-18
+---
+
+<ComponentPreview
+  className="**:data-[slot=component-preview]:min-h-40"
+  name="copy-button-demo"
+  openInV0Url="https://chanhdai.com/r/copy-button.json"
+/>
+
+## Features
+
+- Animated icon transitions across idle, success, and error states.
+- Haptic feedback confirms copy success on supported devices.
+- UI sounds play distinct success and error cues.
+- Accepts a string or function for dynamic content.
+- Callback support for success and error events.
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ncdai/copy-button
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies</Step>
+
+```bash
+npm install clsx tailwind-merge class-variance-authority lucide-react motion radix-ui
+```
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/lib/utils.ts"
+  title="lib/utils.ts"
+  collapsible="false"
+/>
+
+<Step>Install the required components</Step>
+
+- [Button](https://ui.shadcn.com/docs/components/button)
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource
+  src="src/hooks/use-copy-to-clipboard.ts"
+  title="hooks/use-copy-to-clipboard.ts"
+/>
+
+<ComponentSource name="icon-swap" title="components/icon-swap.tsx" />
+
+<ComponentSource name="copy-button" title="components/copy-button.tsx" />
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { CopyButton } from "@/components/copy-button"
+```
+
+```tsx
+<CopyButton text="Some text to copy" />
+```
+
+## API Reference
+
+### CopyButton
+
+Extends [Button](https://ui.shadcn.com/docs/components/radix/button) with clipboard functionality.
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="CopyButtonProps"
+/>
+
+See [shadcn/ui](https://ui.shadcn.com/docs/components/radix/button#api-reference) documentation for more information.
+
+## References
+
+- [WebHaptics](https://haptics.lochie.me) by [@lochieaxon](https://x.com/lochieaxon)
+- [tiks](https://rexa-developer.github.io/tiks) by [Rexa Developer](https://github.com/rexa-developer)
+
+<DocSponsors />

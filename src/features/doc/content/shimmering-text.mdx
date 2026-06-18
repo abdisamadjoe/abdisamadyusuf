@@ -1,0 +1,102 @@
+---
+title: Shimmering Text
+description: Smooth, light-sweeping shimmer animation for text.
+image: https://assets.chanhdai.com/images/blog/shimmering-text.webp
+category: components
+createdAt: 2025-11-02
+updatedAt: 2026-06-01
+---
+
+<ComponentPreview
+  name="shimmering-text-demo"
+  openInV0Url="https://chanhdai.com/r/shimmering-text.json"
+  remountOnThemeChange
+/>
+
+<Testimonial
+  authorAvatar="https://unavatar.io/x/uixmat"
+  authorName="Matt"
+  authorTagline="Creator of ui.bklit.com"
+  url="https://x.com/uixmat/status/2061477189506187332"
+  quote="Using an adapted version of your Shimmer here @iamncdai"
+  date="2026-06-01"
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ncdai/shimmering-text
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies</Step>
+
+```bash
+npm install motion clsx tailwind-merge
+```
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/lib/utils.ts"
+  title="lib/utils.ts"
+  collapsible="false"
+/>
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource
+  name="shimmering-text"
+  title="components/shimmering-text.tsx"
+/>
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ShimmeringText } from "@/components/shimmering-text"
+```
+
+```tsx
+<ShimmeringText text="slide to unlock" />
+```
+
+## API Reference
+
+### ShimmeringText
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="ShimmeringTextProps"
+/>
+
+## Examples
+
+### Custom Color
+
+<ComponentPreview name="shimmering-text-demo-02" remountOnThemeChange />
+
+CSS Variables explanation:
+
+- `--color`: Base text color (the default/resting state of characters)
+- `--shimmering-color`: Peak highlight color (the bright color characters transition to during the shimmer effect)
+
+<DocSponsors />

@@ -1,0 +1,72 @@
+---
+title: Dot Grid Spotlight
+description: Interactive dot grid with a cursor-tracking spotlight effect.
+image: https://assets.chanhdai.com/images/blog/dot-grid-spotlight.webp
+category: components
+new: true
+createdAt: 2026-05-22
+updatedAt: 2026-05-22
+---
+
+<ComponentPreview
+  name="dot-grid-spotlight-demo"
+  openInV0Url="https://chanhdai.com/r/dot-grid-spotlight.json"
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ncdai/dot-grid-spotlight
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource
+  name="dot-grid-spotlight"
+  title="components/dot-grid-spotlight.tsx"
+/>
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { DotGridSpotlight } from "@/components/dot-grid-spotlight"
+```
+
+```tsx
+<div className="relative aspect-square w-xs">
+  <DotGridSpotlight />
+</div>
+```
+
+## API Reference
+
+### DotGridSpotlight
+
+<AutoTypeTable
+  path="src/registry/components/dot-grid-spotlight/dot-grid-spotlight.tsx"
+  name="DotGridSpotlightProps"
+/>
+
+## Credits
+
+- [ChatGPT](https://chatgpt.com)

@@ -1,0 +1,83 @@
+---
+title: Fluid Gradient Text
+description: Render text with a fluid gradient that shifts with pointer movement.
+image: https://assets.chanhdai.com/images/blog/fluid-gradient-text.webp
+category: components
+createdAt: 2026-05-03
+updatedAt: 2026-05-03
+---
+
+<ComponentPreview
+  className="**:data-[slot=preview]:px-0"
+  name="fluid-gradient-text-demo"
+  openInV0Url="https://chanhdai.com/r/fluid-gradient-text.json"
+  customizeUrl="https://chanhdai.com/preview/fluid-gradient-text-dialkit"
+/>
+
+## Features
+
+- Gradient shifts with horizontal pointer movement for an interactive text effect.
+- Smooth transitions keep the effect natural while moving across the text.
+- `svgViewBoxWidth` and `svgViewBoxHeight` let you tune text scale for different layouts.
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ncdai/fluid-gradient-text
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies</Step>
+
+```bash
+npm install motion
+```
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource
+  name="fluid-gradient-text"
+  title="components/fluid-gradient-text.tsx"
+/>
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { FluidGradientText } from "@/components/fluid-gradient-text"
+```
+
+```tsx
+<FluidGradientText text="shadcn" />
+```
+
+## API Reference
+
+### FluidGradientText
+
+<AutoTypeTable
+  path="src/registry/components/fluid-gradient-text/fluid-gradient-text.tsx"
+  name="FluidGradientTextProps"
+/>
+
+## Credits
+
+- [Vercel](https://vercel.com/design)

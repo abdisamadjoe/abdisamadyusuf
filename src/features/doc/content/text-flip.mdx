@@ -1,0 +1,82 @@
+---
+title: Text Flip
+description: Animated text that cycles through items with a smooth flip transition.
+image: https://assets.chanhdai.com/images/blog/text-flip.webp
+category: components
+createdAt: 2026-02-19
+updatedAt: 2026-02-20
+---
+
+<ComponentPreview
+  name="text-flip-demo"
+  openInV0Url="https://chanhdai.com/r/text-flip.json"
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ncdai/text-flip
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies</Step>
+
+```bash
+npm install motion clsx tailwind-merge
+```
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/lib/utils.ts"
+  title="lib/utils.ts"
+  collapsible="false"
+/>
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource name="text-flip" title="components/text-flip.tsx" />
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { TextFlip } from "@/components/text-flip"
+```
+
+```tsx
+<TextFlip>
+  <span>Developer</span>
+  <span>Designer</span>
+  <span>Creator</span>
+</TextFlip>
+```
+
+## API Reference
+
+### TextFlip
+
+<AutoTypeTable
+  path="src/registry/components/text-flip/text-flip.tsx"
+  name="TextFlipProps"
+/>
+
+<DocSponsors />

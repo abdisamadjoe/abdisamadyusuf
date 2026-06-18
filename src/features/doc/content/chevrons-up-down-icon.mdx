@@ -1,0 +1,85 @@
+---
+title: Chevrons Up Down Icon
+description: Animated chevrons icon that morphs between up and down directions.
+image: https://assets.chanhdai.com/images/blog/chevrons-up-down-icon.webp
+category: components
+new: true
+createdAt: 2026-06-02
+updatedAt: 2026-06-02
+---
+
+<ComponentPreview
+  name="chevrons-up-down-icon-demo"
+  openInV0Url="https://chanhdai.com/r/chevrons-up-down-icon.json"
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ncdai/chevrons-up-down-icon
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies</Step>
+
+```bash
+npm install motion
+```
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource
+  name="chevrons-up-down-icon"
+  title="components/chevrons-up-down-icon.tsx"
+/>
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { useRef } from "react"
+
+import {
+  ChevronsUpDownIcon,
+  ChevronsUpDownIconHandle,
+} from "@/components/chevrons-up-down-icon"
+```
+
+```tsx
+const chevronsUpDownIconRef = useRef<ChevronsUpDownIconHandle>(null)
+```
+
+```tsx
+<ChevronsUpDownIcon ref={chevronsUpDownIconRef} />
+```
+
+Trigger the morph imperatively through the ref:
+
+```tsx
+chevronsUpDownIconRef.current?.startAnimation() // morph to chevrons-down-up
+chevronsUpDownIconRef.current?.stopAnimation() // morph back to chevrons-up-down
+```
+
+## Credits
+
+- [Lucide](https://lucide.dev/icons/chevrons-up-down)
+
+<DocSponsors />

@@ -1,0 +1,174 @@
+---
+title: Glow Card Grid
+description: Display cards with glowing border and background effects.
+image: https://assets.chanhdai.com/images/blog/glow-card-grid.webp
+category: components
+createdAt: 2026-03-30
+updatedAt: 2026-03-30
+---
+
+<ComponentPreview
+  name="glow-card-grid-demo"
+  openInV0Url="https://chanhdai.com/r/glow-card-grid-demo.json"
+  customizeUrl="https://chanhdai.com/preview/glow-card-grid-dialkit"
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ncdai/glow-card-grid
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies</Step>
+
+```bash
+npm install clsx tailwind-merge
+```
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/lib/utils.ts"
+  title="lib/utils.ts"
+  collapsible="false"
+/>
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource
+  src="src/registry/components/glow-card-grid/glow-card-grid.tsx"
+  title="components/glow-card-grid.tsx"
+/>
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { GlowCard, GlowCardGrid } from "@/components/glow-card-grid"
+```
+
+```tsx
+<GlowCardGrid>
+  <GlowCard />
+</GlowCardGrid>
+```
+
+## Composition
+
+Use the following composition to build a `GlowCardGrid`
+
+```text
+GlowCardGrid
+└── GlowCard
+```
+
+## API Reference
+
+### GlowCard
+
+<AutoTypeTable path="src/features/doc/content/props.ts" name="GlowCardProps" />
+
+### GlowCardGrid
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="GlowCardGridProps"
+/>
+
+## Examples
+
+### Tuning Effect Parameters
+
+This example shows how to use DialKit to create live controls for fine-tuning the glow effect parameters in real-time.
+
+[View live demo](/preview/glow-card-grid-dialkit)
+
+<Steps>
+
+<Step>Install DialKit in your project</Step>
+
+Follow the [DialKit installation guide](https://joshpuckett.me/dialkit#installation) to add it to your project.
+
+<Step>Create interactive controls with the useDialKit hook</Step>
+
+Use the hook to define parameter ranges and pass them to your component as props.
+
+```tsx
+import { useDialKit } from "dialkit"
+
+import { GlowCard, GlowCardGrid } from "@/components/glow-card-grid"
+```
+
+```tsx
+const params = useDialKit("GlowCard", {
+  cardRadius: [16, 0, 32, 1],
+  icon: {
+    blur: [25, 0, 100, 1], // [default, min, max, step]
+    saturate: [5.0, 0, 10, 0.1],
+    brightness: [1.3, 0, 4, 0.1],
+    scale: [4, 1, 6, 0.1],
+    opacity: [0.3, 0, 1, 0.01],
+  },
+  border: {
+    width: [3, 1, 6, 1],
+    blur: [10, 0, 100, 1],
+    saturate: [4.2, 0, 10, 0.1],
+    brightness: [2.5, 0, 4, 0.1],
+    contrast: [2.5, 0, 3, 0.1],
+  },
+})
+
+<GlowCardGrid
+  // Card parameters
+  cardRadius={params.cardRadius}
+  // Icon parameters
+  iconBlur={params.icon.blur}
+  iconSaturate={params.icon.saturate}
+  iconBrightness={params.icon.brightness}
+  iconScale={params.icon.scale}
+  iconOpacity={params.icon.opacity}
+  // Border parameters
+  borderWidth={params.border.width}
+  borderBlur={params.border.blur}
+  borderSaturate={params.border.saturate}
+  borderBrightness={params.border.brightness}
+  borderContrast={params.border.contrast}
+>
+  <GlowCard />
+  <GlowCard />
+  <GlowCard />
+</GlowCardGrid>
+```
+
+<Step>Customize the parameters until you are satisfied with the result</Step>
+
+</Steps>
+
+## Credits
+
+- [@jh3yy](https://x.com/jh3yy/status/1992003440579662211)
+
+## References
+
+- [DialKit](https://joshpuckett.me/dialkit)
+
+<DocSponsors />

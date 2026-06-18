@@ -1,0 +1,128 @@
+---
+title: Scroll Fade Effect
+description: Fade content edges as you scroll, for both vertical and horizontal layouts.
+image: https://assets.chanhdai.com/images/blog/scroll-fade-effect.webp
+category: components
+createdAt: 2025-12-08
+updatedAt: 2026-02-20
+---
+
+<ComponentPreview
+  name="scroll-fade-effect-demo"
+  openInV0Url="https://chanhdai.com/r/scroll-fade-effect.json"
+/>
+
+## Features
+
+- Content fades in and out smoothly as you scroll.
+- Supports both vertical and horizontal scrolling.
+
+## Browser Compatibility
+
+This component uses CSS `animation-timeline: scroll()`. Check the latest [browser compatibility on MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timeline#browser_compatibility) before using in production.
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ncdai/scroll-fade-effect
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies</Step>
+
+```bash
+npm install clsx tailwind-merge
+```
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/lib/utils.ts"
+  title="lib/utils.ts"
+  collapsible="false"
+/>
+
+<Step>Add Tailwind CSS utilities and animations</Step>
+
+<ComponentSource src="src/styles/scroll-fade-effect.css" title="globals.css" />
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource
+  name="scroll-fade-effect"
+  title="components/scroll-fade-effect.tsx"
+  collapsible="false"
+/>
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ScrollFadeEffect } from "@/components/scroll-fade-effect"
+```
+
+```tsx
+<div className="rounded-lg border">
+  <ScrollFadeEffect className="h-72 w-48">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Turpis egestas pretium
+    aenean pharetra. Orci eu lobortis elementum nibh tellus molestie. Vulputate
+    dignissim suspendisse in est. Vel pharetra vel turpis nunc. Malesuada nunc
+    vel risus commodo. Nisi vitae suscipit tellus mauris. Posuere morbi leo urna
+    molestie at elementum eu. Urna duis convallis convallis tellus. Urna
+    molestie at elementum eu. Nunc sed blandit libero volutpat.
+  </ScrollFadeEffect>
+</div>
+```
+
+## API Reference
+
+### ScrollFadeEffect
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="ScrollFadeEffectProps"
+/>
+
+## Examples
+
+### Horizontal Scrolling
+
+<ComponentPreview name="scroll-fade-effect-demo-02" data-code-meta="{28}" />
+
+### shadcn/ui Scroll Area
+
+<ComponentPreview name="scroll-fade-effect-demo-03" data-code-meta="{16}" />
+
+### shadcn/ui Scroll Area – Horizontal Scrolling
+
+<ComponentPreview name="scroll-fade-effect-demo-04" data-code-meta="{31}" />
+
+## Credits
+
+- [Rohit Singh Rawat](https://craft.rohitsinghrawat.com/crafts/scroll-timeline)
+
+## References
+
+- [animation-timeline](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timeline#browser_compatibility)
+- [Scroll Area](https://ui.shadcn.com/docs/components/scroll-area)
+
+<DocSponsors />

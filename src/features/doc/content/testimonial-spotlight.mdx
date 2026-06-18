@@ -1,0 +1,169 @@
+---
+title: Testimonial Spotlight
+description: Testimonial card with spotlight effect on hover.
+image: https://assets.chanhdai.com/images/blog/testimonial-spotlight.webp
+category: components
+createdAt: 2026-03-21
+updatedAt: 2026-05-23
+---
+
+<ComponentPreview name="testimonial-spotlight-demo" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ncdai/testimonial-spotlight
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies</Step>
+
+```bash
+npm install clsx tailwind-merge
+```
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/lib/utils.ts"
+  title="lib/utils.ts"
+  collapsible="false"
+/>
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource name="testimonial" title="components/testimonial.tsx" />
+
+<ComponentSource
+  name="testimonial-spotlight"
+  title="components/testimonial-spotlight.tsx"
+/>
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import {
+  Testimonial,
+  TestimonialAuthor,
+  TestimonialAuthorInfo,
+  TestimonialAuthorName,
+  TestimonialAuthorTagline,
+  TestimonialAvatar,
+  TestimonialAvatarImg,
+  TestimonialAvatarRing,
+  TestimonialQuote,
+  TestimonialVerifiedBadge,
+} from "@/components/testimonial"
+import { TestimonialSpotlight } from "@/components/testimonial-spotlight"
+```
+
+```tsx
+<TestimonialSpotlight>
+  <Testimonial>
+    <TestimonialQuote />
+
+    <TestimonialAuthor>
+      <TestimonialAvatar>
+        <TestimonialAvatarImg />
+        <TestimonialAvatarRing />
+      </TestimonialAvatar>
+
+      <TestimonialAuthorName>
+        <TestimonialVerifiedBadge />
+      </TestimonialAuthorName>
+
+      <TestimonialAuthorTagline />
+    </TestimonialAuthor>
+  </Testimonial>
+</TestimonialSpotlight>
+```
+
+## Composition
+
+Use the following composition to build a `TestimonialSpotlight`
+
+```text
+TestimonialSpotlight
+└── Testimonial
+    ├── TestimonialQuote
+    └── TestimonialAuthor
+        ├── TestimonialAvatar
+        │   ├── TestimonialAvatarImg
+        │   └── TestimonialAvatarRing
+        ├── TestimonialAuthorName
+        │   └── TestimonialVerifiedBadge
+        └── TestimonialAuthorTagline
+```
+
+## API Reference
+
+### TestimonialSpotlight
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="TestimonialSpotlightProps"
+/>
+
+<div data-table-nowrap="">
+
+| CSS Variable          | Description                                                                     | Default                 |
+| --------------------- | ------------------------------------------------------------------------------- | ----------------------- |
+| `--spotlight-color`   | The color of the spotlight effect.                                              | `rgba(255,255,255,0.2)` |
+| `--spotlight-size`    | The size of the spotlight effect, defined as the radius of the radial gradient. | `60%`                   |
+| `--spotlight-opacity` | The opacity of the spotlight effect when hovered.                               | `0.5`                   |
+
+</div>
+
+## Examples
+
+### Custom color, size, and opacity
+
+Tailwind CSS:
+
+```tsx
+<TestimonialSpotlight
+  className={cn(
+    "[--spotlight-color:rgba(219,39,119,0.15)] dark:[--spotlight-color:rgba(255,255,255,0.2)]",
+    "[--spotlight-opacity:0.8] [--spotlight-size:50%]"
+  )}
+>
+  ...
+</TestimonialSpotlight>
+```
+
+Or with inline style:
+
+```tsx
+<TestimonialSpotlight
+  style={
+    {
+      "--spotlight-color": "rgba(219,39,119,0.15)",
+      "--spotlight-size": "50%",
+      "--spotlight-opacity": "0.8",
+    } as React.CSSProperties
+  }
+>
+  ...
+</TestimonialSpotlight>
+```
+
+<DocSponsors />

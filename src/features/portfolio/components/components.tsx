@@ -1,0 +1,86 @@
+import type { Route } from "next"
+import Link from "next/link"
+import { ArrowRightIcon } from "lucide-react"
+
+import { cn } from "@/lib/utils"
+import { Button } from "@/components/base/ui/button"
+import { ComponentIcon } from "@/components/icons"
+import {
+  ComponentItem,
+  ComponentItemDot,
+  ComponentItemIcon,
+  ComponentItemTitle,
+} from "@/components/component-item"
+import { getDocsByCategory } from "@/features/doc/data/documents"
+
+import { Panel, PanelHeader, PanelTitle, PanelTitleSup } from "./panel"
+import { PanelTitleCopy } from "./panel-title-copy"
+
+const ID = "components"
+
+export function Components() {
+  const components = getDocsByCategory("components")
+
+  return (
+    <Panel id={ID}>
+      <PanelHeader>
+        <PanelTitle>
+          <a href={`#${ID}`}>Components</a>
+          <PanelTitleSup>({components.length})</PanelTitleSup>
+          <PanelTitleCopy id={ID} />
+        </PanelTitle>
+      </PanelHeader>
+
+      <div className="relative pt-4">
+        <div className="pointer-events-none absolute inset-0 -z-1 grid grid-cols-1 max-sm:hidden sm:grid-cols-2 md:grid-cols-3">
+          <div className="border-r border-line" />
+          <div className="border-r border-line max-md:hidden" />
+        </div>
+
+        <div className="screen-line-bottom h-px" />
+
+        <ul className="grid grid-cols-1 overflow-x-clip sm:grid-cols-2 md:grid-cols-3">
+          {components.slice(0, 12).map((c) => (
+            <li
+              key={c.slug}
+              className={cn(
+                "max-sm:screen-line-bottom",
+                "sm:max-md:nth-[2n+1]:screen-line-bottom",
+                "md:nth-[3n+1]:screen-line-bottom"
+              )}
+            >
+              <ComponentItem href={`/components/${c.slug}` as Route}>
+                <ComponentItemIcon>
+                  <ComponentIcon variant={c.slug} />
+                  {(c.metadata.new || c.metadata.updated) && (
+                    <ComponentItemDot
+                      aria-label={c.metadata.new ? "New" : "Updated"}
+                    />
+                  )}
+                </ComponentItemIcon>
+                <ComponentItemTitle as="h3">
+                  {c.metadata.title}
+                </ComponentItemTitle>
+              </ComponentItem>
+            </li>
+          ))}
+        </ul>
+
+        <div className="screen-line-top h-4 before:-top-px" />
+      </div>
+
+      <div className="screen-line-top flex justify-center py-2">
+        <Button
+          className="gap-2 pr-2.5 pl-3"
+          variant="secondary"
+          size="sm"
+          nativeButton={false}
+          render={<Link href="/components" />}
+        >
+          All Components
+          <ArrowRightIcon />
+        </Button>
+      </div>
+    </Panel>
+  )
+}

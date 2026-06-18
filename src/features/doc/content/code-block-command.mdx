@@ -1,0 +1,176 @@
+---
+title: Code Block Command
+description: Display install commands with package manager switcher and copy button.
+image: https://assets.chanhdai.com/images/blog/code-block-command.webp?t=1779078388
+category: components
+createdAt: 2026-02-08
+updatedAt: 2026-04-06
+---
+
+<ComponentPreview
+  className="**:data-[slot=preview]:[--code:var(--surface)]"
+  name="code-block-command-demo"
+  openInV0Url="https://chanhdai.com/r/code-block-command.json"
+/>
+
+## Features
+
+- Switch between pnpm, yarn, npm, and bun with a single click.
+- Optional `prompt` tab for displaying a natural language instruction for AI agents to install packages or components.
+- Automatically saves the user’s preferred package manager for future visits.
+- Copy commands instantly with smooth animations showing success or failure states.
+- `convertNpmCommand` utility to auto-convert a standard npm command to all package managers.
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ncdai/code-block-command
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies</Step>
+
+```bash
+npm install clsx tailwind-merge class-variance-authority lucide-react motion jotai radix-ui @base-ui/react
+```
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/lib/utils.ts"
+  title="lib/utils.ts"
+  collapsible="false"
+/>
+
+<Step>Install the required components</Step>
+
+- [Copy Button](https://chanhdai.com/components/copy-button)
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource
+  src="src/components/base/ui/tabs.tsx"
+  title="components/tabs.tsx"
+/>
+
+<ComponentSource
+  name="code-block-command"
+  title="components/code-block-command.tsx"
+/>
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import {
+  CodeBlockCommand,
+  convertNpmCommand,
+} from "@/components/code-block-command"
+```
+
+```tsx
+<CodeBlockCommand
+  prompt="Add the button component to my project"
+  pnpm="pnpm dlx shadcn add button"
+  yarn="yarn dlx shadcn add button"
+  npm="npx shadcn add button"
+  bun="bunx --bun shadcn add button"
+/>
+```
+
+Or use `convertNpmCommand` to auto-convert from a standard npm command:
+
+```tsx
+<CodeBlockCommand
+  prompt="Add the button component to my project"
+  {...convertNpmCommand("npx shadcn add button")}
+/>
+```
+
+## API Reference
+
+### CodeBlockCommand
+
+<AutoTypeTable
+  path="src/registry/components/code-block-command/code-block-command.tsx"
+  name="CodeBlockCommandProps"
+/>
+
+### convertNpmCommand
+
+Converts a standard npm/npx command into equivalent commands for all package managers. The result can be spread directly into `CodeBlockCommand` props.
+
+<AutoTypeTable
+  path="src/registry/components/code-block-command/code-block-command.tsx"
+  name="ConvertNpmCommandResult"
+/>
+
+Supported command patterns:
+
+<div data-table-nowrap="">
+
+| npm command         | pnpm                 | yarn                 | bun                        |
+| ------------------- | -------------------- | -------------------- | -------------------------- |
+| `npm install`       | `pnpm add`           | `yarn add`           | `bun add`                  |
+| `npx create-<name>` | `pnpm create <name>` | `yarn create <name>` | `bunx --bun create-<name>` |
+| `npm create`        | `pnpm create`        | `yarn create`        | `bun create`               |
+| `npx`               | `pnpm dlx`           | `yarn dlx`           | `bunx --bun`               |
+| `npm run`           | `pnpm`               | `yarn`               | `bun`                      |
+
+</div>
+
+## Examples
+
+### Convert from npm
+
+Use `convertNpmCommand` to avoid manually writing commands for each package manager.
+
+<ComponentPreview
+  className="**:data-[slot=preview]:[--code:var(--surface)]"
+  name="code-block-command-convert"
+/>
+
+### Analytics Tracking
+
+Track user interactions with analytics services like [PostHog](https://posthog.com), [OpenPanel](https://openpanel.dev), or [Google Analytics](https://analytics.google.com).
+
+```tsx {3,12}
+<CodeBlockCommand
+  {...convertNpmCommand("npx shadcn add button")}
+  onCopySuccess={({ packageManager, command }) => {
+    trackEvent({
+      name: "command_copied",
+      properties: {
+        packageManager,
+        command,
+      },
+    })
+  }}
+  onCopyError={(error) => {
+    trackEvent({
+      name: "command_copy_failed",
+      properties: { error: error.message },
+    })
+  }}
+/>
+```
+
+<DocSponsors />

@@ -1,0 +1,72 @@
+[
+  {
+    "name": "social-links-01",
+    "description": "A social links section with a lined grid layout.",
+    "categories": [
+      "marketing"
+    ]
+  },
+  {
+    "name": "metrics-01",
+    "description": "A metrics section with a line chart.",
+    "categories": [
+      "marketing"
+    ]
+  },
+  {
+    "name": "team-01",
+    "description": "A team section with glowing cards.",
+    "categories": [
+      "marketing"
+    ]
+  },
+  {
+    "name": "testimonials-02",
+    "description": "A testimonials section with a lined layout.",
+    "categories": [
+      "marketing"
+    ]
+  },
+  {
+    "name": "experience-01",
+    "description": "A work experience section with a lined layout.",
+    "categories": [
+      "marketing"
+    ]
+  },
+  {
+    "name": "testimonials-01",
+    "description": "A testimonials section with dual marquees.",
+    "categories": [
+      "marketing"
+    ]
+  },
+  {
+    "name": "blog-02",
+    "description": "A blog section with a lined grid layout.",
+    "categories": [
+      "marketing"
+    ]
+  },
+  {
+    "name": "blog-01",
+    "description": "A blog section with a grid layout.",
+    "categories": [
+      "marketing"
+    ]
+  },
+  {
+    "name": "hero-01",
+    "description": "A hero section with a golden spiral background.",
+    "categories": [
+      "marketing"
+    ]
+  },
+  {
+    "name": "login-01",
+    "description": "A simple login form.",
+    "categories": [
+      "application"
+    ]
+  }
+]

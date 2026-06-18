@@ -1,0 +1,80 @@
+---
+title: Icon Swap
+description: Animate icon swaps with scale, blur, and fade transitions.
+image: https://assets.chanhdai.com/images/blog/icon-swap.webp?t=1779078388
+category: components
+new: true
+createdAt: 2026-05-18
+updatedAt: 2026-05-18
+---
+
+<ComponentPreview
+  name="icon-swap-demo"
+  openInV0Url="https://chanhdai.com/r/icon-swap.json"
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ncdai/icon-swap
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies</Step>
+
+```bash
+npm install motion
+```
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource name="icon-swap" title="components/icon-swap.tsx" />
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { IconSwap, IconSwapItem } from "@/components/icon-swap"
+```
+
+```tsx
+<IconSwap>
+  <IconSwapItem key={isCopied ? "check" : "copy"}>
+    {isCopied ? <CheckIcon /> : <CopyIcon />}
+  </IconSwapItem>
+</IconSwap>
+```
+
+Change the `key` on `IconSwapItem` whenever the icon should swap.
+
+## Composition
+
+Use the following composition to build an `IconSwap`
+
+```text
+IconSwap
+└── IconSwapItem
+    └── {icon}
+```
+
+## Credits
+
+- [Emil Kowalski](https://emilkowal.ski/ui/7-practical-animation-tips#7.-use-blur-when-nothing-else-works)

@@ -1,0 +1,100 @@
+---
+title: Brand Assets Menu
+description: Context menu for copying brand SVGs and opening asset links.
+image: https://assets.chanhdai.com/images/blog/brand-assets-menu.webp
+category: components
+createdAt: 2026-05-07
+updatedAt: 2026-05-07
+---
+
+<ComponentPreview
+  name="brand-assets-menu-demo"
+  openInV0Url="https://chanhdai.com/r/brand-assets-menu.json"
+/>
+
+## Features
+
+- Copy mark and logotype SVGs to the clipboard with toast feedback.
+- Link out to brand guidelines and asset downloads from one menu.
+- Wrap any element to use it as a right-click or press-and-hold trigger.
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ncdai/brand-assets-menu
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies</Step>
+
+```bash
+npm install clsx tailwind-merge lucide-react
+```
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/lib/utils.ts"
+  title="lib/utils.ts"
+  collapsible="false"
+/>
+
+<Step>Install the required components</Step>
+
+- [Context Menu](https://ui.shadcn.com/docs/components/context-menu)
+- [Sonner](https://ui.shadcn.com/docs/components/sonner)
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource
+  name="brand-assets-menu"
+  title="components/brand-assets-menu.tsx"
+/>
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { BrandAssetsMenu } from "@/components/brand-assets-menu"
+```
+
+```tsx
+<BrandAssetsMenu
+  logomark={<ChanhDaiMark />}
+  logomarkSVG="<svg>...</svg>"
+  logotypeSVG="<svg>...</svg>"
+  brandGuidelinesURL="https://chanhdai.com/blog/chanhdai-brand"
+  brandAssetsURL="https://assets.chanhdai.com/chanhdai-brand.zip"
+>
+  <Link />
+</BrandAssetsMenu>
+```
+
+## API Reference
+
+### BrandAssetsMenu
+
+<AutoTypeTable
+  path="src/registry/components/brand-assets-menu/brand-assets-menu.tsx"
+  name="BrandAssetsMenuProps"
+/>
+
+<DocSponsors />

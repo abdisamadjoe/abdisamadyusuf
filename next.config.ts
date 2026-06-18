@@ -1,7 +1,21 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  transpilePackages: ["next-mdx-remote"],
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "assets.chanhdai.com",
+        port: "",
+      },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        port: "",
+      },
+    ],
+  },
 };
 
 export default nextConfig;

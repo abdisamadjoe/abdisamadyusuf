@@ -1,0 +1,102 @@
+---
+title: Consent Manager
+description: Cookie and tracking consent banner for Next.js, built on c15t.
+image: https://assets.chanhdai.com/images/blog/consent-manager.webp
+category: components
+createdAt: 2025-12-16
+updatedAt: 2026-03-01
+---
+
+<IframeEmbed
+  className="aspect-3/4 sm:aspect-square md:aspect-video"
+  src="https://react-wheel-picker.chanhdai.com/sponsors"
+  title="Consent Manager Demo"
+/>
+
+<Testimonial
+  authorAvatar="https://unavatar.io/x/BurnedChris"
+  authorName="Christopher Burns"
+  authorTagline="Creator of c15t.com"
+  url="https://x.com/BurnedChris/status/2000947403571204445"
+  quote="This is super cool, Full circle moment (the prototype for c15t actually used shadcn). Would love to get this in our docs also and shared in our discord!"
+  date="2025-12-16"
+/>
+
+## Features
+
+- Built on top of [c15t](https://c15t.com/docs/frameworks/next/quickstart).
+- Theme customized to match [shadcn/ui](https://ui.shadcn.com/docs/theming).
+- Designed for Next.js, adaptable to other frameworks via [c15t docs](https://c15t.com).
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ncdai/consent-manager
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies</Step>
+
+```bash
+npm install clsx tailwind-merge @c15t/nextjs
+```
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/lib/utils.ts"
+  title="lib/utils.ts"
+  collapsible="false"
+/>
+
+<Step>Install the required components</Step>
+
+- [Button](https://ui.shadcn.com/docs/components/button)
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource
+  name="consent-manager"
+  title="components/consent-manager.tsx"
+/>
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+Wrap your app with the `ConsentManager` component:
+
+```tsx title="app/layout.tsx" {1,7}
+import { ConsentManager } from "@/components/consent-manager"
+
+export default function Layout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en">
+      <body>
+        <ConsentManager>{children}</ConsentManager>
+      </body>
+    </html>
+  )
+}
+```
+
+For customization and advanced usage, see [c15t’s documentation](https://c15t.com/docs/frameworks/next/quickstart).
+
+<DocSponsors />

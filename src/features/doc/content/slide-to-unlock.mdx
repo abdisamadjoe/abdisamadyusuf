@@ -1,0 +1,151 @@
+---
+title: Slide to Unlock
+description: Interactive slider inspired by the classic iPhone “slide to unlock” gesture.
+image: https://assets.chanhdai.com/images/blog/slide-to-unlock.webp
+category: components
+createdAt: 2025-10-08
+updatedAt: 2026-02-20
+---
+
+<ComponentPreview
+  name="slide-to-unlock-demo"
+  openInV0Url="https://chanhdai.com/r/slide-to-unlock.json"
+  remountOnThemeChange
+/>
+
+<Testimonial
+  authorAvatar="https://unavatar.io/x/rauchg"
+  authorName="Guillermo Rauch"
+  authorTagline="CEO @Vercel"
+  url="https://x.com/rauchg/status/1978913158514237669"
+  quote="awesome. Love the components, especially slide-to-unlock. Great job"
+  date="2025-10-17"
+/>
+
+## Features
+
+- Smooth drag interaction with spring physics via Motion.
+- Composable compound components (track, handle, text).
+- Customizable handle and colors.
+- Built-in shimmering text effect.
+
+<Callout>
+  Want to build animations like Slide to Unlock? I highly recommend [Emil
+  Kowalski](https://x.com/emilkowalski)’s animations.dev course. [Take the
+  course](https://animations.dev)
+</Callout>
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ncdai/slide-to-unlock
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies</Step>
+
+```bash
+npm install motion clsx tailwind-merge
+```
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/lib/utils.ts"
+  title="lib/utils.ts"
+  collapsible="false"
+/>
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource
+  name="shimmering-text"
+  title="components/shimmering-text.tsx"
+/>
+
+<ComponentSource
+  name="slide-to-unlock"
+  title="components/slide-to-unlock.tsx"
+/>
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ShimmeringText } from "@/components/shimmering-text"
+import {
+  SlideToUnlock,
+  SlideToUnlockHandle,
+  SlideToUnlockText,
+  SlideToUnlockTrack,
+} from "@/components/slide-to-unlock"
+```
+
+```tsx
+<SlideToUnlock>
+  <SlideToUnlockTrack>
+    <SlideToUnlockText>
+      <ShimmeringText />
+    </SlideToUnlockText>
+    <SlideToUnlockHandle />
+  </SlideToUnlockTrack>
+</SlideToUnlock>
+```
+
+## Composition
+
+Use the following composition to build a `SlideToUnlock`
+
+```text
+SlideToUnlock
+└── SlideToUnlockTrack
+    ├── SlideToUnlockText
+    │   └── ShimmeringText
+    └── SlideToUnlockHandle
+```
+
+## API Reference
+
+### SlideToUnlock
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="SlideToUnlockRootProps"
+/>
+
+### SlideToUnlockText
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="SlideToUnlockTextProps"
+/>
+
+## Examples
+
+### Custom Color
+
+<ComponentPreview name="slide-to-unlock-demo-02" remountOnThemeChange />
+
+### Custom Handle
+
+<ComponentPreview name="slide-to-unlock-demo-03" remountOnThemeChange />
+
+<DocSponsors />

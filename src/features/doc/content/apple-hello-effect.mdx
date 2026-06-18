@@ -1,0 +1,139 @@
+---
+title: Apple Hello Effect
+description: SVG writing animation inspired by Apple’s “Hello” screen.
+image: https://assets.chanhdai.com/images/blog/writing-effect-inspired-by-apple.webp
+category: components
+createdAt: 2025-03-08
+updatedAt: 2026-04-05
+---
+
+<ComponentPreview
+  className="text-foreground"
+  name="apple-hello-effect-languages-demo"
+  openInV0Url="https://chanhdai.com/r/apple-hello-effect.json"
+  canReplay
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+For English:
+
+```bash
+npx shadcn@latest add @ncdai/apple-hello-effect
+```
+
+For Hindi:
+
+```bash
+npx shadcn@latest add @ncdai/apple-hello-effect-hindi
+```
+
+For Spanish:
+
+```bash
+npx shadcn@latest add @ncdai/apple-hello-effect-spanish
+```
+
+For Vietnamese:
+
+```bash
+npx shadcn@latest add @ncdai/apple-hello-effect-vietnamese
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies</Step>
+
+```bash
+npm install motion clsx tailwind-merge
+```
+
+<Step>Add a cn helper</Step>
+
+<ComponentSource
+  src="src/lib/utils.ts"
+  title="lib/utils.ts"
+  collapsible="false"
+/>
+
+<Step>Copy and paste the following code into your project</Step>
+
+For English:
+
+<ComponentSource
+  name="apple-hello-effect"
+  title="components/apple-hello-effect-english.tsx"
+/>
+
+For Hindi:
+
+<ComponentSource
+  name="apple-hello-effect-hindi"
+  title="components/apple-hello-effect-hindi.tsx"
+/>
+
+For Spanish:
+
+<ComponentSource
+  name="apple-hello-effect-spanish"
+  title="components/apple-hello-effect-spanish.tsx"
+/>
+
+For Vietnamese:
+
+<ComponentSource
+  name="apple-hello-effect-vietnamese"
+  title="components/apple-hello-effect-vietnamese.tsx"
+/>
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { AppleHelloEffectEnglish } from "@/components/apple-hello-effect-english"
+import { AppleHelloEffectHindi } from "@/components/apple-hello-effect-hindi"
+import { AppleHelloEffectSpanish } from "@/components/apple-hello-effect-spanish"
+import { AppleHelloEffectVietnamese } from "@/components/apple-hello-effect-vietnamese"
+```
+
+```tsx
+<AppleHelloEffectEnglish />
+<AppleHelloEffectHindi />
+<AppleHelloEffectSpanish />
+<AppleHelloEffectVietnamese />
+```
+
+## API Reference
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="AppleHelloEffectProps"
+/>
+
+## Credits
+
+- [JaceThings](https://github.com/JaceThings/SF-Hello)
+
+## References
+
+- [SVG pathLength](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/pathLength)
+- [React Motion component](https://motion.dev/docs/react-motion-component)
+
+<DocSponsors />

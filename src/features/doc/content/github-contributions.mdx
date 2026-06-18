@@ -1,0 +1,113 @@
+---
+title: GitHub Contributions
+description: Visualize year-long GitHub contribution activity with daily counts, tooltips, and a profile link.
+image: https://assets.chanhdai.com/images/blog/github-contributions.webp
+category: components
+createdAt: 2026-04-18
+updatedAt: 2026-05-08
+---
+
+<ComponentPreview
+  className="**:data-[slot=preview]:px-0"
+  name="github-contributions-demo"
+  openInV0Url="https://chanhdai.com/r/github-contributions.json"
+/>
+
+## Features
+
+- Built on Kibo UI [Contribution Graph](https://www.kibo-ui.com/components/contribution-graph) for the calendar grid, legend, and yearly total.
+- Loads contribution data from Jonathan Gruber's [GitHub Contributions API](https://github.com/grubersjoe/github-contributions-api).
+- Uses Next.js `unstable_cache` with a one-day revalidation window, then passes a `Promise` into the client and resolves it with React `use()`
+
+## Installation
+
+<CodeTabs>
+
+<TabsListInstallType />
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ncdai/github-contributions
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the required shadcn/ui components</Step>
+
+- https://ui.shadcn.com/docs/components/tooltip
+
+<Step>Copy and paste the following code into your project</Step>
+
+<ComponentSource
+  name="contribution-graph"
+  title="components/contribution-graph.tsx"
+/>
+
+<ComponentSource
+  name="github-contributions"
+  title="components/github-contributions.tsx"
+/>
+
+<ComponentSource
+  src="src/registry/components/github-contributions/lib/get-cached-contributions.ts"
+  title="lib/get-cached-contributions.tsx"
+/>
+
+<Step>Update the import paths to match your project setup</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+<ComponentSource name="github-contributions-demo" collapsible="false" />
+
+## API Reference
+
+### GitHubContributions
+
+<AutoTypeTable
+  path="src/features/doc/content/props.ts"
+  name="GitHubContributionsProps"
+/>
+
+## Examples
+
+### GitHub Default Theme
+
+<ComponentPreview
+  className="**:data-[slot=preview]:px-0"
+  name="github-contributions-default-theme"
+/>
+
+### GitHub Winter Theme
+
+<ComponentPreview
+  className="**:data-[slot=preview]:px-0"
+  name="github-contributions-winter-theme"
+/>
+
+### GitHub Halloween Theme
+
+<ComponentPreview
+  className="**:data-[slot=preview]:px-0"
+  name="github-contributions-halloween-theme"
+/>
+
+## Credits
+
+- [Kibo UI](https://www.kibo-ui.com/components/contribution-graph)
+
+## References
+
+- [GitHub Contributions API](https://github.com/grubersjoe/github-contributions-api) by [Jonathan Gruber](https://jogruber.de)
+
+<DocSponsors />
