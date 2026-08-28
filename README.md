@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/9ca02e6d-37d8-48a9-872e-06f561090574" alt="abdisamadjoe.com" width="110" />
+  <img src="https://github.com/user-attachments/assets/3cf26672-4a03-46c2-8b56-2bef5b9d5165" alt="abdisamadjoe.com" width="110" />
 </p>
 
 <h1 align="center">abdisamadjoe.com</h1>
@@ -30,7 +30,7 @@
 
 <p align="center">
   <a href="https://abdisamadjoe.com">
-    <img src="https://github.com/user-attachments/assets/4b52b758-5c17-4379-9acb-f0515b4e3e09" alt="abdisamadjoe.com screenshot" width="720" />
+    <img src="https://github.com/user-attachments/assets/2e577ec6-6d4c-4053-82d0-6bae64ae7379" alt="abdisamadjoe.com screenshot" width="720" />
   </a>
 </p>
 
