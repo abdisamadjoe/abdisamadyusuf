@@ -1,0 +1,55 @@
+{
+  "short_name": "Chánh Đại",
+  "name": "Chánh Đại",
+  "description": "Creating with code. Small details matter.",
+  "icons": [
+    {
+      "src": "/icon.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
+    }
+  ],
+  "id": "/?utm_source=pwa",
+  "start_url": "/?utm_source=pwa",
+  "display": "standalone",
+  "scope": "/",
+  "screenshots": [
+    {
+      "src": "https://assets.abdisamadjoe.com/images/screenshot-mobile-dark.webp?t=1778602757",
+      "type": "image/webp",
+      "sizes": "440x956",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "https://assets.abdisamadjoe.com/images/screenshot-mobile-light.webp?t=1778602757",
+      "type": "image/webp",
+      "sizes": "440x956",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "https://assets.abdisamadjoe.com/images/screenshot-desktop-dark.webp?t=1778602757",
+      "type": "image/webp",
+      "sizes": "1512x982",
+      "form_factor": "wide"
+    },
+    {
+      "src": "https://assets.abdisamadjoe.com/images/screenshot-desktop-light.webp?t=1778602757",
+      "type": "image/webp",
+      "sizes": "1512x982",
+      "form_factor": "wide"
+    }
+  ]
+}

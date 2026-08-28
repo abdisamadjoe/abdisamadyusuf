@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "icon-swap",
+  "title": "Icon Swap",
+  "author": "abdisamadjoe <hello@abdisamadjoe.com>",
+  "description": "Animate icon swaps with scale, blur, and fade transitions.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "src/registry/components/icon-swap/icon-swap.tsx",
+      "content": "\"use client\"\n\nimport type { AnimatePresenceProps, HTMLMotionProps } from \"motion/react\"\nimport { AnimatePresence, motion } from \"motion/react\"\n\nexport function IconSwap(props: React.PropsWithChildren<AnimatePresenceProps>) {\n  return <AnimatePresence mode=\"popLayout\" initial={false} {...props} />\n}\n\ntype MotionElement = typeof motion.div | typeof motion.span\n\nexport function IconSwapItem({\n  as: Component = motion.div,\n  ...props\n}: HTMLMotionProps<\"div\"> & {\n  as?: MotionElement\n}) {\n  return (\n    <Component\n      initial={{ opacity: 0, scale: 0.25, filter: \"blur(4px)\" }}\n      animate={{ opacity: 1, scale: 1, filter: \"blur(0px)\" }}\n      exit={{ opacity: 0, scale: 0.25, filter: \"blur(4px)\" }}\n      transition={{\n        type: \"spring\",\n        duration: 0.3,\n        bounce: 0,\n      }}\n      {...props}\n    />\n  )\n}\n",
+      "type": "registry:component",
+      "target": "@components/icon-swap.tsx"
+    }
+  ],
+  "docs": "https://abdisamadjoe.com/components/icon-swap",
+  "categories": [
+    "effects"
+  ],
+  "type": "registry:component"
+}

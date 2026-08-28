@@ -1,0 +1,38 @@
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "base-nova",
+  "rsc": true,
+  "tsx": true,
+  "tailwind": {
+    "config": "",
+    "css": "src/styles/globals.css",
+    "baseColor": "zinc",
+    "cssVariables": true,
+    "prefix": ""
+  },
+  "iconLibrary": "lucide",
+  "rtl": false,
+  "menuColor": "default",
+  "menuAccent": "subtle",
+  "aliases": {
+    "components": "@/components",
+    "utils": "@/lib/utils",
+    "ui": "@/components/ui",
+    "lib": "@/lib",
+    "hooks": "@/hooks"
+  },
+  "registries": {
+    "@abdisamadjoe": "https://abdisamadjoe.com/r/{name}.json",
+    "@shadcncraft": {
+      "url": "https://shadcncraft.com/r/{style}/{name}",
+      "headers": {
+        "X-License-Key": "${SHADCNCRAFT_LICENSE_KEY}",
+        "X-Instance-Name": "${SHADCNCRAFT_INSTANCE_NAME}"
+      }
+    },
+    "@kibo-ui": "https://kibo-ui.com/r/{name}.json",
+    "@react-bits": "https://reactbits.dev/r/{name}.json",
+    "@soundcn": "https://soundcn.xyz/r/{name}.json",
+    "@bklit": "https://ui.bklit.com/r/{name}.json"
+  }
+}
