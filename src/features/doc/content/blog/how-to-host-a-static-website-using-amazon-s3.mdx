@@ -1,0 +1,134 @@
+---
+title: "How to host a static website using Amazon S3 (step-by-step)"
+description: "Learn how to host a static website on Amazon S3. A simple, step-by-step guide to deploying your HTML, CSS, and images for portfolios or landing pages."
+image: /blogs/aws-s3.webp
+createdAt: 2025-05-12
+updatedAt: 2025-05-12
+---
+
+Hosting a website doesn’t always require expensive servers or complex configurations. If you’re working with just HTML, CSS, and images, Amazon S3 offers a simple, affordable solution.
+
+In this guide, I’ll show you how to host a static website using Amazon S3, perfect for portfolios, landing pages, or learning projects.
+
+## What is Amazon S3?
+
+Amazon S3 (Simple Storage Service) is a storage service by AWS (Amazon Web Services). You can upload files and access them over the internet.
+
+- **Good news**: It’s free under the AWS Free Tier (5 GB for 12 months).
+- **Better news**: It’s super cheap even after that.
+
+## Step-by-step: hosting a static website on S3
+
+### 1. Log in to the AWS Console
+
+Go to aws.amazon.com and sign in. Search for **S3** in the top bar, and click it.
+
+<FramedImage
+  src="/blogs/aws-s3-inside-1.webp"
+  alt="Searching for S3 in the AWS console"
+/>
+
+### 2. Create a bucket
+
+1. Click **Create bucket**.
+2. Enter a unique name, like `mystaticwebsite-abdi` (bucket names must be globally unique).
+3. Choose a region (stick with the default or choose closest to your users).
+4. Scroll to the bottom and click **Create bucket** (leave settings as-is).
+
+<FramedImage
+  src="/blogs/aws-s3-inside-2.webp"
+  alt="Creating an S3 bucket in AWS console"
+/>
+
+### 3. Enable static website hosting
+
+1. Go to your bucket and click on the **Properties** tab.
+2. Scroll down to **Static website hosting** and click **Edit**.
+3. Choose **Enable**.
+4. Enter `index.html` as the index document.
+5. Click **Save**.
+
+<FramedImage
+  src="/blogs/aws-s3-inside-3.webp"
+  alt="Static website hosting properties page"
+/>
+
+<FramedImage
+  src="/blogs/aws-s3-inside-4.webp"
+  alt="Enabling static website hosting settings"
+/>
+
+After saving, scroll down again — you’ll see a **Website endpoint URL**. That’s your site link!
+
+<FramedImage
+  src="/blogs/aws-s3-inside-5.webp"
+  alt="Finding the S3 website endpoint URL"
+/>
+
+### 4. Fix the 403 Forbidden error
+
+If you visit the endpoint now, you’ll see a `403 Forbidden` error. That’s because S3 blocks public access by default.
+
+<FramedImage
+  src="/blogs/aws-s3-inside-6.webp"
+  alt="403 Forbidden error on static website"
+/>
+
+### 5. Allow public access
+
+1. Go to the **Permissions** tab.
+2. Under **Block public access (bucket settings)**, click **Edit**.
+3. Uncheck **Block all public access**.
+4. Acknowledge the warning and click **Save changes**.
+
+<FramedImage
+  src="/blogs/aws-s3-inside-7.webp"
+  alt="Editing block public access settings"
+/>
+
+### 6. Set a bucket policy
+
+To allow the internet to read your files:
+
+1. Still under **Permissions**, go to **Bucket policy** and click **Edit**.
+2. Paste the following policy and replace `mystaticwebsite-joe` with your actual bucket name:
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "PublicReadGetObject",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": ["s3:GetObject"],
+      "Resource": ["arn:aws:s3:::mystaticwebsite-joe/*"]
+    }
+  ]
+}
+```
+
+### 7. Upload your website files
+
+1. Go to the **Objects** tab.
+2. Click **Upload**, then add your `index.html` along with any other CSS, images, or assets your site needs.
+3. Click **Upload**.
+
+<FramedImage
+  src="/blogs/aws-s3-inside-8.webp"
+  alt="Uploading index.html and static assets to S3"
+/>
+
+### 8. Launch your website!
+
+1. Go back to the **Properties** tab and scroll to **Static website hosting**.
+2. Click your **Endpoint** link.
+
+🎉 Your site is now live on the internet!
+
+<FramedImage
+  src="/blogs/aws-s3-inside-9.webp"
+  alt="Successfully hosted live website"
+/>
+
+Thanks for reading! Got questions or feedback? Drop them below 👇

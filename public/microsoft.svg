@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 500">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #80ba01;
+      }
+
+      .cls-2 {
+        fill: url(#radial-gradient);
+      }
+
+      .cls-3 {
+        fill: #02a4ef;
+      }
+
+      .cls-4 {
+        fill: #f25022;
+      }
+
+      .cls-5 {
+        clip-path: url(#clippath);
+      }
+
+      .cls-6 {
+        fill: none;
+      }
+
+      .cls-7 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-8 {
+        fill: #ffb902;
+      }
+    </style>
+    <clipPath id="clippath">
+      <path class="cls-6" d="m-85.82,215.21h-180.35v74.1h103.06c-4.53,23.83-18.1,44-38.47,57.57-17.06,11.48-38.82,18.44-64.58,18.44-49.79,0-92.09-33.57-107.23-78.79h-.23l.23-.17c-3.83-11.48-6.09-23.65-6.09-36.35s2.26-24.87,6.09-36.35c15.15-45.22,57.45-78.79,107.23-78.79,28.2,0,53.27,9.74,73.29,28.52l54.84-54.79c-33.25-30.96-76.42-49.92-128.12-49.92-74.85,0-139.44,42.96-170.95,105.58-13.06,25.74-20.54,54.79-20.54,85.75s7.49,60.01,20.54,85.75v.17c31.51,62.44,96.09,105.4,170.95,105.4,51.7,0,95.05-17.05,126.73-46.27,36.21-33.39,57.1-82.45,57.1-140.71,0-13.57-1.22-26.61-3.48-39.13Z"/>
+    </clipPath>
+    <radialGradient id="radial-gradient" cx="-2016.25" cy="473.12" fx="-2016.25" fy="473.12" r="8.71" gradientTransform="translate(64256.02 3788.79) rotate(-7.11) scale(31.52 -23.9)" gradientUnits="userSpaceOnUse">
+      <stop offset=".38" stop-color="#34a853"/>
+      <stop offset=".71" stop-color="#34a853" stop-opacity=".7"/>
+      <stop offset="1" stop-color="#34a853" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="linear-gradient" x1="-1993.19" y1="493.69" x2="-2001.55" y2="483.42" gradientTransform="translate(47268.68 11864.69) scale(23.75 -23.73)" gradientUnits="userSpaceOnUse">
+      <stop offset=".67" stop-color="#4285f4"/>
+      <stop offset=".89" stop-color="#4285f4" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <g class="cls-5">
+    <g id="g513">
+      <path id="ellipse509" class="cls-2" d="m67.74,403.66c14.26,114.05-96.1,221.72-246.5,240.48-150.4,18.77-283.87-58.47-298.13-172.52-14.26-114.05,96.1-221.72,246.5-240.48,150.4-18.77,283.87,58.47,298.13,172.52Z"/>
+      <polygon id="polygon511" class="cls-7" points="-273.21 282.63 -262.36 347.81 -134.2 466.91 15.63 190.41 -281.75 185.29 -273.21 282.63"/>
+    </g>
+  </g>
+  <g>
+    <path class="cls-4" d="m48.59,48.59h191.63c-.01,63.88,0,127.75-.01,191.63H48.59V48.59h0Z"/>
+    <path class="cls-1" d="m259.78,48.59h191.63c0,63.88.01,127.75-.01,191.63-63.87-.01-127.74,0-191.61,0-.02-63.88-.01-127.75-.01-191.63h0Z"/>
+    <path class="cls-3" d="m48.59,259.77c63.88.02,127.75-.01,191.63.02.01,63.88,0,127.74,0,191.62H48.59v-191.64h0Z"/>
+    <path class="cls-8" d="m259.79,259.79c63.87-.02,127.74-.01,191.62-.01v191.63h-191.63c.01-63.88-.01-127.75.01-191.62h0Z"/>
+  </g>
+</svg>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 500">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#radial-gradient);
+      }
+
+      .cls-2 {
+        clip-path: url(#clippath);
+      }
+
+      .cls-3 {
+        fill: url(#radial-gradient-2);
+      }
+
+      .cls-4 {
+        fill: none;
+      }
+
+      .cls-5 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-6 {
+        fill: #fc4c53;
+      }
+    </style>
+    <clipPath id="clippath">
+      <path class="cls-4" d="m434.18,215.21h-180.35v74.1h103.06c-4.53,23.83-18.1,44-38.47,57.57-17.06,11.48-38.82,18.44-64.58,18.44-49.79,0-92.09-33.57-107.23-78.79h-.23l.23-.17c-3.83-11.48-6.09-23.65-6.09-36.35s2.26-24.87,6.09-36.35c15.15-45.22,57.45-78.79,107.23-78.79,28.2,0,53.27,9.74,73.29,28.52l54.84-54.79c-33.25-30.96-76.42-49.92-128.12-49.92-74.85,0-139.44,42.96-170.95,105.58-13.06,25.74-20.54,54.79-20.54,85.75s7.49,60.01,20.54,85.75v.17c31.51,62.44,96.09,105.4,170.95,105.4,51.7,0,95.05-17.05,126.73-46.27,36.21-33.39,57.1-82.45,57.1-140.71,0-13.57-1.22-26.61-3.48-39.13Z"/>
+    </clipPath>
+    <radialGradient id="radial-gradient" cx="-1473.4" cy="489.06" fx="-1473.4" fy="489.06" r="7.08" gradientTransform="translate(28212.22 12858.66) scale(19.07 -25.73)" gradientUnits="userSpaceOnUse">
+      <stop offset=".37" stop-color="#ffcf09"/>
+      <stop offset=".72" stop-color="#ffcf09" stop-opacity=".7"/>
+      <stop offset="1" stop-color="#ffcf09" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="radial-gradient-2" cx="-1496.25" cy="473.12" fx="-1496.25" fy="473.12" r="8.71" gradientTransform="translate(48513.08 5818.39) rotate(-7.11) scale(31.52 -23.9)" gradientUnits="userSpaceOnUse">
+      <stop offset=".38" stop-color="#34a853"/>
+      <stop offset=".71" stop-color="#34a853" stop-opacity=".7"/>
+      <stop offset="1" stop-color="#34a853" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="linear-gradient" x1="-1473.19" y1="493.69" x2="-1481.55" y2="483.42" gradientTransform="translate(35439.89 11864.69) scale(23.75 -23.73)" gradientUnits="userSpaceOnUse">
+      <stop offset=".67" stop-color="#4285f4"/>
+      <stop offset=".89" stop-color="#4285f4" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <path id="path505" class="cls-6" d="m434.18,215.21h-180.35v74.1h103.06c-4.53,23.83-18.1,44-38.47,57.57-17.06,11.48-38.82,18.44-64.58,18.44-49.79,0-92.09-33.57-107.23-78.79h-.23l.23-.17c-3.83-11.48-6.09-23.65-6.09-36.35s2.26-24.87,6.09-36.35c15.15-45.22,57.45-78.79,107.23-78.79,28.2,0,53.27,9.74,73.29,28.52l54.84-54.79c-33.25-30.96-76.42-49.92-128.12-49.92-74.85,0-139.44,42.96-170.95,105.58-13.06,25.74-20.54,54.79-20.54,85.75s7.49,60.01,20.54,85.75v.17c31.51,62.44,96.09,105.4,170.95,105.4,51.7,0,95.05-17.05,126.73-46.27,36.21-33.39,57.1-82.45,57.1-140.71,0-13.57-1.22-26.61-3.48-39.13Z"/>
+  <g class="cls-2">
+    <g id="g513">
+      <path id="ellipse507" class="cls-1" d="m243.41,277.35c0,100.56-60.44,182.09-135,182.09h0c-74.56,0-135-81.52-135-182.09h0c0-100.56,60.44-182.09,135-182.09s135,81.52,135,182.09h0Z"/>
+      <path id="ellipse509" class="cls-3" d="m587.74,403.66c14.26,114.05-96.1,221.72-246.5,240.48-150.4,18.77-283.87-58.47-298.13-172.52-14.26-114.05,96.1-221.72,246.5-240.48,150.4-18.77,283.87,58.47,298.13,172.52Z"/>
+      <polygon id="polygon511" class="cls-5" points="246.79 282.63 257.64 347.81 385.8 466.91 535.63 190.41 238.25 185.29 246.79 282.63"/>
+    </g>
+  </g>
+</svg>

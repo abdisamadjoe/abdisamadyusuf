@@ -1,0 +1,8 @@
+{
+  // Cloudflare Workers configuration for abdisamadyusuf
+  "name": "abdisamadyusuf",
+  "compatibility_date": "2026-08-20",
+  "assets": {
+    "directory": "./out/client"
+  }
+}
