@@ -34,6 +34,10 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 
+# wrangler local secrets and dev state for Cloudflare Pages Functions (see functions/)
+.dev.vars
+.wrangler
+
 # vercel
 .vercel
 

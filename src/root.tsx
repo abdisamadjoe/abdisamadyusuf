@@ -38,7 +38,7 @@ export function ErrorBoundary({ error }: { error: unknown }) {
     const message = error.message.trim()
     const isStaleClient =
       /^404$|Failed to fetch dynamically imported module|Importing a module script failed/i.test(
-        message
+        message,
       )
 
     if (isStaleClient && !sessionStorage.getItem("rr-stale-client-reload")) {
@@ -151,12 +151,34 @@ export default function Root() {
     author: personJsonLd,
   }
 
-  const gtmId = import.meta.env.VITE_GTM_ID || ""
   const adsenseClient = import.meta.env.VITE_ADSENSE_CLIENT || ""
 
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* Google Tag Manager */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PG3QMRPC');`,
+          }}
+        />
+        {/* End Google Tag Manager */}
+        {/* Microsoft Clarity */}
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={{
+            __html: `(function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "ygakb7qxbc");`,
+          }}
+        />
+        {/* End Microsoft Clarity */}
         <meta charSet="utf-8" />
         <meta
           name="viewport"
@@ -174,31 +196,16 @@ export default function Root() {
             crossOrigin="anonymous"
           />
         )}
-        {gtmId && (
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','${gtmId}');
-          `,
-            }}
-          />
-        )}
       </head>
       <body>
-        {gtmId && (
-          <noscript
-            dangerouslySetInnerHTML={{
-              __html: `
-            <iframe src="https://www.googletagmanager.com/ns.html?id=${gtmId}"
-            height="0" width="0" style="display:none;visibility:hidden"></iframe>
-          `,
-            }}
-          />
-        )}
+        {/* Google Tag Manager (noscript) */}
+        <noscript
+          dangerouslySetInnerHTML={{
+            __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PG3QMRPC"
+height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
+          }}
+        />
+        {/* End Google Tag Manager (noscript) */}
         <Providers>
           <NuqsAdapter>
             <MDXProvider components={components}>
