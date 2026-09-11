@@ -1,0 +1,21 @@
+{
+  "name": "abdisamadjoe-resume-chatbot",
+  "version": "1.0.0",
+  "private": true,
+  "description": "RiveScript-powered resume chatbot backend for abdisamadjoe.com. No AI, no API keys, no database.",
+  "type": "module",
+  "main": "server.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "node --env-file-if-exists=.env --watch server.js",
+    "start": "node --env-file-if-exists=.env server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "rivescript": "^2.2.1"
+  }
+}
