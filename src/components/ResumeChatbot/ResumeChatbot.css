@@ -284,9 +284,55 @@
   border-radius: var(--chatbot-radius);
   font-size: 0.8125rem;
   line-height: 1.55;
-  /* RiveScript replies are plain text with `\n\n` paragraph breaks. */
+  /* User text is rendered raw; bot text becomes blocks (see MessageBody). */
   white-space: pre-wrap;
   overflow-wrap: anywhere;
+}
+
+/* --- structured bot answer: paragraphs + bullet lists ---------------------- */
+
+.resume-chatbot__paragraph {
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.resume-chatbot__paragraph + .resume-chatbot__paragraph {
+  margin-top: calc(var(--spacing, 0.25rem) * 2);
+}
+
+.resume-chatbot__list {
+  margin: calc(var(--spacing, 0.25rem) * 1.5) 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--spacing, 0.25rem) * 1.25);
+}
+
+.resume-chatbot__paragraph + .resume-chatbot__list {
+  margin-top: calc(var(--spacing, 0.25rem) * 2);
+}
+
+.resume-chatbot__list + .resume-chatbot__paragraph {
+  margin-top: calc(var(--spacing, 0.25rem) * 2);
+}
+
+.resume-chatbot__list-item {
+  position: relative;
+  padding-left: calc(var(--spacing, 0.25rem) * 3.5);
+  white-space: pre-wrap;
+}
+
+/* Small accent dash instead of a browser bullet — matches the site's
+   restrained, line-based aesthetic. */
+.resume-chatbot__list-item::before {
+  content: "";
+  position: absolute;
+  left: calc(var(--spacing, 0.25rem) * 1);
+  top: 0.62em;
+  width: 5px;
+  height: 1px;
+  background-color: var(--muted-foreground);
 }
 
 .resume-chatbot__bubble--bot {
