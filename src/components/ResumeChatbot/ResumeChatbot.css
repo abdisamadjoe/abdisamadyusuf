@@ -1,0 +1,504 @@
+/* ==========================================================================
+   Resume chatbot ("Ask Abdisamad")
+   --------------------------------------------------------------------------
+   Uses the site's existing design tokens from src/styles/globals.css
+   (--background, --foreground, --line, --muted, --primary, --radius …), so it
+   inherits both light and dark themes automatically.
+
+   Positioning notes:
+   - The floating launcher sits above the site's mobile bottom navigation
+     (which is fixed at bottom-2 and only visible below the `sm` breakpoint),
+     and respects the iOS safe-area inset.
+   - Previous/next sibling selectors hide whichever control the site's
+     ScrollToTop button would otherwise overlap at the bottom of the page.
+   ========================================================================== */
+
+.resume-chatbot {
+  --chatbot-radius: var(--radius-xl, 0.875rem);
+  /* Clears the mobile bottom nav (~46px) plus the safe-area inset. */
+  --chatbot-offset-bottom: calc(var(--spacing, 0.25rem) * 17);
+  --chatbot-offset-side: calc(var(--spacing, 0.25rem) * 4);
+
+  position: fixed;
+  right: var(--chatbot-offset-side);
+  bottom: calc(
+    var(--chatbot-offset-bottom) + env(safe-area-inset-bottom, 0px)
+  );
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: calc(var(--spacing, 0.25rem) * 3);
+  /* The wrapper must not swallow clicks on the page behind it. */
+  pointer-events: none;
+  font-family: var(--font-sans);
+}
+
+.resume-chatbot > * {
+  pointer-events: auto;
+}
+
+@media (min-width: 640px) {
+  .resume-chatbot {
+    --chatbot-offset-bottom: calc(var(--spacing, 0.25rem) * 6);
+    --chatbot-offset-side: calc(var(--spacing, 0.25rem) * 5);
+  }
+}
+
+/* ------------------------------------------------------------------ launcher */
+
+.resume-chatbot__launcher {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--spacing, 0.25rem) * 2);
+  height: calc(var(--spacing, 0.25rem) * 11);
+  padding-inline: calc(var(--spacing, 0.25rem) * 3.5);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow:
+    0 1px 2px oklch(0 0 0 / 0.08),
+    0 12px 28px -10px oklch(0 0 0 / 0.35);
+  transition:
+    transform 200ms var(--expo-out, cubic-bezier(0.16, 1, 0.3, 1)),
+    background-color 150ms ease,
+    box-shadow 200ms ease;
+}
+
+.resume-chatbot__launcher:hover {
+  background-color: color-mix(in oklab, var(--primary) 88%, var(--background));
+  transform: translateY(-2px);
+}
+
+.resume-chatbot__launcher:active {
+  transform: scale(0.97);
+}
+
+.resume-chatbot__launcher:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--ring) 50%, transparent);
+}
+
+.resume-chatbot__launcher-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(var(--spacing, 0.25rem) * 6);
+  height: calc(var(--spacing, 0.25rem) * 6);
+  border-radius: 999px;
+  background-color: color-mix(in oklab, var(--primary-foreground) 16%, transparent);
+}
+
+/* Icon-only on small screens so the bubble stays out of the content's way. */
+@media (max-width: 479px) {
+  .resume-chatbot__launcher {
+    height: calc(var(--spacing, 0.25rem) * 12);
+    width: calc(var(--spacing, 0.25rem) * 12);
+    justify-content: center;
+    padding-inline: 0;
+  }
+
+  .resume-chatbot__launcher-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+  }
+}
+
+/* -------------------------------------------------------------------- panel */
+
+.resume-chatbot__panel {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: min(23rem, calc(100vw - (var(--chatbot-offset-side) * 2)));
+  height: min(33rem, calc(100dvh - var(--chatbot-offset-bottom) - 5.5rem));
+  border: 1px solid var(--line);
+  border-radius: var(--chatbot-radius);
+  background-color: var(--background);
+  color: var(--foreground);
+  box-shadow:
+    0 1px 2px oklch(0 0 0 / 0.06),
+    0 24px 48px -16px oklch(0 0 0 / 0.28);
+  transform-origin: bottom right;
+  /* Closed state: keep it out of the accessibility tree and unclickable. */
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(12px) scale(0.97);
+  transition:
+    opacity 180ms ease,
+    transform 220ms var(--expo-out, cubic-bezier(0.16, 1, 0.3, 1)),
+    visibility 0s linear 220ms;
+}
+
+.resume-chatbot__panel[data-open="true"] {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition:
+    opacity 180ms ease,
+    transform 220ms var(--expo-out, cubic-bezier(0.16, 1, 0.3, 1)),
+    visibility 0s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .resume-chatbot__panel,
+  .resume-chatbot__launcher {
+    transition-duration: 1ms;
+  }
+}
+
+/* ------------------------------------------------------------------- header */
+
+.resume-chatbot__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: calc(var(--spacing, 0.25rem) * 2);
+  padding: calc(var(--spacing, 0.25rem) * 3) calc(var(--spacing, 0.25rem) * 3.5);
+  border-bottom: 1px solid var(--line);
+  background-color: var(--surface);
+}
+
+.resume-chatbot__avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(var(--spacing, 0.25rem) * 8);
+  height: calc(var(--spacing, 0.25rem) * 8);
+  flex-shrink: 0;
+  border-radius: 999px;
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.resume-chatbot__title {
+  font-family: var(--font-heading);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.resume-chatbot__subtitle {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--spacing, 0.25rem) * 1.5);
+  margin-top: 2px;
+  font-size: 0.75rem;
+  line-height: 1.2;
+  color: var(--muted-foreground);
+}
+
+.resume-chatbot__subtitle::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  flex-shrink: 0;
+  border-radius: 999px;
+  background-color: var(--success);
+}
+
+.resume-chatbot__icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(var(--spacing, 0.25rem) * 8);
+  height: calc(var(--spacing, 0.25rem) * 8);
+  flex-shrink: 0;
+  border: 0;
+  border-radius: var(--radius-lg, 0.625rem);
+  background-color: transparent;
+  color: var(--muted-foreground);
+  cursor: pointer;
+  transition:
+    background-color 150ms ease,
+    color 150ms ease;
+}
+
+.resume-chatbot__icon-button:hover {
+  background-color: var(--muted);
+  color: var(--foreground);
+}
+
+.resume-chatbot__icon-button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--ring) 45%, transparent);
+}
+
+/* ----------------------------------------------------------------- messages */
+
+.resume-chatbot__messages {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: calc(var(--spacing, 0.25rem) * 2.5);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: calc(var(--spacing, 0.25rem) * 3.5);
+  scrollbar-width: thin;
+}
+
+.resume-chatbot__row {
+  display: flex;
+  justify-content: flex-start;
+  animation: chatbot-message-in 260ms var(--expo-out, ease-out) both;
+}
+
+.resume-chatbot__row--user {
+  justify-content: flex-end;
+}
+
+@keyframes chatbot-message-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .resume-chatbot__row {
+    animation: none;
+  }
+}
+
+.resume-chatbot__bubble {
+  max-width: 88%;
+  padding: calc(var(--spacing, 0.25rem) * 2.5) calc(var(--spacing, 0.25rem) * 3);
+  border-radius: var(--chatbot-radius);
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  /* RiveScript replies are plain text with `\n\n` paragraph breaks. */
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.resume-chatbot__bubble--bot {
+  border: 1px solid var(--line);
+  border-bottom-left-radius: calc(var(--chatbot-radius) * 0.45);
+  background-color: var(--muted);
+  color: var(--foreground);
+}
+
+.resume-chatbot__bubble--user {
+  border-bottom-right-radius: calc(var(--chatbot-radius) * 0.45);
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.resume-chatbot__bubble--error {
+  border-color: color-mix(in oklab, var(--destructive) 35%, var(--line));
+  background-color: color-mix(in oklab, var(--destructive) 8%, var(--background));
+  color: var(--foreground);
+}
+
+/* -------------------------------------------------------------- typing dots */
+
+.resume-chatbot__typing {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding-block: calc(var(--spacing, 0.25rem) * 3.5);
+}
+
+.resume-chatbot__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background-color: var(--muted-foreground);
+  animation: chatbot-dot 1.2s ease-in-out infinite;
+}
+
+.resume-chatbot__dot:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.resume-chatbot__dot:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes chatbot-dot {
+  0%,
+  60%,
+  100% {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .resume-chatbot__dot {
+    animation: none;
+    opacity: 0.6;
+  }
+}
+
+/* ------------------------------------------------------------- suggestions */
+
+.resume-chatbot__suggestions {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--spacing, 0.25rem) * 1.5);
+  margin-top: calc(var(--spacing, 0.25rem) * 1);
+}
+
+.resume-chatbot__suggestions-label {
+  margin-bottom: calc(var(--spacing, 0.25rem) * 0.5);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted-foreground);
+}
+
+.resume-chatbot__suggestion {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: calc(var(--spacing, 0.25rem) * 2);
+  width: 100%;
+  padding: calc(var(--spacing, 0.25rem) * 2.5) calc(var(--spacing, 0.25rem) * 3);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg, 0.625rem);
+  background-color: var(--background);
+  color: var(--foreground);
+  font-size: 0.8125rem;
+  line-height: 1.35;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    border-color 150ms ease,
+    background-color 150ms ease,
+    transform 150ms ease;
+}
+
+.resume-chatbot__suggestion:hover {
+  border-color: color-mix(in oklab, var(--ring) 45%, var(--line));
+  background-color: var(--muted);
+}
+
+.resume-chatbot__suggestion:active {
+  transform: scale(0.99);
+}
+
+.resume-chatbot__suggestion:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--ring) 45%, transparent);
+}
+
+/* ----------------------------------------------------------------- composer */
+
+.resume-chatbot__composer {
+  display: flex;
+  align-items: flex-end;
+  gap: calc(var(--spacing, 0.25rem) * 2);
+  padding: calc(var(--spacing, 0.25rem) * 2.5) calc(var(--spacing, 0.25rem) * 3);
+  border-top: 1px solid var(--line);
+  background-color: var(--background);
+}
+
+.resume-chatbot__input {
+  flex: 1;
+  max-height: calc(var(--spacing, 0.25rem) * 24);
+  min-height: calc(var(--spacing, 0.25rem) * 9);
+  padding: calc(var(--spacing, 0.25rem) * 2) calc(var(--spacing, 0.25rem) * 2.5);
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg, 0.625rem);
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  resize: none;
+  field-sizing: content;
+  transition:
+    border-color 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.resume-chatbot__input::placeholder {
+  color: var(--muted-foreground);
+}
+
+.resume-chatbot__input:focus {
+  outline: none;
+  border-color: color-mix(in oklab, var(--ring) 60%, var(--input));
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--ring) 28%, transparent);
+}
+
+.resume-chatbot__send {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(var(--spacing, 0.25rem) * 9);
+  height: calc(var(--spacing, 0.25rem) * 9);
+  flex-shrink: 0;
+  border: 0;
+  border-radius: var(--radius-lg, 0.625rem);
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  cursor: pointer;
+  transition:
+    background-color 150ms ease,
+    opacity 150ms ease,
+    transform 150ms ease;
+}
+
+.resume-chatbot__send:hover:not(:disabled) {
+  background-color: color-mix(in oklab, var(--primary) 88%, var(--background));
+}
+
+.resume-chatbot__send:active:not(:disabled) {
+  transform: scale(0.96);
+}
+
+.resume-chatbot__send:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.resume-chatbot__send:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--ring) 50%, transparent);
+}
+
+.resume-chatbot__footnote {
+  padding: 0 calc(var(--spacing, 0.25rem) * 3) calc(var(--spacing, 0.25rem) * 2.5);
+  font-size: 0.6875rem;
+  line-height: 1.4;
+  color: var(--muted-foreground);
+}
+
+/* --------------------------------------------- coexistence with other floats */
+
+/*
+ * The site's existing ScrollToTop button shares the bottom-right corner
+ * (fixed, z-50). While the chat panel is open the two would stack, so the
+ * panel is marked on <html> and the existing button is faded out. No change to
+ * scroll-to-top.tsx itself is needed, and the attribute is removed on close.
+ */
+html[data-resume-chatbot-open] [aria-label="Scroll to top"] {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease;
+}

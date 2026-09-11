@@ -32,7 +32,11 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # env files (can opt-in for committing if needed)
+# Real secrets stay out; the committed *.example templates document which
+# variables a deployment needs, and deploy hosts read them.
 .env*
+!.env.example
+!**/.env.example
 
 # wrangler local secrets and dev state for Cloudflare Pages Functions (see functions/)
 .dev.vars

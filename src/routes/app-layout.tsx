@@ -7,6 +7,8 @@ import { SiteHeader } from "@/components/site-header"
 import { getAllDocs } from "@/features/doc/data/documents.server"
 import type { DocPreview } from "@/features/doc/types/document"
 
+import "@/components/ResumeChatbot/ResumeChatbot.css"
+
 export async function loader() {
   const docs = getAllDocs()
   const docPreviews: DocPreview[] = docs.map((doc) => ({
@@ -20,6 +22,14 @@ export async function loader() {
 const ScrollToTop = lazy(() =>
   import("@/components/scroll-to-top").then((mod) => ({
     default: mod.ScrollToTop,
+  }))
+)
+
+// Lazily loaded: the resume chatbot is a progressive enhancement, so its code
+// stays out of the initial bundle and off the critical rendering path.
+const ResumeChatbot = lazy(() =>
+  import("@/components/ResumeChatbot").then((mod) => ({
+    default: mod.ResumeChatbot,
   }))
 )
 
@@ -43,6 +53,7 @@ export default function AppLayout() {
       <SiteBottomNav docPreviews={docPreviews} />
       <Suspense fallback={null}>
         <ScrollToTop />
+        <ResumeChatbot />
       </Suspense>
     </div>
   )

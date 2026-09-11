@@ -1,0 +1,14 @@
+# Dependencies
+node_modules
+
+# Local environment files — the real secrets stay out of git.
+# The leading slashes matter: a bare `.env` also matches `.env.example`
+# inside this folder, and git cannot re-include a file that its own
+# nested .gitignore pattern excluded. Anchoring these keeps the committed
+# `.env.example` template visible to deploy hosts.
+/.env
+/.env.local
+/.env.*.local
+
+# Logs
+*.log
