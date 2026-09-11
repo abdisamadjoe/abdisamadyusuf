@@ -182,6 +182,29 @@ The file is organised into `ABOUT`, `EDUCATION`, `EXPERIENCE`, `CYBERSECURITY`,
 `CERTIFICATIONS`, `PROJECTS`, `SKILLS`, `TRyHACKME`, `CAREER`, `TESTIMONIALS`,
 `IT OPERATIONS`, `BLOG & WRITING`, `ACTIVITY & TOOLING`, `META` and `FALLBACK`.
 
+### Formatting answers
+
+Answers are plain text, but the chat renders `\n` breaks as real paragraphs and
+bullet lists, so a written-out answer reads well instead of arriving as one wall
+of prose:
+
+```
+- Abdisamad holds 8 certifications:\n\n- IELTS Academic: Overall Band 7.0 (C1)\n- Google Cybersecurity Professional Certificate\n- AWS Cloud Practitioner
+```
+
+| In the reply | Renders as |
+| --- | --- |
+| `\n\n` | new paragraph |
+| `\n` | next line (use between bullets) |
+| `- ` at the start of a line | a bullet |
+
+**Do not use `^` continuation lines for multi-line answers.** RiveScript joins
+them with no separator, which silently flattens a list into
+`"Here are the certs:- IELTS 7.0- Google..."`. Keep the whole answer on the one
+`- ` line and use `\n`. `scratch/test-brain.mjs` fails the build if a reply leaks
+a literal `\n` to the user, glues bullets onto a paragraph, or leaves ragged
+blank lines.
+
 ### Running it locally
 
 Two processes, two terminals.

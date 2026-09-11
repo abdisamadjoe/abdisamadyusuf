@@ -13,6 +13,7 @@ import {
   CHATBOT_CONTENT,
   IS_CHATBOT_API_CONFIGURED,
 } from "./config"
+import { parseReply } from "./parseReply"
 
 import "./ResumeChatbot.css"
 
@@ -130,11 +131,47 @@ export function ResumeChatbot() {
   }, [isMounted, userId, isOpen, messages])
 
   // Keep the newest message in view.
+  //
+  // Bot answers are long (a "why hire him" answer is taller than the panel), so
+  // scrolling to the very bottom would drop the reader into the middle of the
+  // answer. For a new bot reply the message is aligned to the TOP of the scroll
+  // area instead, so a long answer starts where it should. Short replies and the
+  // user's own message still snap to the bottom.
   useEffect(() => {
     const container = scrollRef.current
     if (!container) return
 
-    container.scrollTo({ top: container.scrollHeight, behavior: "smooth" })
+    // Measure after the browser has laid the new message out, so heights are
+    // final. A smooth scroll would also be interrupted by the next render,
+    // which is why aligning a long answer jumps instantly instead.
+    const frame = requestAnimationFrame(() => {
+      const rows = container.querySelectorAll<HTMLElement>("[data-chat-row]")
+      const last = rows[rows.length - 1]
+      if (!last) return
+
+      // Measure relative to the scroll container. `offsetTop` would be measured
+      // against the nearest positioned ancestor instead, which is not the
+      // element that actually scrolls here.
+      const containerTop = container.getBoundingClientRect().top
+      const offsetWithinContainer =
+        last.getBoundingClientRect().top - containerTop + container.scrollTop
+
+      const isLongAnswer =
+        last.dataset.chatRole === "bot" &&
+        last.getBoundingClientRect().height > container.clientHeight
+
+      if (isLongAnswer) {
+        container.scrollTo({
+          top: Math.max(0, offsetWithinContainer - 8),
+          behavior: "auto",
+        })
+        return
+      }
+
+      container.scrollTo({ top: container.scrollHeight, behavior: "smooth" })
+    })
+
+    return () => cancelAnimationFrame(frame)
   }, [messages, isSending, isOpen])
 
   // Focus the input when the panel opens, and cancel in-flight work on unmount.
@@ -285,6 +322,8 @@ export function ResumeChatbot() {
           {messages.map((message) => (
             <div
               key={message.id}
+              data-chat-row
+              data-chat-role={message.role}
               className={cn(
                 "resume-chatbot__row",
                 message.role === "user" && "resume-chatbot__row--user"
@@ -299,7 +338,7 @@ export function ResumeChatbot() {
                   message.isError && "resume-chatbot__bubble--error"
                 )}
               >
-                {message.text}
+                <MessageBody message={message} />
               </div>
             </div>
           ))}
@@ -391,6 +430,36 @@ export function ResumeChatbot() {
         </span>
       </button>
     </div>
+  )
+}
+
+/**
+ * Renders one message.
+ *
+ * User messages are short and rendered as-is. Bot answers come from RiveScript
+ * as plain text with `\n` breaks, so they are parsed into paragraphs and bullet
+ * lists — an 800-character wall of prose is what made the chat look
+ * unstructured.
+ */
+function MessageBody({ message }: { message: ChatMessage }) {
+  if (message.role === "user") return message.text
+
+  const blocks = parseReply(message.text)
+
+  return blocks.map((block, index) =>
+    block.type === "list" ? (
+      <ul key={index} className="resume-chatbot__list">
+        {block.items.map((item) => (
+          <li key={item} className="resume-chatbot__list-item">
+            {item}
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p key={index} className="resume-chatbot__paragraph">
+        {block.text}
+      </p>
+    )
   )
 }
 

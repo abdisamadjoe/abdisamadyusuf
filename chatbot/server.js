@@ -31,11 +31,22 @@ const ALLOWED_ORIGINS = (process.env.CORS_ORIGIN || "")
 const MAX_MESSAGE_LENGTH = 500
 
 /** RiveScript only — the server never writes a reply of its own. */
-const bot = new RiveScript({ utf8: true })
+/**
+ * The live RiveScript instance.
+ *
+ * Held in a mutable binding because reloading requires a *fresh* bot:
+ * `loadDirectory()` merges into the existing brain instead of replacing it, so
+ * reusing one instance after an edit would leave the previous rules in memory
+ * (89 triggers became 178 after two loads) and stale answers could win. Swapping
+ * the whole instance makes an edit take effect immediately and exactly.
+ */
+let bot = new RiveScript({ utf8: true })
 
 async function loadBrain() {
-  await bot.loadDirectory(BRAIN_DIR)
-  bot.sortReplies()
+  const next = new RiveScript({ utf8: true })
+  await next.loadDirectory(BRAIN_DIR)
+  next.sortReplies()
+  bot = next
 }
 
 await loadBrain()
@@ -45,11 +56,17 @@ await loadBrain()
 // once at boot.
 if (process.env.NODE_ENV !== "production") {
   const brainFile = path.join(BRAIN_DIR, "resume.rive")
+  let reloadTimer = null
 
+  // Editors often write in several steps (truncate, then write). Debouncing
+  // avoids parsing a half-written file.
   fs.watch(brainFile, { persistent: false }, () => {
-    loadBrain()
-      .then(() => console.log("[brain] resume.rive reloaded"))
-      .catch((error) => console.error("[brain] reload failed:", error))
+    clearTimeout(reloadTimer)
+    reloadTimer = setTimeout(() => {
+      loadBrain()
+        .then(() => console.log(`[brain] resume.rive reloaded (${bot._topics.random.length} triggers)`))
+        .catch((error) => console.error("[brain] reload failed:", error))
+    }, 120)
   })
 }
 
