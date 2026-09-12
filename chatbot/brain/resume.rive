@@ -395,11 +395,11 @@
 + ([*] (what can you do|what can you answer|what can you help with|what do you know|what topics) [*]|help|what can i ask you) {weight=40}
 - I answer questions about Abdisamad's resume and professional background:\n\n- Experience and work history (Groundwork Technologies, Koor Jobs, Ministry of Finance, Samakaal Hospital)\n- Cybersecurity and DevSecOps background\n- Certifications\n- Projects\n- Education\n- Technical skills\n- TryHackMe and security practice\n- Career goals and the roles he is targeting\n- Why he would be a good hire\n- How to contact him\n\nI only answer from his profile — if something is not there, I will say so rather than guess.
 
-+ ([*] (are you an ai|is this an ai|are you a bot|artificial intelligence|chatgpt|openai|gpt|llm|gemini|claude|deepseek) [*]|is this ai) {weight=30}
-- No — I am not an AI. I am a rule-based assistant built with RiveScript: every answer is a predefined entry in Abdisamad's resume file. No language model, no external API.\n\nIf a question is not covered, I say so instead of inventing an answer. Anything sensitive should go to Abdisamad directly: abdisamadjoe@gmail.com
++ ([*] (are you an ai|are you ai|are you chatgpt|is this ai|is this chatgpt|is this an llm|are you a bot|what are you) [*]|[*] (how do you work|how does this work) [*]) {weight=60}
+- I am Abdisamad's official career assistant, trained on his resume, experience, certifications, and portfolio projects.\n\nIf a question is not covered in his profile, I say so instead of inventing an answer. Anything specific should go to Abdisamad directly: abdisamadjoe@gmail.com
 
-+ ([*] (how do you work|how does this work|how are you built) [*]) {weight=20}
-- I run on RiveScript — a plain-text pattern-matching engine. Every answer lives in a resume file Abdisamad maintains by hand, so there is no AI model, no API key, and no data leaving this server beyond the question you type.
++ ([*] (what engine|how are you built|how were you built|what tech runs this chat) [*]) {weight=60}
+- I am Abdisamad's official career assistant — built to answer recruiter questions about his experience, skills, certifications, and projects accurately. You can reach Abdisamad directly at abdisamadjoe@gmail.com.
 
 + ([*] (reset|start over|start again) [*]|clear chat) {weight=20}
 - Fresh start. Ask me anything about Abdisamad's experience, cybersecurity background, projects, certifications, education, or skills.
