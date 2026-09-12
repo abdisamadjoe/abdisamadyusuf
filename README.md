@@ -111,7 +111,7 @@ by a tiny standalone Node/Express process.
 ```
 Existing React Router portfolio
         │
-        │  POST /api/chat   (VITE_CHATBOT_API_URL)
+        │  POST /api/chat   (CHATBOT_APP_URL)
         ▼
 chatbot/  (Node + Express, independent deployment)
         │
@@ -141,7 +141,7 @@ src/components/ResumeChatbot/    # frontend — ships with the site
 ├── ResumeChatbot.tsx            # floating button + chat window
 ├── ResumeChatbot.css            # styles built on the site's design tokens
 ├── api.ts                       # POST /api/chat client
-├── config.ts                    # VITE_CHATBOT_API_URL + UI copy
+├── config.ts                    # CHATBOT_APP_URL + UI copy
 └── index.ts                     # barrel export
 
 src/routes/app-layout.tsx        # global mount point (existing layout)
@@ -242,7 +242,7 @@ missing file, which is why the copy step exists. In development, editing
 Configure the frontend by copying the variable into `.env.local`:
 
 ```env
-VITE_CHATBOT_API_URL=http://localhost:3001
+CHATBOT_APP_URL=http://localhost:3001
 ```
 
 If the widget cannot reach the backend it says so in the chat window and tells
@@ -297,7 +297,7 @@ runtime one. In the Pages project: **Settings → Environment variables →
 Production**, add
 
 ```env
-VITE_CHATBOT_API_URL=https://chat.abdisamadjoe.com
+CHATBOT_APP_URL=https://chat.abdisamadjoe.com
 ```
 
 then redeploy. If the variable is missing from a production build, the widget

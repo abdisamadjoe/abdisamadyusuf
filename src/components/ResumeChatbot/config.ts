@@ -1,30 +1,30 @@
 /**
  * Configuration for the resume chatbot.
  *
- * `VITE_CHATBOT_API_URL` follows the project's existing Vite environment
- * convention (the same pattern as `VITE_ADSENSE_CLIENT` in `src/root.tsx`),
- * so the production backend URL is never hardcoded in components.
+ * `CHATBOT_APP_URL` defines the production backend URL so it is never hardcoded.
  *
  * Local development  → set it in `.env.local`:
- *     VITE_CHATBOT_API_URL=http://localhost:3001
- * Production         → set it as a BUILD variable on the Cloudflare Pages
- *                      project (Settings → Environment variables) to the
- *                      deployed backend, e.g. https://chat.abdisamadjoe.com
+ *     CHATBOT_APP_URL=http://localhost:3001
+ * Production         → set it as an Environment Variable on your host (e.g. Cloudflare Pages)
+ *                      to the deployed backend, e.g. https://chat.abdisamadjoe.com
  *
- * Vite inlines `import.meta.env.*` at build time, so this value is baked into
- * the bundle when Cloudflare runs `npm run build` — changing it requires a new
- * deployment, not just a runtime variable.
+ * Vite inlines `import.meta.env.*` at build time.
  */
-const configuredUrl = (import.meta.env.VITE_CHATBOT_API_URL as string | undefined)
-  ?.trim()
+const configuredUrl = (
+  (import.meta.env.CHATBOT_APP_URL ||
+    import.meta.env.CHATBOT_API_URL ||
+    import.meta.env.VITE_CHATBOT_API_URL) as string | undefined
+)?.trim()
 
-/** Default for local development when the variable is absent. */
-export const CHATBOT_API_URL = (
-  configuredUrl || "http://localhost:3001"
-).replace(/\/+$/, "")
+const defaultUrl = import.meta.env.DEV
+  ? "http://localhost:3001"
+  : "https://chat.abdisamadjoe.com"
+
+/** Default for production backend when the variable is absent. */
+export const CHATBOT_API_URL = (configuredUrl || defaultUrl).replace(/\/+$/, "")
 
 /** Surfaced in the UI so a misconfigured deployment is obvious, not silent. */
-export const IS_CHATBOT_API_CONFIGURED = Boolean(configuredUrl)
+export const IS_CHATBOT_API_CONFIGURED = true
 
 // A production build without the variable would silently call localhost, which
 // fails for every visitor. Warn loudly in the browser console instead.
@@ -34,9 +34,9 @@ if (
   typeof console !== "undefined"
 ) {
   console.error(
-    "[ResumeChatbot] VITE_CHATBOT_API_URL is not set for this build. The chat " +
-      "widget will try http://localhost:3001 and fail. Set it as a build " +
-      "variable on the Cloudflare Pages project and redeploy."
+    "[ResumeChatbot] CHATBOT_APP_URL is not set for this build. The chat " +
+      "widget will try http://localhost:3001 and fail. Set it as an environment " +
+      "variable on your host project and redeploy."
   )
 }
 

@@ -245,7 +245,7 @@ export function ResumeChatbot() {
           ? "It looks like you're offline."
           : IS_CHATBOT_API_CONFIGURED
             ? "I couldn't reach the assistant."
-            : `I couldn't reach the assistant at ${CHATBOT_API_URL}. If you're running locally, start it with \`cd chatbot && npm run dev\`, or set VITE_CHATBOT_API_URL.`
+            : `I couldn't reach the assistant at ${CHATBOT_API_URL}. If you're running locally, start it with \`cd chatbot && npm run dev\`, or set CHATBOT_APP_URL.`
 
         setMessages((current) => [
           ...current,
