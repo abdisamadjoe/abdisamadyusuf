@@ -8,8 +8,9 @@ export const PROJECTS: Project[] = [
       start: "04.2026",
     },
     link: "https://nidamiye.com",
-    skills: [],
-    description: "Manage your rental property without stress.",
+    skills: ["M-Pesa API", "WhatsApp API", "SaaS", "Multi-tenant"],
+    description:
+      "Cloud property management platform for landlords in Kenya and Somalia - M-Pesa rent collection, automated WhatsApp payment reminders, and multi-property dashboards.",
     logo: "/Projects/nidamiye.svg",
     isExpanded: true,
   },
@@ -20,9 +21,9 @@ export const PROJECTS: Project[] = [
       start: "03.2026",
     },
     link: "https://hearline.groundwork.co.ke",
-    skills: [],
+    skills: ["Browser Extension", "Web Speech API", "Open Source", "Privacy"],
     description:
-      "Reads any webpage, article, or blog out loud with real-time word highlighting.",
+      "Open-source, privacy-first browser extension (Chrome, Brave, Edge, Opera, Vivaldi) that reads any webpage aloud with real-time word highlighting, entirely on-device via the Web Speech API - no server, no tracking.",
     logo: "/Projects/hearline.svg",
   },
   {
@@ -32,9 +33,9 @@ export const PROJECTS: Project[] = [
       start: "02.2026",
     },
     link: "https://www.snap2sell.co.ke",
-    skills: [],
+    skills: ["iOS", "Android", "Marketplace"],
     description:
-      "The marketplace where Kenyans buy and sell anything in seconds.",
+      "Marketplace app for Nairobi and Mogadishu - photo-based listings, in-app offer negotiation, and hidden phone numbers for safety. Grown to 12,000+ sellers.",
     logo: "/Projects/snap2sell.svg",
   },
   {
@@ -44,8 +45,9 @@ export const PROJECTS: Project[] = [
       start: "09.2025",
     },
     link: "https://difaacsec.groundwork.co.ke",
-    skills: [],
-    description: "A free, hands-on cybersecurity platform for Somali learners.",
+    skills: ["React", "Vite", "Cybersecurity Education"],
+    description:
+      "Free, hands-on cybersecurity training platform for Somali learners, with real-world labs and scenarios.",
     logo: "/Projects/difaacsec.svg",
   },
 ]
