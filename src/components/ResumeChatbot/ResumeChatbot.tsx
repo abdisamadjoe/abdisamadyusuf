@@ -209,7 +209,9 @@ export function ResumeChatbot() {
       root.removeAttribute("data-resume-chatbot-open")
     }
 
-    return () => root.removeAttribute("data-resume-chatbot-open")
+    return () => {
+      root.removeAttribute("data-resume-chatbot-open")
+    }
   }, [isOpen])
 
   const ask = useCallback(

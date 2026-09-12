@@ -53,7 +53,7 @@ async function getVCardPhoto(url: string) {
     }
 
     const jpegBuffer = await convertImageToJpeg(buffer)
-    const image = jpegBuffer.toString("base64")
+    const image = Buffer.from(jpegBuffer).toString("base64")
 
     return {
       image,
