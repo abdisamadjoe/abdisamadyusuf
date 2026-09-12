@@ -1,3 +1,5 @@
+/// <reference types="@cloudflare/workers-types" />
+
 // Cloudflare Pages Function: GET /api/youtube-views
 //
 // The site itself is prerendered and deployed as static assets (see
