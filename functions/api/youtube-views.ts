@@ -27,7 +27,9 @@ interface Env {
 export const onRequestGet: PagesFunction<Env> = async (context) => {
   // Cloudflare's edge cache, keyed by the request. This is what avoids
   // calling the YouTube Data API on every page load.
-  const cache = caches.default
+  const cache =
+    (caches as unknown as { default?: Cache }).default ??
+    (await caches.open("youtube-views"))
   const cacheKey = new Request(context.request.url, context.request)
 
   const cached = await cache.match(cacheKey)
