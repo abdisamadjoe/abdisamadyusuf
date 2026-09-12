@@ -14,7 +14,7 @@ export type ReplyBlock =
   | { type: "paragraph"; text: string }
   | { type: "list"; items: string[] }
 
-/** Matches `- item`, `* item` or `• item` — the bullet styles used in the brain. */
+/** Matches `- item`, `* item` or `• item` - the bullet styles used in the brain. */
 const BULLET = /^\s*[-*•]\s+/
 
 export function parseReply(reply: string): ReplyBlock[] {

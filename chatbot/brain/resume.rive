@@ -1,7 +1,7 @@
 ! version = 2.0
 
 // =============================================================================
-//  Abdisamad E. Yusuf — Resume Assistant brain (RiveScript)
+//  Abdisamad E. Yusuf - Resume Assistant brain (RiveScript)
 //  ---------------------------------------------------------------------------
 //  This is the ONLY file you need to edit to change what the chatbot knows.
 //  No database, no AI, no API keys. Every answer below is predefined.
@@ -17,7 +17,7 @@
 //    _                    matches one or more words (ignored)
 //    [a|b|c]              optional alternatives
 //    (a|b)                required alternatives
-//    {weight=20}          priority — written inside the trigger line
+//    {weight=20}          priority - written inside the trigger line
 //
 //  THREE THINGS THAT WILL BITE YOU
 //
@@ -28,7 +28,7 @@
 //         + [*] (hello|hi|hey) [*]
 //         - Hi there.
 //
-//    2. The weight tag is `{weight=20}` — curly braces, inside the trigger.
+//    2. The weight tag is `{weight=20}` - curly braces, inside the trigger.
 //
 //    3. RiveScript tests triggers by how many wildcards they contain, and the
 //       FIRST match wins. A broad rule like `[*] experience [*]` would shadow
@@ -76,25 +76,25 @@
 // -----------------------------------------------------------------------------
 
 + [*] (hello|hi|hey|greetings|howdy|good morning|good afternoon|good evening) [*] {weight=20}
-- Hi! I'm Abdisamad's career assistant.\n\nAsk me about his experience, cybersecurity background, projects, certifications, education, skills, or career goals.
+- Hi! I'm Elmify, your Personal Knowledge API.\n\nAsk me about his experience, cybersecurity background, projects, certifications, education, skills, or career goals.
 
 + ((who is|who's|what is|tell me about) (abdisamad|abdisamadjoe|him|yourself)|[*] (introduce|introduction|about him|about abdisamad) [*]|who am i talking to) {weight=10}
-- Abdisamad E. Yusuf is a software developer and DevSecOps engineer based in Nairobi, Kenya, with 5+ years of experience building web applications, mobile apps, and cloud infrastructure.\n\nToday he is the Founder of Groundwork Technologies, where he builds and runs web platforms for businesses — development, deployments, integrations, and ongoing technical support. Earlier he worked in IT roles at Koor Jobs, the Ministry of Finance (Federal Republic of Somalia), and Samakaal Hospital.
+- Abdisamad E. Yusuf is a software developer and DevSecOps engineer based in Nairobi, Kenya, with 5+ years of experience building web applications, mobile apps, and cloud infrastructure.\n\nToday he is the Founder of Groundwork Technologies, where he builds and runs web platforms for businesses - development, deployments, integrations, and ongoing technical support. Earlier he worked in IT roles at Koor Jobs, the Ministry of Finance (Federal Republic of Somalia), and Samakaal Hospital.
 
 + ([*] (what does|what do) (abdisamad|he) do [*]|[*] (job|role|title|position|profession|occupation|speciality|specialty|expertise) [*]|[*] (current|present) (role|job|position|company|employer) [*]|[*] where does (he|abdisamad) work [*]) {weight=10}
 - He is a software developer and DevSecOps engineer, currently the Founder of Groundwork Technologies (May 2023 – present) and an IT Specialist at Koor Jobs (January 2024 – present).\n\nHis work spans building web platforms end to end, managing servers and production environments, and securing applications and infrastructure through access control, security updates, vulnerability fixes, and system hardening.
 
 + ([*] where (is|does) (he|abdisamad) (live|based|located|from) [*]|[*] (location|based in|located in|country|city|timezone|time zone) [*]|[*] is he in kenya [*]|[*] does he live in nairobi [*]) {weight=40}
-- Abdisamad is based in Nairobi, Kenya and works remotely. He is from Somalia and holds his degree from SIMAD University in Mogadishu.\n\nHe works across time zones comfortably — his Koor Jobs role is remote.
+- Abdisamad is based in Nairobi, Kenya and works remotely. He is from Somalia and holds his degree from SIMAD University in Mogadishu.\n\nHe works across time zones comfortably - his Koor Jobs role is remote.
 
 + ([*] how many years of experience|[*] how much experience|[*] (years of experience|how long has (he|abdisamad) been working|how long has (he|abdisamad) been in tech) [*]) {weight=60}
-- 5+ years of experience across web development, IT operations, and DevSecOps (<call>yearsOfExperience</call> since his first professional role in November 2021) — building web applications, mobile apps, and cloud infrastructure with Next.js, NestJS, Flutter, and PostgreSQL.
+- 5+ years of experience across web development, IT operations, and DevSecOps (<call>yearsOfExperience</call> since his first professional role in November 2021) - building web applications, mobile apps, and cloud infrastructure with Next.js, NestJS, Flutter, and PostgreSQL.
 
 + ([*] (contact|email|reach|get in touch|call) (him|abdisamad) [*]|[*] how (can|do) i (contact|reach) (him|abdisamad) [*]|[*] (email address|phone number|email him) [*]) {weight=40}
 - You can reach Abdisamad at abdisamadjoe@gmail.com or by phone at (+254) 723 970 945. His portfolio is abdisamadjoe.com, and his LinkedIn is linked from there.
 
 + ([*] (is he|are you) (open to|available for|interested in) (work|roles|opportunities|jobs|new roles|a new role) [*]|[*] (availability|earliest start|start date) [*]|[*] is he looking for (a job|work|a new role) [*]|[*] can we hire him [*]) {weight=30}
-- Yes — he is open to software engineering and DevSecOps / security roles, remote or hybrid. His current focus is DevSecOps, cloud security, and SOC / Security Analyst work.\n\nTODO: add your notice period here and note whether contract work is welcome.
+- Yes - he is open to software engineering and DevSecOps / security roles, remote or hybrid. His current focus is DevSecOps, cloud security, and SOC / Security Analyst work.\n\nTODO: add your notice period here and note whether contract work is welcome.
 
 + ([*] (what are his pronouns|pronouns|what should i call him) [*]) {weight=20}
 - He uses he/him. Full name: Abdisamad E. Yusuf, username "abdisamadjoe".
@@ -105,10 +105,10 @@
 // -----------------------------------------------------------------------------
 
 + ([*] (education|university|degree|college|school|studied|study|graduated|graduation|academic background) [*]|[*] where did (he|abdisamad) (study|go to school|graduate) [*]|[*] what did (he|abdisamad) study [*]|[*] does he have a degree [*]) {weight=10}
-- SIMAD University — Bachelor's degree in Computer Science.\n\nRelevant coursework: Computer Networks, Operating Systems, Database Management Systems, and Data Structures and Algorithms.
+- SIMAD University - Bachelor's degree in Computer Science.\n\nRelevant coursework: Computer Networks, Operating Systems, Database Management Systems, and Data Structures and Algorithms.
 
 + [*] (simad|simad university) [*] {weight=40}
-- SIMAD University — Bachelor's degree in Computer Science.\n\nRelevant coursework: Computer Networks, Operating Systems, Database Management Systems, and Data Structures and Algorithms.
+- SIMAD University - Bachelor's degree in Computer Science.\n\nRelevant coursework: Computer Networks, Operating Systems, Database Management Systems, and Data Structures and Algorithms.
 
 + [*] (masters|master's|master degree|msc|mba|phd|doctorate|postgraduate) [*] {weight=30}
 - He does not hold a postgraduate degree. His highest qualification is a Bachelor's degree in Computer Science from SIMAD University. TODO: add a master's programme here if you enrol in one.
@@ -128,25 +128,25 @@
 - Abdisamad has 5+ years of experience across software development, IT operations, and DevSecOps.\n\nHighlight roles: Founder of Groundwork Technologies (May 2023 – present), IT Specialist at Koor Jobs (January 2024 – present), IT Officer at the Ministry of Finance in Somalia (February 2023 – October 2023), and IT Support Specialist at Samakaal Hospital (November 2021 – January 2023).\n\nHe is currently focused on DevSecOps, cloud security, and building web platforms end to end with Next.js, NestJS, Flutter, and PostgreSQL.
 
 + ([*] (groundwork|groundwork technologies) [*]|[*] tell me about (his|your) (company|startup|business) [*]) {weight=50}
-- Groundwork Technologies — Founder, May 2023 to present.\n\n- Builds and manages web platforms for businesses: development, deployments, integrations, and ongoing technical support.\n- Runs servers and production environments: troubleshooting, performance optimization, and availability.\n- Secures applications and infrastructure through access control, security updates, vulnerability fixes, and system hardening.\n\nProducts shipped under Groundwork: Nidamiye (property management for East African property managers), Hearline, Snap2Sell, and DifaacSec.
+- Groundwork Technologies - Founder, May 2023 to present.\n\n- Builds and manages web platforms for businesses: development, deployments, integrations, and ongoing technical support.\n- Runs servers and production environments: troubleshooting, performance optimization, and availability.\n- Secures applications and infrastructure through access control, security updates, vulnerability fixes, and system hardening.\n\nProducts shipped under Groundwork: Nidamiye (property management for East African property managers), Hearline, Snap2Sell, and DifaacSec.
 
 + [*] (koor|koor jobs|koorjobs) [*] {weight=50}
-- Koor Jobs — IT Specialist, January 2024 to present (remote).\n\nHe provides technical support to job seekers and recruiters, resolving issues and improving user satisfaction with a 25% faster response time. He monitors server and application performance, maintaining 99.9% uptime and addressing downtime swiftly.\n\nHe also maintains platform security by applying updates and managing user access, preventing unauthorized access and protecting user data.
+- Koor Jobs - IT Specialist, January 2024 to present (remote).\n\nHe provides technical support to job seekers and recruiters, resolving issues and improving user satisfaction with a 25% faster response time. He monitors server and application performance, maintaining 99.9% uptime and addressing downtime swiftly.\n\nHe also maintains platform security by applying updates and managing user access, preventing unauthorized access and protecting user data.
 
 + [*] (ministry of finance|the ministry) [*] {weight=50}
-- Ministry of Finance, Federal Republic of Somalia — IT Officer, February 2023 to October 2023.\n\nHe managed the IT infrastructure for the Scale-up Project, improving system uptime by 20% and ensuring consistent operational performance. He provided timely technical support to ministry staff so operations stayed smooth and downtime stayed low.\n\nHe also developed comprehensive documentation for systems and processes, making critical information easier to access and improving overall team efficiency.
+- Ministry of Finance, Federal Republic of Somalia - IT Officer, February 2023 to October 2023.\n\nHe managed the IT infrastructure for the Scale-up Project, improving system uptime by 20% and ensuring consistent operational performance. He provided timely technical support to ministry staff so operations stayed smooth and downtime stayed low.\n\nHe also developed comprehensive documentation for systems and processes, making critical information easier to access and improving overall team efficiency.
 
 + [*] (samakaal|samakaal hospital) [*] {weight=50}
-- Samakaal Hospital, Mogadishu, Somalia — IT Support Specialist, November 2021 to January 2023.\n\nHe provided direct technical support to staff, resolving hardware and software issues so patient care ran without interruption. He ran training sessions for hospital personnel on software usage, which cut user-related errors by 25%.\n\nHe implemented and enforced security protocols for hospital systems, strengthening data protection and reducing potential security incidents by 40%.
+- Samakaal Hospital, Mogadishu, Somalia - IT Support Specialist, November 2021 to January 2023.\n\nHe provided direct technical support to staff, resolving hardware and software issues so patient care ran without interruption. He ran training sessions for hospital personnel on software usage, which cut user-related errors by 25%.\n\nHe implemented and enforced security protocols for hospital systems, strengthening data protection and reducing potential security incidents by 40%.
 
 + ([*] what companies (has|did) (he|abdisamad) (work|worked) (for|at) [*]|[*] (employers|previous companies|past companies|other companies) [*]) {weight=40}
-- His employers, most recent first:\n\n- Groundwork Technologies — Founder (May 2023 – present)\n- Koor Jobs — IT Specialist (January 2024 – present)\n- Ministry of Finance, Federal Republic of Somalia — IT Officer (February 2023 – October 2023)\n- Samakaal Hospital — IT Support Specialist (November 2021 – January 2023)
+- His employers, most recent first:\n\n- Groundwork Technologies - Founder (May 2023 – present)\n- Koor Jobs - IT Specialist (January 2024 – present)\n- Ministry of Finance, Federal Republic of Somalia - IT Officer (February 2023 – October 2023)\n- Samakaal Hospital - IT Support Specialist (November 2021 – January 2023)
 
 + [*] (why did he leave|reason for leaving|left his job|employment gap|gap in his) [*] {weight=60}
-- I don't have that information in Abdisamad's profile — reasons for leaving and employment gaps are not part of this assistant's knowledge. TODO: add a line here if you want to pre-answer it for recruiters.
+- I don't have that information in Abdisamad's profile - reasons for leaving and employment gaps are not part of this assistant's knowledge. TODO: add a line here if you want to pre-answer it for recruiters.
 
 + [*] (freelance|side projects|consulting) [*] {weight=40}
-- Alongside his roles he builds and operates his own products under Groundwork Technologies — Nidamiye, Hearline, Snap2Sell, and DifaacSec.\n\nThat is where a lot of his DevSecOps experience comes from: he runs the servers, deployments, and security for those platforms himself.
+- Alongside his roles he builds and operates his own products under Groundwork Technologies - Nidamiye, Hearline, Snap2Sell, and DifaacSec.\n\nThat is where a lot of his DevSecOps experience comes from: he runs the servers, deployments, and security for those platforms himself.
 
 
 // -----------------------------------------------------------------------------
@@ -154,7 +154,7 @@
 // -----------------------------------------------------------------------------
 
 + ([*] (cybersecurity|cyber security) (background|experience|skills) [*]|[*] (security) (background|experience) [*]|[*] (what|which) (cybersecurity|security) (experience|background|skills) does (he|abdisamad) have [*]|([*] (cybersecurity|cyber security|infosec|information security|appsec|application security|devsecops|blue team|defensive security) [*]|[*] (is|does) (he|abdisamad) (know|good at|skilled in|experienced in) security [*]|[*] does (he|abdisamad) know security [*])) {weight=70}
-- Abdisamad works at the intersection of software engineering and security — a DevSecOps engineer rather than a purely theoretical one.\n\n- DevSecOps and hardening: access control, security updates, vulnerability fixes, and system hardening across the servers and products he runs\n- Platform security at Koor Jobs: applying updates, managing user access, and preventing unauthorized access to user data\n- Healthcare data protection at Samakaal Hospital: implemented and enforced security protocols, cutting potential security incidents by 40%\n- Cloud security: AWS and Azure fundamentals, identity and access management, Microsoft SC-900\n- Infrastructure: Linux and Ubuntu servers, NGINX, Docker, Kubernetes, Terraform, and CI/CD with GitHub Actions\n- Defensive practice: LetsDefend SOC Analyst Learning Path and hands-on labs on TryHackMe (Top 1% globally), LetsDefend, and CyberDefenders\n- Community: built DifaacSec, a free hands-on cybersecurity platform for Somali learners\n\nHe is currently working toward Microsoft SC-200 (Security Operations Analyst) and AWS Certified Solutions Architect – Associate.
+- Abdisamad works at the intersection of software engineering and security - a DevSecOps engineer rather than a purely theoretical one.\n\n- DevSecOps and hardening: access control, security updates, vulnerability fixes, and system hardening across the servers and products he runs\n- Platform security at Koor Jobs: applying updates, managing user access, and preventing unauthorized access to user data\n- Healthcare data protection at Samakaal Hospital: implemented and enforced security protocols, cutting potential security incidents by 40%\n- Cloud security: AWS and Azure fundamentals, identity and access management, Microsoft SC-900\n- Infrastructure: Linux and Ubuntu servers, NGINX, Docker, Kubernetes, Terraform, and CI/CD with GitHub Actions\n- Defensive practice: LetsDefend SOC Analyst Learning Path and hands-on labs on TryHackMe (Top 1% globally), LetsDefend, and CyberDefenders\n- Community: built DifaacSec, a free hands-on cybersecurity platform for Somali learners\n\nHe is currently working toward Microsoft SC-200 (Security Operations Analyst) and AWS Certified Solutions Architect – Associate.
 
 + [*] security [*] {weight=1}
 - Abdisamad is a DevSecOps engineer: he secures applications and infrastructure through access control, security updates, vulnerability fixes, and system hardening.\n\nHe holds ISC2 Certified in Cybersecurity (CC), the Google Cybersecurity Professional Certificate, and Microsoft SC-900, completed the LetsDefend SOC Analyst Learning Path, and ranks in the Top 1% globally on TryHackMe.\n\nAsk me about his cybersecurity background, certifications, or SOC suitability for detail.
@@ -163,13 +163,13 @@
 - His day-to-day environment is Linux and Ubuntu servers, NGINX, Docker, Kubernetes, Terraform, and GitHub Actions, with monitoring through Prometheus and Grafana and scripting in TypeScript, Node.js, and Python.\n\nFor security practice and lab work he uses TryHackMe, LetsDefend, and CyberDefenders. TODO: list the specific tools you are strongest in (for example Wireshark, Splunk, Sysmon, Nmap, Burp Suite) so recruiters screening for a tool stack see them by name.
 
 + ([*] (soc|security operations center|soc analyst|detection engineering|monitoring|siem|splunk|triage|incident response) [*]|([*] is (he|abdisamad) a good fit for (a soc|soc|security operations) [*]|[*] would (he|abdisamad) be good in a soc [*])) {weight=75}
-- Yes — a SOC role fits him unusually well, for three reasons:\n\n- Formal defensive training: he completed the LetsDefend SOC Analyst Learning Path, practices on LetsDefend and CyberDefenders, and is studying for Microsoft SC-200 (Microsoft Sentinel and Defender XDR).\n- Real operations depth: he monitored servers and applications to 99.9% uptime at Koor Jobs and improved system uptime by 20% at the Ministry of Finance, so he knows what normal looks like in logs, systems, and infrastructure — which is what makes anomalies visible.\n- He builds tooling, not just uses it: 5+ years of software development plus scripting in TypeScript, Node.js, and Python means he can automate detection, enrichment, and response instead of doing it by hand.
+- Yes - a SOC role fits him unusually well, for three reasons:\n\n- Formal defensive training: he completed the LetsDefend SOC Analyst Learning Path, practices on LetsDefend and CyberDefenders, and is studying for Microsoft SC-200 (Microsoft Sentinel and Defender XDR).\n- Real operations depth: he monitored servers and applications to 99.9% uptime at Koor Jobs and improved system uptime by 20% at the Ministry of Finance, so he knows what normal looks like in logs, systems, and infrastructure - which is what makes anomalies visible.\n- He builds tooling, not just uses it: 5+ years of software development plus scripting in TypeScript, Node.js, and Python means he can automate detection, enrichment, and response instead of doing it by hand.
 
 + ([*] (what cybersecurity experience|what security experience) does (he|abdisamad) have [*]|[*] (cybersecurity|security|devsecops|cloud security) suitability [*]|[*] why (is|would) (he|abdisamad) (a good fit|suitable|qualified|the right fit) for [*]|([*] is (he|abdisamad) qualified for (security|devsecops) [*]|[*] (is|would) (he|abdisamad) (a good fit|suitable|qualified|the right fit) for [*])) {weight=75}
 - He brings the combination most security teams struggle to find: hands-on defensive practice plus 5+ years of production engineering and IT operations.\n\nEvidence: ISC2 Certified in Cybersecurity (CC), the Google Cybersecurity Professional Certificate, Microsoft SC-900, and the LetsDefend SOC Analyst Learning Path. Top 1% globally on TryHackMe. At Samakaal Hospital he enforced security protocols that reduced potential security incidents by 40%. At Koor Jobs he maintains platform security and user access on a live platform.\n\nHe is currently pursuing Microsoft SC-200 (Security Operations Analyst).
 
 + [*] (red team|pentest|penetration test|penetration testing|offensive security|ctf|hacking|ethical hacker) [*] {weight=30}
-- His security practice is broad: he works through CTFs and hands-on labs on TryHackMe (Top 1% globally) alongside LetsDefend and CyberDefenders, with a strong defensive and blue-team bias.\n\nHe is not a professional penetration tester — his strength is defensive security engineering: hardening, access control, detection, automation, and secure development.
+- His security practice is broad: he works through CTFs and hands-on labs on TryHackMe (Top 1% globally) alongside LetsDefend and CyberDefenders, with a strong defensive and blue-team bias.\n\nHe is not a professional penetration tester - his strength is defensive security engineering: hardening, access control, detection, automation, and secure development.
 
 
 // -----------------------------------------------------------------------------
@@ -180,37 +180,37 @@
 - Abdisamad holds 8 certifications:\n\n- IELTS Academic: Overall Band 7.0 (C1)\n- Google Cybersecurity Professional Certificate\n- AWS Certified Cloud Practitioner\n- ISC2 Certified in Cybersecurity (CC)\n- Microsoft Certified: Azure Fundamentals (AZ-900)\n- Oracle Cloud Infrastructure Foundations Associate\n- Microsoft Certified: Security, Compliance, and Identity Fundamentals (SC-900)\n- Google Project Management Professional Certificate\n\nMost of them have public verification links in the Certifications section of abdisamadjoe.com.
 
 + ([*] google cybersecurity [*]|([*] (coursera cybersecurity|google cyber certificate) [*])) {weight=80}
-- Google Cybersecurity Professional Certificate — issued by Google in August 2024.\n\nIt covers security foundations, risk management, Linux and SQL for security, network security, automation with Python, and detection and response. Credential ID: 1daf591b-11df-4d72-bbd3-aec1f8799479
+- Google Cybersecurity Professional Certificate - issued by Google in August 2024.\n\nIt covers security foundations, risk management, Linux and SQL for security, network security, automation with Python, and detection and response. Credential ID: 1daf591b-11df-4d72-bbd3-aec1f8799479
 
 + ([*] (isc2|isc 2|certified in cybersecurity) [*]|[*] is (he|abdisamad) isc2 certified [*]) {weight=60}
-- ISC2 Certified in Cybersecurity (CC) — issued November 2024. Credential ID: 1189dc54-859c-4c7f-aaa2-435a42adf5d5\n\nIt is the entry-level ISC2 certification covering security principles, business continuity, access control, network security, and security operations.
+- ISC2 Certified in Cybersecurity (CC) - issued November 2024. Credential ID: 1189dc54-859c-4c7f-aaa2-435a42adf5d5\n\nIt is the entry-level ISC2 certification covering security principles, business continuity, access control, network security, and security operations.
 
 + ([*] (aws cloud practitioner|cloud practitioner) [*]|[*] is (he|abdisamad) certified in aws [*]) {weight=60}
-- AWS Certified Cloud Practitioner — issued by Amazon Web Services in May 2025.\n\nHe is also working toward AWS Certified Solutions Architect – Associate. Credential ID: 14c961cc-3018-47ff-a5b4-54a794021a06
+- AWS Certified Cloud Practitioner - issued by Amazon Web Services in May 2025.\n\nHe is also working toward AWS Certified Solutions Architect – Associate. Credential ID: 14c961cc-3018-47ff-a5b4-54a794021a06
 
 + ([*] (azure fundamentals|az-900|az900|certified in azure) [*]|([*] azure [*])) {weight=70}
-- Microsoft Certified: Azure Fundamentals (AZ-900) — issued May 2025.\n\nHe also holds Microsoft Certified: Security, Compliance, and Identity Fundamentals (SC-900), issued October 2025.
+- Microsoft Certified: Azure Fundamentals (AZ-900) - issued May 2025.\n\nHe also holds Microsoft Certified: Security, Compliance, and Identity Fundamentals (SC-900), issued October 2025.
 
 + [*] (oracle|oci|oracle cloud) [*] {weight=60}
-- Oracle Cloud Infrastructure Foundations Associate — a foundational cloud certification covering OCI core services, security, and architecture.\n\nIt sits alongside his AWS Cloud Practitioner and Microsoft Azure Fundamentals certifications.
+- Oracle Cloud Infrastructure Foundations Associate - a foundational cloud certification covering OCI core services, security, and architecture.\n\nIt sits alongside his AWS Cloud Practitioner and Microsoft Azure Fundamentals certifications.
 
 + [*] (sc-900|sc900|security compliance and identity) [*] {weight=60}
-- Microsoft Certified: Security, Compliance, and Identity Fundamentals (SC-900) — issued October 2025.\n\nIt covers identity and access management, Microsoft Entra ID, security solutions, and Microsoft Purview compliance. Credential ID: 35ccdcddeb9f23fb
+- Microsoft Certified: Security, Compliance, and Identity Fundamentals (SC-900) - issued October 2025.\n\nIt covers identity and access management, Microsoft Entra ID, security solutions, and Microsoft Purview compliance. Credential ID: 35ccdcddeb9f23fb
 
 + ([*] what is (he|abdisamad) (studying|working toward|working towards|pursuing) [*]|[*] (sc-200|sc200) [*]) {weight=60}
-- He is currently working toward two certifications: Microsoft SC-200 (Security Operations Analyst) and AWS Certified Solutions Architect – Associate.\n\nSC-200 covers threat management with Microsoft Sentinel, Microsoft Defender XDR, and Defender for Cloud — directly relevant to SOC and security analyst roles.
+- He is currently working toward two certifications: Microsoft SC-200 (Security Operations Analyst) and AWS Certified Solutions Architect – Associate.\n\nSC-200 covers threat management with Microsoft Sentinel, Microsoft Defender XDR, and Defender for Cloud - directly relevant to SOC and security analyst roles.
 
 + ([*] letsdefend [*]|[*] soc analyst learning path [*]|(what is the letsdefend soc analyst learning path|letsdefend soc analyst)) {weight=85}
-- LetsDefend SOC Analyst Learning Path — completed July 2025. Credential ID: 53aa91e4-cfff-47e9-b03b-b9851459df95\n\nIt is a hands-on blue-team path covering alert triage, SIEM investigation, log analysis, malware analysis, and incident response.
+- LetsDefend SOC Analyst Learning Path - completed July 2025. Credential ID: 53aa91e4-cfff-47e9-b03b-b9851459df95\n\nIt is a hands-on blue-team path covering alert triage, SIEM investigation, log analysis, malware analysis, and incident response.
 
 + ([*] (google project management|project management cert) [*]|([*] (coursera|project management) [*])) {weight=60}
-- Google Project Management Professional Certificate — issued by Google in April 2026. Credential ID: 5295d9ba-53ba-4cd0-a95d-ceb692373c50\n\nIt covers project planning, Agile delivery, stakeholder management, and risk — useful for leading security programmes and cross-team work.
+- Google Project Management Professional Certificate - issued by Google in April 2026. Credential ID: 5295d9ba-53ba-4cd0-a95d-ceb692373c50\n\nIt covers project planning, Agile delivery, stakeholder management, and risk - useful for leading security programmes and cross-team work.
 
 + [*] (ielts|english level|english proficiency) [*] {weight=40}
-- IELTS Academic: Overall Band 7.0 (C1), obtained May 2024 — he works and communicates professionally in English.
+- IELTS Academic: Overall Band 7.0 (C1), obtained May 2024 - he works and communicates professionally in English.
 
 + ([*] (ceh|cissp|cism|oscp|comptia|cysa) [*]|[*] does (he|abdisamad) have (ceh|cissp|cism|oscp|comptia) [*]) {weight=40}
-- No — he does not hold CEH, CISSP, CISM, OSCP, CySA+, or CompTIA Security+. His security certifications are ISC2 Certified in Cybersecurity (CC), the Google Cybersecurity Professional Certificate, Microsoft SC-900, and the LetsDefend SOC Analyst Learning Path.\n\nHe is currently studying for Microsoft SC-200 (Security Operations Analyst) and AWS Certified Solutions Architect – Associate.
+- No - he does not hold CEH, CISSP, CISM, OSCP, CySA+, or CompTIA Security+. His security certifications are ISC2 Certified in Cybersecurity (CC), the Google Cybersecurity Professional Certificate, Microsoft SC-900, and the LetsDefend SOC Analyst Learning Path.\n\nHe is currently studying for Microsoft SC-200 (Security Operations Analyst) and AWS Certified Solutions Architect – Associate.
 
 
 // -----------------------------------------------------------------------------
@@ -218,25 +218,25 @@
 // -----------------------------------------------------------------------------
 
 + ([*] (project|projects|portfolio|what has he built|what did he build|things he built|has he built) [*]|[*] tell me about (his|your) projects [*]|[*] what (has|did) (he|abdisamad) (built|build|ship|shipped) [*]) {weight=20}
-- Abdisamad's current projects:\n\n- Nidamiye — a property management platform that lets East African landlords manage rental property without stress (nidamiye.com)\n- Hearline — reads any webpage, article, or blog out loud with real-time word highlighting (hearline.groundwork.co.ke)\n- Snap2Sell — a marketplace where Kenyans buy and sell anything in seconds (snap2sell.co.ke)\n- DifaacSec — a free, hands-on cybersecurity platform for Somali learners (difaacsec.groundwork.co.ke)\n\nHe builds, deploys, and secures each one himself, which is where most of his DevSecOps experience comes from.
+- Abdisamad's current projects:\n\n- Nidamiye - a property management platform that lets East African landlords manage rental property without stress (nidamiye.com)\n- Hearline - reads any webpage, article, or blog out loud with real-time word highlighting (hearline.groundwork.co.ke)\n- Snap2Sell - a marketplace where Kenyans buy and sell anything in seconds (snap2sell.co.ke)\n- DifaacSec - a free, hands-on cybersecurity platform for Somali learners (difaacsec.groundwork.co.ke)\n\nHe builds, deploys, and secures each one himself, which is where most of his DevSecOps experience comes from.
 
 + [*] nidamiye [*] {weight=60}
-- Nidamiye is a property management platform for East African property managers — "manage your rental property without stress" (nidamiye.com), started in April 2026.\n\nIt handles tenants, rent, and property records, so it deals with sensitive customer and payment data — a good example of how he treats multi-tenant security and data protection as a product requirement, not an afterthought.
+- Nidamiye is a property management platform for East African property managers - "manage your rental property without stress" (nidamiye.com), started in April 2026.\n\nIt handles tenants, rent, and property records, so it deals with sensitive customer and payment data - a good example of how he treats multi-tenant security and data protection as a product requirement, not an afterthought.
 
 + [*] (guardaura|guard aura) [*] {weight=70}
-- GuardAura is one of Abdisamad's projects, but a short description has not been added to this assistant yet.\n\nTODO: describe GuardAura here — what it does, the problem it solves, your role, and the tech stack. Until then the assistant will not guess.\n\nIn the meantime, ask him about it directly at abdisamadjoe@gmail.com.
+- GuardAura is one of Abdisamad's projects, but a short description has not been added to this assistant yet.\n\nTODO: describe GuardAura here - what it does, the problem it solves, your role, and the tech stack. Until then the assistant will not guess.\n\nIn the meantime, ask him about it directly at abdisamadjoe@gmail.com.
 
 + [*] sameelo [*] {weight=60}
-- Sameelo is one of Abdisamad's projects, but a short description has not been added to this assistant yet.\n\nTODO: describe Sameelo here — what it does, your role, and what you built. Until then the assistant will not guess.\n\nIn the meantime, ask him about it directly at abdisamadjoe@gmail.com.
+- Sameelo is one of Abdisamad's projects, but a short description has not been added to this assistant yet.\n\nTODO: describe Sameelo here - what it does, your role, and what you built. Until then the assistant will not guess.\n\nIn the meantime, ask him about it directly at abdisamadjoe@gmail.com.
 
 + ([*] (hearline|snap2sell|snap 2 sell|difaacsec|difaac) [*]) {weight=40}
-- Hearline reads any webpage, article, or blog out loud with real-time word highlighting — built for accessibility and reading comfort.\n\nSnap2Sell is a marketplace where Kenyans buy and sell anything in seconds.\n\nDifaacSec is a free, hands-on cybersecurity platform for Somali learners — his way of growing the security community in the region.
+- Hearline reads any webpage, article, or blog out loud with real-time word highlighting - built for accessibility and reading comfort.\n\nSnap2Sell is a marketplace where Kenyans buy and sell anything in seconds.\n\nDifaacSec is a free, hands-on cybersecurity platform for Somali learners - his way of growing the security community in the region.
 
 + [*] (open source|github|contributions|repo) [*] {weight=30}
-- Yes — his portfolio itself (abdisamadjoe.com) is open source, and DifaacSec is a free platform for Somali learners.\n\nHis GitHub is github.com/abdisamadjoe.
+- Yes - his portfolio itself (abdisamadjoe.com) is open source, and DifaacSec is a free platform for Somali learners.\n\nHis GitHub is github.com/abdisamadjoe.
 
 + [*] (courses|courses he teaches|teaching|youtube|udemy|tutorials|content creation) [*] {weight=40}
-- He teaches Cybersecurity and Linux. His Somali-language course, "Barashada Linux: Bilaw ilaa Dhamaad", has 200+ students on Udemy, and his Linux content has reached 14,000+ views on YouTube.\n\nTeaching is also how he sharpens his own fundamentals — explaining a topic is the quickest way to find the gaps in your own understanding.
+- He teaches Cybersecurity and Linux. His Somali-language course, "Barashada Linux: Bilaw ilaa Dhamaad", has 200+ students on Udemy, and his Linux content has reached 14,000+ views on YouTube.\n\nTeaching is also how he sharpens his own fundamentals - explaining a topic is the quickest way to find the gaps in your own understanding.
 
 
 // -----------------------------------------------------------------------------
@@ -244,40 +244,40 @@
 // -----------------------------------------------------------------------------
 
 + ([*] linux experience [*]|([*] (skill|skills|tech stack|technologies|technical skills|what is he good at|what is he strong in) [*]|[*] what (skills|technologies|tools) does (he|abdisamad) have [*]|[*] tell me about (his|your) (skills|tech stack) [*])) {weight=75}
-- Abdisamad's technical stack:\n\n- Languages: TypeScript, JavaScript, SQL, Python, Dart\n- Frontend & mobile: Next.js, React, Tailwind CSS, Flutter, React Native\n- Backend & data: NestJS, Node.js, Express.js, PostgreSQL, Redis, Prisma\n- Cloud & infrastructure: AWS, Azure, Oracle Cloud Infrastructure, Linux/Ubuntu, NGINX, Docker, Kubernetes, Terraform, GitHub Actions\n- Security: DevSecOps practice, access control, vulnerability fixes, system hardening, IAM, cloud security, SOC analysis\n\nHe works across web, mobile, and infrastructure — he studied C++ and Java at university and ships products for both web and mobile.
+- Abdisamad's technical stack:\n\n- Languages: TypeScript, JavaScript, SQL, Python, Dart\n- Frontend & mobile: Next.js, React, Tailwind CSS, Flutter, React Native\n- Backend & data: NestJS, Node.js, Express.js, PostgreSQL, Redis, Prisma\n- Cloud & infrastructure: AWS, Azure, Oracle Cloud Infrastructure, Linux/Ubuntu, NGINX, Docker, Kubernetes, Terraform, GitHub Actions\n- Security: DevSecOps practice, access control, vulnerability fixes, system hardening, IAM, cloud security, SOC analysis\n\nHe works across web, mobile, and infrastructure - he studied C++ and Java at university and ships products for both web and mobile.
 
 + [*] (frontend|front end|react developer|nextjs|next js|ui developer) [*] {weight=30}
-- Frontend is a core strength: Next.js, React, TypeScript, and Tailwind CSS with 5+ years of experience — including design systems and component libraries from his earlier UI/UX work.
+- Frontend is a core strength: Next.js, React, TypeScript, and Tailwind CSS with 5+ years of experience - including design systems and component libraries from his earlier UI/UX work.
 
 + [*] (backend|back end|nodejs|expressjs|rest api|database|postgres|postgresql|redis|prisma|nestjs|nest js) [*] {weight=30}
 - On the backend he works with NestJS and Node.js, PostgreSQL, Redis, and Prisma, and builds REST APIs and integrations end to end.\n\nHe also has earlier experience with Express.js, Laravel, Socket.IO, MongoDB, and Firebase.
 
 + [*] (mobile|flutter|dart|react native|android|ios) [*] {weight=40}
-- Yes — mobile is part of his background. He builds with Flutter and Dart, and has earlier React Native experience including publishing apps to the App Store and Google Play.
+- Yes - mobile is part of his background. He builds with Flutter and Dart, and has earlier React Native experience including publishing apps to the App Store and Google Play.
 
 + ([*] (cloud security|cloud computing|cloud infrastructure) [*]|[*] (kubernetes|k8s|terraform|infrastructure as code|devops|ci/cd|cicd|github actions) [*]|[*] cloud security (experience|background) [*]) {weight=75}
-- Cloud and infrastructure is his current focus: AWS and Azure (both certified, plus Oracle Cloud Infrastructure Foundations), Linux and Ubuntu servers, NGINX, Docker, Kubernetes, Terraform for infrastructure as code, and CI/CD with GitHub Actions.\n\nHe also uses Cloudflare, Prometheus, and Grafana for hosting, monitoring, and observability.\n\nPractical angle: at Groundwork Technologies he manages production servers and environments himself — troubleshooting, performance optimization, and availability — so he has done the operational work rather than only reading about it.
+- Cloud and infrastructure is his current focus: AWS and Azure (both certified, plus Oracle Cloud Infrastructure Foundations), Linux and Ubuntu servers, NGINX, Docker, Kubernetes, Terraform for infrastructure as code, and CI/CD with GitHub Actions.\n\nHe also uses Cloudflare, Prometheus, and Grafana for hosting, monitoring, and observability.\n\nPractical angle: at Groundwork Technologies he manages production servers and environments himself - troubleshooting, performance optimization, and availability - so he has done the operational work rather than only reading about it.
 
 + [*] (docker) [*] {weight=50}
-- Yes — Docker is part of his standard toolkit for packaging and shipping services, alongside Kubernetes and Terraform for orchestration and infrastructure as code.\n\nHe also runs NGINX and Ubuntu servers, so he is comfortable with the whole deployment path.
+- Yes - Docker is part of his standard toolkit for packaging and shipping services, alongside Kubernetes and Terraform for orchestration and infrastructure as code.\n\nHe also runs NGINX and Ubuntu servers, so he is comfortable with the whole deployment path.
 
 + [*] (aws|azure|gcp|cloud) [*] {weight=40}
 - Cloud is a core part of his work: AWS (Cloud Practitioner certified), Microsoft Azure (AZ-900 certified), and Oracle Cloud Infrastructure Foundations Associate.\n\nHe also holds Microsoft SC-900, which covers cloud identity, security, and compliance fundamentals, and works with Docker, Kubernetes, Terraform, and GitHub Actions regularly.
 
 + ([*] linux [*]|([*] (ubuntu|bash|shell scripting|unix|nginx) [*])) {weight=60}
-- Linux is his daily environment — Ubuntu for servers and production, plus NGINX for serving applications and shell scripting for automation.\n\nHe also teaches it: his Somali-language course "Barashada Linux: Bilaw ilaa Dhamaad" has 200+ students on Udemy.
+- Linux is his daily environment - Ubuntu for servers and production, plus NGINX for serving applications and shell scripting for automation.\n\nHe also teaches it: his Somali-language course "Barashada Linux: Bilaw ilaa Dhamaad" has 200+ students on Udemy.
 
 + ([*] (programming languages|which languages|what languages) [*]) {weight=40}
 - TypeScript and JavaScript are his primary languages, with SQL for data work, Python for scripting and security automation, and Dart for Flutter apps.\n\nHe also studied C++ and Java at university.
 
 + ([*] (ui/ux|ux design|figma|design system|design background) [*]|[*] does (he|abdisamad) do design [*]|[*] is (he|abdisamad) a designer [*]) {weight=30}
-- Yes — he has a design background. He worked as a UI/UX Designer and UI Lead and built design systems and component libraries before moving deeper into software engineering and security.\n\nThat shows up in his work as a genuine advantage: he ships interfaces other engineers can build on, not just ones that look good in a mockup.
+- Yes - he has a design background. He worked as a UI/UX Designer and UI Lead and built design systems and component libraries before moving deeper into software engineering and security.\n\nThat shows up in his work as a genuine advantage: he ships interfaces other engineers can build on, not just ones that look good in a mockup.
 
 + ([*] (soft skills|communication|teamwork|leadership|strengths|good at) [*]|[*] what are his strengths [*]|[*] is (he|abdisamad) good at communication [*]) {weight=20}
-- Beyond the technical side: he founded and runs a company, which means ownership, prioritisation, and shipping under real constraints. He maintained 99.9% uptime on a live platform and improved system uptime by 20% in a government role.\n\nHe also trains people — at Samakaal Hospital his staff training cut user errors by 25%, and he teaches Linux and cybersecurity publicly — so he explains technical topics clearly to non-specialists.
+- Beyond the technical side: he founded and runs a company, which means ownership, prioritisation, and shipping under real constraints. He maintained 99.9% uptime on a live platform and improved system uptime by 20% in a government role.\n\nHe also trains people - at Samakaal Hospital his staff training cut user errors by 25%, and he teaches Linux and cybersecurity publicly - so he explains technical topics clearly to non-specialists.
 
 + [*] (it support|technical support|helpdesk|help desk) [*] {weight=40}
-- Yes — a large part of his experience is hands-on IT support and operations: IT Support Specialist at Samakaal Hospital, IT Officer at the Ministry of Finance, and IT Specialist at Koor Jobs.\n\nMeasurable outcomes: 25% faster response time at Koor Jobs, 99.9% platform uptime, 20% better system uptime at the Ministry of Finance, 25% fewer user-related errors at Samakaal Hospital, and 40% fewer potential security incidents after he enforced security protocols there.
+- Yes - a large part of his experience is hands-on IT support and operations: IT Support Specialist at Samakaal Hospital, IT Officer at the Ministry of Finance, and IT Specialist at Koor Jobs.\n\nMeasurable outcomes: 25% faster response time at Koor Jobs, 99.9% platform uptime, 20% better system uptime at the Ministry of Finance, 25% fewer user-related errors at Samakaal Hospital, and 40% fewer potential security incidents after he enforced security protocols there.
 
 
 // -----------------------------------------------------------------------------
@@ -285,13 +285,13 @@
 // -----------------------------------------------------------------------------
 
 + ([*] (tryhackme|try hack me|thm) [*]) {weight=30}
-- Abdisamad is ranked in the Top 1% globally on TryHackMe — he practices consistently rather than collecting badges, working through hands-on rooms covering Linux, networking, web exploitation, and defensive security.\n\nHis profile: tryhackme.com/p/bobst0ne
+- Abdisamad is ranked in the Top 1% globally on TryHackMe - he practices consistently rather than collecting badges, working through hands-on rooms covering Linux, networking, web exploitation, and defensive security.\n\nHis profile: tryhackme.com/p/bobst0ne
 
 + ([*] (letsdefend|cyberdefenders|practice platform|practice platforms|home lab|hands-on labs) [*]) {weight=30}
 - Alongside TryHackMe, he practices on LetsDefend (blue team and SOC scenarios) and CyberDefenders (digital forensics and incident response challenges).\n\nCombined with the LetsDefend SOC Analyst Learning Path, that is a deliberate investment in defensive security skills.
 
 + [*] (rank|ranking|top 1|top one percent|leaderboard) [*] {weight=20}
-- Top 1% globally on TryHackMe — his handle there is "bobst0ne".
+- Top 1% globally on TryHackMe - his handle there is "bobst0ne".
 
 + ([*] (ctf|ctfs|capture the flag|competition|competitions|hackathon|hackathons) [*]) {weight=20}
 - He solves CTF-style challenges on TryHackMe, LetsDefend, and CyberDefenders as part of his regular practice.
@@ -305,10 +305,10 @@
 - Roles he is targeting:\n\n- DevSecOps Engineer\n- Cloud Security Engineer\n- Software Engineer (full-stack, Next.js / NestJS)\n- IT Specialist, IT Officer, or IT Support roles where he can add security and automation\n- SOC Analyst / Security Analyst roles where engineering skill adds leverage\n\nHe is open to remote and hybrid work. TODO: add your location preference, employment type (full-time or contract), and notice period here.
 
 + ([*] (career goal|career goals|career objective|career objectives|aspirations|future plans|where does he see himself|in five years|long term goals) [*]|[*] what (is|are) (his|your) career (goal|goals|objective|objectives) [*]) {weight=70}
-- His goal is to grow as a DevSecOps and cloud security engineer while staying hands-on with software development.\n\nConcretely: securing cloud infrastructure at scale, automating security in CI/CD, and building detection and response capability — on teams where security is treated as an engineering discipline rather than a checkbox.\n\nHe is backing that up right now with Microsoft SC-200 and AWS Certified Solutions Architect – Associate.
+- His goal is to grow as a DevSecOps and cloud security engineer while staying hands-on with software development.\n\nConcretely: securing cloud infrastructure at scale, automating security in CI/CD, and building detection and response capability - on teams where security is treated as an engineering discipline rather than a checkbox.\n\nHe is backing that up right now with Microsoft SC-200 and AWS Certified Solutions Architect – Associate.
 
 + ([*] relocat [*]|([*] (visa|sponsorship|work permit) [*]|[*] (is|are) (he|you) (open to|willing to) (relocate|relocation|move) [*])) {weight=20}
-- He is based in Nairobi, Kenya and works remotely today. Remote-first roles are his natural fit and he collaborates well across time zones.\n\nTODO: state clearly here whether you are open to relocation and whether you require visa sponsorship — recruiters filter on this early.
+- He is based in Nairobi, Kenya and works remotely today. Remote-first roles are his natural fit and he collaborates well across time zones.\n\nTODO: state clearly here whether you are open to relocation and whether you require visa sponsorship - recruiters filter on this early.
 
 + [*] (notice period|when can he start) [*] {weight=60}
 - TODO: add your actual notice period and earliest start date here so recruiters get a straight answer.
@@ -317,31 +317,31 @@
 - Roles he is targeting:\n\n- DevSecOps Engineer\n- Cloud Security Engineer\n- Software Engineer (full-stack, Next.js / NestJS)\n- IT Specialist, IT Officer, or IT Support roles where he can add security and automation\n- SOC Analyst / Security Analyst roles where engineering skill adds leverage\n\nHe is open to remote and hybrid work. TODO: add your location preference, employment type (full-time or contract), and notice period here.
 
 + [*] (salary|compensation|expected pay|rate|package) [*] {weight=20}
-- Salary expectations are not part of this assistant's knowledge — Abdisamad would rather discuss that directly. You can reach him at abdisamadjoe@gmail.com.\n\nTODO: add a range or an "open to discussion" line here if you want recruiters to see one.
+- Salary expectations are not part of this assistant's knowledge - Abdisamad would rather discuss that directly. You can reach him at abdisamadjoe@gmail.com.\n\nTODO: add a range or an "open to discussion" line here if you want recruiters to see one.
 
 + ([*] (why should we hire|why hire|why (should|would) we (hire|consider)|why (should|would) we (hire|consider) him|what makes him different|why him|what makes him a strong candidate) [*]|[*] why should we hire him [*]) {weight=60}
-- Three reasons:\n\n- Full-stack delivery, not just one layer. As Founder of Groundwork Technologies he builds the web platforms and runs the servers, deployments, integrations, and support behind them — 5+ years of turning requirements into running software (Nidamiye, Hearline, Snap2Sell, DifaacSec).\n- Measurable operational track record. 99.9% platform uptime and 25% faster support response at Koor Jobs, 20% better system uptime at the Ministry of Finance, 25% fewer user errors and 40% fewer potential security incidents at Samakaal Hospital.\n- Security is his discipline, not a side interest. ISC2 CC, Google Cybersecurity, Microsoft SC-900 and AZ-900, AWS Cloud Practitioner, Oracle Cloud Infrastructure Foundations, the LetsDefend SOC Analyst Learning Path, Top 1% globally on TryHackMe, and SC-200 in progress.\n\nHe is also a clear communicator — he has trained staff and taught Linux and cybersecurity publicly — and he works comfortably in remote, cross-time-zone teams.
+- Three reasons:\n\n- Full-stack delivery, not just one layer. As Founder of Groundwork Technologies he builds the web platforms and runs the servers, deployments, integrations, and support behind them - 5+ years of turning requirements into running software (Nidamiye, Hearline, Snap2Sell, DifaacSec).\n- Measurable operational track record. 99.9% platform uptime and 25% faster support response at Koor Jobs, 20% better system uptime at the Ministry of Finance, 25% fewer user errors and 40% fewer potential security incidents at Samakaal Hospital.\n- Security is his discipline, not a side interest. ISC2 CC, Google Cybersecurity, Microsoft SC-900 and AZ-900, AWS Cloud Practitioner, Oracle Cloud Infrastructure Foundations, the LetsDefend SOC Analyst Learning Path, Top 1% globally on TryHackMe, and SC-200 in progress.\n\nHe is also a clear communicator - he has trained staff and taught Linux and cybersecurity publicly - and he works comfortably in remote, cross-time-zone teams.
 
 + ([*] (devsecops suitability|cloud security suitability) [*]|([*] why (is|would) (he|abdisamad) (a good fit|the right fit|suitable) for (devsecops|cloud security|security engineering) [*])) {weight=20}
-- DevSecOps is a direct fit: he has been on both sides of the pipeline — building and shipping production software for 5+ years, and securing the applications, servers, and infrastructure behind it.\n\nAt Groundwork Technologies he secures applications and infrastructure through access control, security updates, vulnerability fixes, and system hardening. At Koor Jobs he maintains platform security and user access on a live platform. He also runs Docker, Kubernetes, Terraform, and GitHub Actions pipelines for his own products.\n\nHe understands what developers actually resist in a security process, because he is one, and he standardises controls rather than blocking delivery with them.
+- DevSecOps is a direct fit: he has been on both sides of the pipeline - building and shipping production software for 5+ years, and securing the applications, servers, and infrastructure behind it.\n\nAt Groundwork Technologies he secures applications and infrastructure through access control, security updates, vulnerability fixes, and system hardening. At Koor Jobs he maintains platform security and user access on a live platform. He also runs Docker, Kubernetes, Terraform, and GitHub Actions pipelines for his own products.\n\nHe understands what developers actually resist in a security process, because he is one, and he standardises controls rather than blocking delivery with them.
 
 + ([*] (weakness|weaknesses|areas to improve|improvement areas) [*]|[*] what are his weaknesses [*]) {weight=20}
-- He is honest about this: his career has been broad rather than narrow. He has shipped web, mobile, and infrastructure work, which means he is strong across a stack but has not specialised into one narrow niche yet — DevSecOps and cloud security is the specialisation he is deliberately building now, backed by Microsoft SC-200.\n\nHis documented strengths: end-to-end ownership, breadth across web, mobile, and infrastructure, security fundamentals backed by certifications, and the ability to explain technical work clearly.
+- He is honest about this: his career has been broad rather than narrow. He has shipped web, mobile, and infrastructure work, which means he is strong across a stack but has not specialised into one narrow niche yet - DevSecOps and cloud security is the specialisation he is deliberately building now, backed by Microsoft SC-200.\n\nHis documented strengths: end-to-end ownership, breadth across web, mobile, and infrastructure, security fundamentals backed by certifications, and the ability to explain technical work clearly.
 
 + ([*] (reference|references|testimonial|testimonials) [*]) {weight=20}
-- He has testimonials from people he has worked with in the Testimonials section of abdisamadjoe.com — including a co-founder's note about building Nidamiye together.\n\nReferences can be arranged through abdisamadjoe@gmail.com.
+- He has testimonials from people he has worked with in the Testimonials section of abdisamadjoe.com - including a co-founder's note about building Nidamiye together.\n\nReferences can be arranged through abdisamadjoe@gmail.com.
 
 + ([*] (award|awards|achievement|achievements|recognition|honors|honours) [*]) {weight=20}
 - His most concrete achievements are operational: 99.9% platform uptime and 25% faster support response at Koor Jobs, 20% better system uptime at the Ministry of Finance, and at Samakaal Hospital 25% fewer user-related errors plus 40% fewer potential security incidents.\n\nHe also has competition wins from his school years (informatics, science and engineering fairs), 200+ students on his Udemy Linux course, 14,000+ YouTube views, and a Top 1% global ranking on TryHackMe.
 
 + ([*] (tell me everything|full profile|full background|give me a summary|summarise|summarize|summary|overview of him) [*]|[*] give me (an|a) (overview|summary) of (his|your) (profile|background) [*]) {weight=20}
-- Abdisamad E. Yusuf — software developer and DevSecOps engineer, Nairobi, Kenya.\n\n- Experience: 5+ years. Founder of Groundwork Technologies (May 2023 – present); IT Specialist at Koor Jobs (Jan 2024 – present); IT Officer at the Ministry of Finance, Somalia (Feb–Oct 2023); IT Support Specialist at Samakaal Hospital (Nov 2021 – Jan 2023).\n- Education: BSc Computer Science, SIMAD University.\n- Certifications: 8 — IELTS 7.0, Google Cybersecurity, AWS Cloud Practitioner, ISC2 CC, Azure AZ-900, Oracle Cloud Infrastructure Foundations, Microsoft SC-900, Google Project Management. Currently studying for SC-200 and AWS Solutions Architect – Associate.\n- Security practice: Top 1% globally on TryHackMe; LetsDefend; CyberDefenders.\n- Projects: Nidamiye, Hearline, Snap2Sell, DifaacSec.\n- Stack: Next.js, NestJS, Flutter, PostgreSQL, TypeScript, Docker, Kubernetes, Terraform, GitHub Actions, AWS, Azure.\n- Contact: abdisamadjoe@gmail.com · (+254) 723 970 945
+- Abdisamad E. Yusuf - software developer and DevSecOps engineer, Nairobi, Kenya.\n\n- Experience: 5+ years. Founder of Groundwork Technologies (May 2023 – present); IT Specialist at Koor Jobs (Jan 2024 – present); IT Officer at the Ministry of Finance, Somalia (Feb–Oct 2023); IT Support Specialist at Samakaal Hospital (Nov 2021 – Jan 2023).\n- Education: BSc Computer Science, SIMAD University.\n- Certifications: 8 - IELTS 7.0, Google Cybersecurity, AWS Cloud Practitioner, ISC2 CC, Azure AZ-900, Oracle Cloud Infrastructure Foundations, Microsoft SC-900, Google Project Management. Currently studying for SC-200 and AWS Solutions Architect – Associate.\n- Security practice: Top 1% globally on TryHackMe; LetsDefend; CyberDefenders.\n- Projects: Nidamiye, Hearline, Snap2Sell, DifaacSec.\n- Stack: Next.js, NestJS, Flutter, PostgreSQL, TypeScript, Docker, Kubernetes, Terraform, GitHub Actions, AWS, Azure.\n- Contact: abdisamadjoe@gmail.com · (+254) 723 970 945
 
 + ([*] (thank you|thanks|thank u|cheers) [*]|[*] (appreciate it|appreciated) [*]) {weight=20}
-- Happy to help. If you would like to talk to Abdisamad directly, email abdisamadjoe@gmail.com — and feel free to ask me anything else about his profile.
+- Happy to help. If you would like to talk to Abdisamad directly, email abdisamadjoe@gmail.com - and feel free to ask me anything else about his profile.
 
 + ([*] (bye|goodbye|see you|that is all|thats all) [*]) {weight=20}
-- Thanks for stopping by. Good luck with the search — Abdisamad is reachable at abdisamadjoe@gmail.com if you would like to take it further.
+- Thanks for stopping by. Good luck with the search - Abdisamad is reachable at abdisamadjoe@gmail.com if you would like to take it further.
 
 
 // -----------------------------------------------------------------------------
@@ -357,7 +357,7 @@
 // -----------------------------------------------------------------------------
 
 + ([*] (it support|technical support|helpdesk|help desk|it specialist|it officer|troubleshooting) [*]|[*] has (he|abdisamad) done (it support|technical support) [*]) {weight=40}
-- Yes — IT operations and support is a core part of his background, across three organisations:\n\n- Samakaal Hospital, Mogadishu (Nov 2021 – Jan 2023): IT Support Specialist. Direct hardware and software support so patient care ran uninterrupted; trained hospital staff, cutting user-related errors by 25%; enforced security protocols, reducing potential security incidents by 40%.\n- Ministry of Finance, Federal Republic of Somalia (Feb – Oct 2023): IT Officer. Managed IT infrastructure for the Scale-up Project, improving system uptime by 20%; supported ministry staff and documented systems and processes.\n- Koor Jobs (Jan 2024 – present, remote): IT Specialist. Technical support for job seekers and recruiters with 25% faster response time; monitored servers and applications to 99.9% uptime; maintained platform security and user access.
+- Yes - IT operations and support is a core part of his background, across three organisations:\n\n- Samakaal Hospital, Mogadishu (Nov 2021 – Jan 2023): IT Support Specialist. Direct hardware and software support so patient care ran uninterrupted; trained hospital staff, cutting user-related errors by 25%; enforced security protocols, reducing potential security incidents by 40%.\n- Ministry of Finance, Federal Republic of Somalia (Feb – Oct 2023): IT Officer. Managed IT infrastructure for the Scale-up Project, improving system uptime by 20%; supported ministry staff and documented systems and processes.\n- Koor Jobs (Jan 2024 – present, remote): IT Specialist. Technical support for job seekers and recruiters with 25% faster response time; monitored servers and applications to 99.9% uptime; maintained platform security and user access.
 
 + ([*] (metrics|measurable|results|impact|achievements|numbers|how did he improve) [*]|[*] what results has (he|abdisamad) delivered [*]) {weight=30}
 - Measurable outcomes from his roles:\n\n- 99.9% uptime maintained on the Koor Jobs platform\n- 25% faster support response time at Koor Jobs\n- 20% improvement in system uptime at the Ministry of Finance (Scale-up Project)\n- 25% reduction in user-related errors at Samakaal Hospital after his staff training\n- 40% reduction in potential security incidents after he enforced hospital security protocols
@@ -368,7 +368,7 @@
 // -----------------------------------------------------------------------------
 
 + ([*] (blog|writing|articles|posts|published) [*]|[*] does (he|abdisamad) write [*]|[*] has (he|abdisamad) published anything [*]) {weight=40}
-- Yes — he writes practical cybersecurity and privacy guides on abdisamadjoe.com/blog. Topics include:\n\n- Why Google's cybersecurity certificate is the best for beginners (Aug 2024)\n- Straightforward strategies for the ISC2 Certified in Cybersecurity exam (Sep 2024)\n- Choosing the right web browser in 2024 (Oct 2024)\n- Tired of remembering endless passwords? Here's the solution you need (Oct 2024)\n- Is your email really private? Discover the best secure options (Oct 2024)\n- Shh… let's talk privately: comparing the best encrypted messaging apps (Nov 2024)\n\nWriting about security for non-specialists is the same skill he uses to explain risk to a team, which is useful in any security role.
+- Yes - he writes practical cybersecurity and privacy guides on abdisamadjoe.com/blog. Topics include:\n\n- Why Google's cybersecurity certificate is the best for beginners (Aug 2024)\n- Straightforward strategies for the ISC2 Certified in Cybersecurity exam (Sep 2024)\n- Choosing the right web browser in 2024 (Oct 2024)\n- Tired of remembering endless passwords? Here's the solution you need (Oct 2024)\n- Is your email really private? Discover the best secure options (Oct 2024)\n- Shh… let's talk privately: comparing the best encrypted messaging apps (Nov 2024)\n\nWriting about security for non-specialists is the same skill he uses to explain risk to a team, which is useful in any security role.
 
 + ([*] (security blog|blog about|writes about) [*]) {weight=40}
 - His writing focuses on entry-level security education and everyday privacy: the Google Cybersecurity certificate, the ISC2 CC exam, secure browsers, password managers, private email providers, and encrypted messaging apps.\n\nRead it at abdisamadjoe.com/blog.
@@ -379,27 +379,27 @@
 // -----------------------------------------------------------------------------
 
 + ([*] (github|contributions|commits|active|activity|how active) [*]) {weight=40}
-- He commits consistently — his portfolio shows 3,068 GitHub contributions between 07.09.2025 and 11.09.2026.\n\nHis GitHub is github.com/abdisamadjoe, and this portfolio itself is open source.
+- He commits consistently - his portfolio shows 3,068 GitHub contributions between 07.09.2025 and 11.09.2026.\n\nHis GitHub is github.com/abdisamadjoe, and this portfolio itself is open source.
 
 + ([*] (ai tools|ai stack|claude code|copilot|which ai|does he use ai) [*]) {weight=40}
-- He uses AI-assisted development tools in his own workflow — Claude Code, Google Antigravity, opencode, and DeepSeek — alongside TypeScript, Next.js, NestJS, Flutter, and PostgreSQL.\n\nWorth being clear: those are tools he builds with, not what this assistant runs on. I am rule-based RiveScript with no AI model behind me.
+- He uses AI-assisted development tools in his own workflow - Claude Code, Google Antigravity, opencode, and DeepSeek - alongside TypeScript, Next.js, NestJS, Flutter, and PostgreSQL.
 
 + ([*] (what can you build|what does he build|what kind of software) [*]) {weight=40}
 - He builds full-stack SaaS platforms and digital products from idea to production: web applications and dashboards (Next.js), backends and REST APIs (NestJS, Node.js, PostgreSQL), mobile apps (Flutter), and the infrastructure and security around all of it.\n\nExamples: Nidamiye (property management), Hearline, Snap2Sell, DifaacSec, and client platforms including tochenet.com and the Azhartel website and web app.
 
 
 // -----------------------------------------------------------------------------
-// META — what can you do / reset
+// META - what can you do / reset
 // -----------------------------------------------------------------------------
 
 + ([*] (what can you do|what can you answer|what can you help with|what do you know|what topics) [*]|help|what can i ask you) {weight=40}
-- I answer questions about Abdisamad's resume and professional background:\n\n- Experience and work history (Groundwork Technologies, Koor Jobs, Ministry of Finance, Samakaal Hospital)\n- Cybersecurity and DevSecOps background\n- Certifications\n- Projects\n- Education\n- Technical skills\n- TryHackMe and security practice\n- Career goals and the roles he is targeting\n- Why he would be a good hire\n- How to contact him\n\nI only answer from his profile — if something is not there, I will say so rather than guess.
+- I am Elmify, the Personal Knowledge API. I answer questions about Abdisamad's experience and professional background:\n\n- Experience and work history (Groundwork Technologies, Koor Jobs, Ministry of Finance, Samakaal Hospital)\n- Cybersecurity and DevSecOps background\n- Certifications\n- Projects\n- Education\n- Technical skills\n- TryHackMe and security practice\n- Career goals and the roles he is targeting\n- Why he would be a good hire\n- How to contact him\n\nI only answer from his profile - if something is not there, I will say so rather than guess.
 
 + ([*] (are you an ai|are you ai|are you chatgpt|is this ai|is this chatgpt|is this an llm|are you a bot|what are you) [*]|[*] (how do you work|how does this work) [*]) {weight=60}
-- I am Abdisamad's official career assistant, trained on his resume, experience, certifications, and portfolio projects.\n\nIf a question is not covered in his profile, I say so instead of inventing an answer. Anything specific should go to Abdisamad directly: abdisamadjoe@gmail.com
+- I am Elmify, the Personal Knowledge API, trained on Abdisamad's experience, certifications, and portfolio projects.\n\nIf a question is not covered in his profile, I say so instead of inventing an answer. Anything specific should go to Abdisamad directly: abdisamadjoe@gmail.com
 
 + ([*] (what engine|how are you built|how were you built|what tech runs this chat) [*]) {weight=60}
-- I am Abdisamad's official career assistant — built to answer recruiter questions about his experience, skills, certifications, and projects accurately. You can reach Abdisamad directly at abdisamadjoe@gmail.com.
+- I am Elmify, the Personal Knowledge API - built to answer questions about Abdisamad's experience, skills, certifications, and projects accurately. You can reach Abdisamad directly at abdisamadjoe@gmail.com.
 
 + ([*] (reset|start over|start again) [*]|clear chat) {weight=20}
 - Fresh start. Ask me anything about Abdisamad's experience, cybersecurity background, projects, certifications, education, or skills.
@@ -413,7 +413,7 @@
 // -----------------------------------------------------------------------------
 
 + * {weight=1}
-- I don't have that information in Abdisamad's profile.\n\nTry asking me about his experience, cybersecurity background, projects, certifications, education, or skills — or email him directly at abdisamadjoe@gmail.com.
+- I don't have that information in Abdisamad's profile.\n\nTry asking me about his experience, cybersecurity background, projects, certifications, education, or skills - or email him directly at abdisamadjoe@gmail.com.
 
 
 // -----------------------------------------------------------------------------

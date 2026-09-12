@@ -41,18 +41,18 @@ if (
 }
 
 export const CHATBOT_CONTENT = {
-  title: "Ask Abdisamad",
-  subtitle: "Career & Resume Assistant",
-  launcherLabel: "Ask Abdisamad",
-  greeting: `Hi! I'm Abdisamad's career assistant.
+  title: "Elmify",
+  subtitle: "Personal Knowledge API",
+  launcherLabel: "Elmify",
+  greeting: `Hi! I'm Elmify, your Personal Knowledge API.
 
-Ask me about his experience, cybersecurity background, projects, certifications, education, or skills.`,
+Ask me about Abdisamad's experience, cybersecurity background, projects, certifications, education, or skills.`,
   suggestions: [
     "What cybersecurity experience does he have?",
     "What certifications does he have?",
     "Tell me about his projects",
     "Why should we hire him?",
   ],
-  inputPlaceholder: "Ask about his experience, certifications, projects…",
-  disclaimer: "Official Career Assistant for Abdisamad Yusuf",
+  inputPlaceholder: "Ask about his experience, certifications, projects...",
+  disclaimer: "Elmify - Personal Knowledge API",
 } as const
