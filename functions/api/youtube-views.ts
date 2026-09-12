@@ -55,9 +55,10 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
 
     return response
   } catch (error) {
-    console.error("Failed to fetch YouTube views:", error)
+    const message = error instanceof Error ? error.message : String(error)
+    console.error("Failed to fetch YouTube views:", message)
     return Response.json(
-      { error: "Failed to fetch YouTube views." },
+      { error: `Failed to fetch YouTube views: ${message}` },
       { status: 502 },
     )
   }

@@ -77,10 +77,18 @@ function youtubeViewsDevMiddleware(): Plugin {
   }
 }
 
-export default defineConfig({
-  define: {
-    "process.env.BUILD_TIMESTAMP": JSON.stringify(new Date().toISOString()),
-  },
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd(), "")
+  const chatbotAppUrl = env.CHATBOT_APP_URL || process.env.CHATBOT_APP_URL || ""
+
+  return {
+    envPrefix: ["VITE_", "CHATBOT_"],
+    define: {
+      "process.env.BUILD_TIMESTAMP": JSON.stringify(new Date().toISOString()),
+      ...(chatbotAppUrl
+        ? { "import.meta.env.CHATBOT_APP_URL": JSON.stringify(chatbotAppUrl) }
+        : {}),
+    },
   resolve: {
     alias: {
       "next/cache": path.resolve(__dirname, "./src/lib/cache.ts"),
@@ -134,4 +142,5 @@ export default defineConfig({
       "abdisamadjoe.local",
     ],
   },
+  }
 })
