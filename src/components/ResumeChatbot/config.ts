@@ -48,10 +48,11 @@ export const CHATBOT_CONTENT = {
 
 Ask me about Abdisamad's experience, cybersecurity background, projects, certifications, education, or skills.`,
   suggestions: [
-    "What cybersecurity experience does he have?",
-    "What certifications does he have?",
-    "Tell me about his projects",
-    "Why should we hire him?",
+    "What DevSecOps & Cybersecurity experience does he have?",
+    "Tell me about Groundwork Technologies",
+    "What certifications does he hold?",
+    "What is his full tech stack?",
+    "Why should we hire Abdisamad?",
   ],
   inputPlaceholder: "Ask about his experience, certifications, projects...",
   disclaimer: "Elmify - Personal Knowledge API",
