@@ -1,9 +1,8 @@
 /**
  * Resume chatbot API client.
  *
- * The backend is a small standalone Express + RiveScript service (see
- * `chatbot/`). There is no AI, no API key, and no database — the reply
- * is a predefined rule from `chatbot/brain/resume.rive`.
+ * The backend is a standalone Express service (see
+ * `chatbot/`). The reply is returned by `chatbot/brain/resume.rive`.
  */
 import { CHATBOT_API_URL } from "./config"
 

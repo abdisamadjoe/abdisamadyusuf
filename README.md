@@ -98,10 +98,10 @@ npm run build
 npm run start
 ```
 
-## Resume Chatbot
+## Elmify, Personal Knowledge API
 
-The site includes a floating **Ask Abdisamad** resume assistant - a small chat
-widget that answers recruiter questions about experience, certifications,
+The site includes floating **Elmify, Personal Knowledge API** - a chat
+widget that answers questions about experience, certifications,
 projects, education, and skills.
 
 It is **not an AI**. There is no LLM, no API key, no database, no embeddings and

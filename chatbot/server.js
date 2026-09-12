@@ -21,7 +21,7 @@ const PORT = Number(process.env.PORT) || 3001
 /**
  * Comma-separated allow-list of origins, e.g.
  *   CORS_ORIGIN="https://abdisamadjoe.com,https://www.abdisamadjoe.com"
- * When unset, every origin is allowed — convenient for local development.
+ * When unset, every origin is allowed - convenient for local development.
  */
 const ALLOWED_ORIGINS = (process.env.CORS_ORIGIN || "")
   .split(",")
@@ -30,7 +30,7 @@ const ALLOWED_ORIGINS = (process.env.CORS_ORIGIN || "")
 
 const MAX_MESSAGE_LENGTH = 500
 
-/** RiveScript only — the server never writes a reply of its own. */
+/** RiveScript only - the server never writes a reply of its own. */
 /**
  * The live RiveScript instance.
  *
@@ -102,13 +102,13 @@ app.get("/health", (_req, res) => {
 /**
  * Friendly root page.
  *
- * This is an API, not a website — the chat UI lives in the portfolio. Opening
+ * This is an API, not a website - the chat UI lives in the portfolio. Opening
  * this URL in a browser should say so instead of showing Express's bare
  * "Cannot GET /".
  */
 app.get("/", (_req, res) => {
   res.json({
-    service: "Ask Abdisamad — Career Assistant API",
+    service: "Elmify, Personal Knowledge API",
     status: "ok",
     endpoints: {
       chat: "POST /api/chat",
@@ -134,7 +134,7 @@ app.post("/api/chat", chatLimiter, async (req, res) => {
   try {
     const reply = await bot.reply(session, text)
 
-    // `bot.reply` returns an empty string when the brain has no reply — the
+    // `bot.reply` returns an empty string when the brain has no reply - the
     // `*` fallback in resume.rive means this should not happen in practice.
     res.json({
       reply:

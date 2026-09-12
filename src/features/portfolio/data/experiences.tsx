@@ -71,7 +71,7 @@ In-house Project: [Quaric Website](https://quaric.com)
 
 In-house Project: [ZaDark](https://zadark.com)
 - Build and maintain ZaDark.com with Docusaurus, integrating AdSense.
-- Develop and maintain the ZaDark extension for Zalo Web on Chrome, Safari, Edge, and Firefox — with 20k+ active users via Chrome Web Store (as of Sep 2025).`,
+- Develop and maintain the ZaDark extension for Zalo Web on Chrome, Safari, Edge, and Firefox - with 20k+ active users via Chrome Web Store (as of Sep 2025).`,
         skills: [
           "Next.js",
           "Strapi",

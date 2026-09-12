@@ -20,8 +20,7 @@ import "./ResumeChatbot.css"
 /**
  * Floating "Ask Abdisamad" resume assistant.
  *
- * A rule-based RiveScript bot served by `chatbot/` — deliberately not an
- * AI, so the wording here never calls it one.
+ * A bot served by `chatbot/`.
  */
 
 const STORAGE_KEY = "resume-chatbot-session"
@@ -76,7 +75,7 @@ function readStoredSession(): StoredSession | null {
       isOpen: candidate.isOpen === true,
     }
   } catch {
-    // Private mode, disabled storage, or corrupt payload — start fresh.
+    // Private mode, disabled storage, or corrupt payload - start fresh.
     return null
   }
 }
@@ -126,7 +125,7 @@ export function ResumeChatbot() {
         } satisfies StoredSession)
       )
     } catch {
-      // Storage unavailable — the chat still works for this page view.
+      // Storage unavailable - the chat still works for this page view.
     }
   }, [isMounted, userId, isOpen, messages])
 
@@ -238,7 +237,7 @@ export function ResumeChatbot() {
         ])
       } catch (error) {
         if (controller.signal.aborted && requestRef.current !== controller) {
-          // Superseded by a newer question — drop this response silently.
+          // Superseded by a newer question - drop this response silently.
           return
         }
 
@@ -286,7 +285,7 @@ export function ResumeChatbot() {
       <div
         id="resume-chatbot-panel"
         role="dialog"
-        aria-label={`${CHATBOT_CONTENT.title} — ${CHATBOT_CONTENT.subtitle}`}
+        aria-label={`${CHATBOT_CONTENT.title} - ${CHATBOT_CONTENT.subtitle}`}
         aria-hidden={!isOpen}
         data-open={isOpen ? "true" : "false"}
         className="resume-chatbot__panel"
@@ -440,7 +439,7 @@ export function ResumeChatbot() {
  *
  * User messages are short and rendered as-is. Bot answers come from RiveScript
  * as plain text with `\n` breaks, so they are parsed into paragraphs and bullet
- * lists — an 800-character wall of prose is what made the chat look
+ * lists - an 800-character wall of prose is what made the chat look
  * unstructured.
  */
 function MessageBody({ message }: { message: ChatMessage }) {

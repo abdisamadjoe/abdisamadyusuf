@@ -323,7 +323,7 @@
   white-space: pre-wrap;
 }
 
-/* Small accent dash instead of a browser bullet — matches the site's
+/* Small accent dash instead of a browser bullet - matches the site's
    restrained, line-based aesthetic. */
 .resume-chatbot__list-item::before {
   content: "";
