@@ -107,95 +107,334 @@ app.get("/health", (_req, res) => {
  * "Cannot GET /".
  */
 app.get("/", (_req, res) => {
-  const ruleCount = bot._topics.random.length
-
   res.type("html").send(`<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Resume chatbot API</title>
+    <title>Ask Abdisamad — Assistant API</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
-      :root { color-scheme: light dark; }
+      :root {
+        --bg: #090d16;
+        --card-bg: rgba(17, 24, 39, 0.75);
+        --card-border: rgba(255, 255, 255, 0.08);
+        --text-main: #f3f4f6;
+        --text-muted: #9ca3af;
+        --accent: #6366f1;
+        --accent-hover: #4f46e5;
+        --accent-glow: rgba(99, 102, 241, 0.25);
+        --success: #22c55e;
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
       body {
-        margin: 0; padding: 2.5rem 1.5rem;
-        font: 15px/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-        background: Canvas; color: CanvasText;
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        background-color: var(--bg);
+        color: var(--text-main);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        line-height: 1.6;
+        background-image: 
+          radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+          radial-gradient(at 100% 100%, rgba(168, 85, 247, 0.1) 0px, transparent 50%);
       }
-      main { max-width: 34rem; margin: 0 auto; }
-      h1 { font-size: 1.25rem; margin: 0 0 .25rem; }
-      p { margin: 0 0 1.25rem; opacity: .75; }
-      code {
-        padding: .15em .35em; border-radius: .35rem;
-        background: color-mix(in oklab, CanvasText 8%, Canvas);
-        font-size: .9em;
+      header {
+        border-bottom: 1px solid var(--card-border);
+        padding: 1.25rem 2rem;
+        backdrop-filter: blur(12px);
+        background: rgba(9, 13, 22, 0.85);
+        position: sticky;
+        top: 0;
+        z-index: 10;
       }
-      ul { padding-left: 1.1rem; margin: 0 0 1.5rem; }
-      li { margin-bottom: .5rem; }
-      .ok { color: #16a34a; font-weight: 600; }
-      form { margin: 0 0 1rem; }
-      input, button {
-        font: inherit; padding: .55rem .7rem; border-radius: .5rem;
-        border: 1px solid color-mix(in oklab, CanvasText 20%, Canvas);
-        background: Canvas; color: CanvasText;
+      .nav-container {
+        max-width: 900px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
       }
-      input { width: 100%; box-sizing: border-box; margin-bottom: .5rem; }
-      button { cursor: pointer; font-weight: 500; }
-      pre {
-        white-space: pre-wrap; word-wrap: break-word;
-        padding: .85rem 1rem; border-radius: .6rem; margin: 1rem 0 0;
-        background: color-mix(in oklab, CanvasText 6%, Canvas);
-        font-size: .875rem;
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-weight: 700;
+        font-size: 1.1rem;
+        text-decoration: none;
+        color: var(--text-main);
       }
-      small { opacity: .65; display: block; margin-top: 1.75rem; }
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.35rem 0.85rem;
+        border-radius: 9999px;
+        background: rgba(34, 197, 94, 0.1);
+        border: 1px solid rgba(34, 197, 94, 0.25);
+        color: var(--success);
+        font-size: 0.825rem;
+        font-weight: 500;
+      }
+      .badge-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background-color: var(--success);
+        box-shadow: 0 0 10px var(--success);
+      }
+      main {
+        flex: 1;
+        max-width: 900px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 3rem 1.5rem;
+      }
+      .hero {
+        margin-bottom: 2.5rem;
+      }
+      .hero h1 {
+        font-size: 2.25rem;
+        font-weight: 800;
+        letter-spacing: -0.025em;
+        margin-bottom: 0.5rem;
+        background: linear-gradient(135deg, #ffffff 0%, #c7d2fe 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .hero p {
+        color: var(--text-muted);
+        font-size: 1.05rem;
+        max-width: 620px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .card {
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        border-radius: 1rem;
+        padding: 1.75rem;
+        backdrop-filter: blur(12px);
+        box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6);
+      }
+      .card-title {
+        font-size: 1.15rem;
+        font-weight: 600;
+        margin-bottom: 1.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .suggestions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1.25rem;
+      }
+      .chip {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--card-border);
+        color: var(--text-muted);
+        padding: 0.45rem 0.85rem;
+        border-radius: 0.6rem;
+        font-size: 0.85rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      .chip:hover {
+        background: rgba(99, 102, 241, 0.18);
+        color: #c7d2fe;
+        border-color: rgba(99, 102, 241, 0.35);
+      }
+      .form-group {
+        display: flex;
+        gap: 0.75rem;
+        margin-bottom: 1.25rem;
+      }
+      input[type="text"] {
+        flex: 1;
+        background: rgba(0, 0, 0, 0.35);
+        border: 1px solid var(--card-border);
+        border-radius: 0.6rem;
+        padding: 0.75rem 1rem;
+        color: var(--text-main);
+        font-size: 0.95rem;
+        outline: none;
+        transition: all 0.2s;
+      }
+      input[type="text"]:focus {
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px var(--accent-glow);
+      }
+      button.btn-primary {
+        background: var(--accent);
+        color: white;
+        border: none;
+        border-radius: 0.6rem;
+        padding: 0.75rem 1.5rem;
+        font-weight: 600;
+        font-size: 0.95rem;
+        cursor: pointer;
+        transition: background-color 0.2s, transform 0.1s;
+      }
+      button.btn-primary:hover {
+        background-color: var(--accent-hover);
+      }
+      button.btn-primary:active {
+        transform: scale(0.98);
+      }
+      .response-box {
+        background: rgba(0, 0, 0, 0.45);
+        border: 1px solid var(--card-border);
+        border-radius: 0.6rem;
+        padding: 1.25rem;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.875rem;
+        white-space: pre-wrap;
+        word-break: break-word;
+        color: #e2e8f0;
+        min-height: 90px;
+      }
+      .api-routes {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .route-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.85rem 1.25rem;
+        background: rgba(0, 0, 0, 0.25);
+        border: 1px solid var(--card-border);
+        border-radius: 0.6rem;
+      }
+      .method {
+        font-family: 'JetBrains Mono', monospace;
+        font-weight: 700;
+        font-size: 0.8rem;
+        padding: 0.25rem 0.6rem;
+        border-radius: 0.4rem;
+      }
+      .method.post { background: rgba(99, 102, 241, 0.2); color: #818cf8; }
+      .method.get { background: rgba(34, 197, 94, 0.2); color: #4ade80; }
+      .path {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.95rem;
+        color: #f3f4f6;
+      }
+      .desc {
+        color: var(--text-muted);
+        font-size: 0.875rem;
+        margin-left: auto;
+      }
+      footer {
+        border-top: 1px solid var(--card-border);
+        padding: 2rem 1.5rem;
+        text-align: center;
+        color: var(--text-muted);
+        font-size: 0.875rem;
+        margin-top: auto;
+      }
+      footer a {
+        color: #a5b4fc;
+        text-decoration: none;
+      }
+      footer a:hover { text-decoration: underline; }
     </style>
   </head>
   <body>
+    <header>
+      <div class="nav-container">
+        <a href="https://abdisamadjoe.com" class="brand">
+          <span>Abdisamad Yusuf</span>
+        </a>
+        <div class="badge">
+          <span class="badge-dot"></span>
+          <span>API Operational</span>
+        </div>
+      </div>
+    </header>
+
     <main>
-      <h1>Resume chatbot API <span class="ok">&#10003; running</span></h1>
-      <p>
-        This is the RiveScript backend only — there is no page to browse here.
-        The chat widget lives on the portfolio itself, at
-        <strong>http://localhost:5173/</strong> (button in the bottom-right corner).
-      </p>
-      <ul>
-        <li><code>POST /api/chat</code> — send <code>{ "message": "…", "userId": "…" }</code>, get <code>{ "reply": "…" }</code></li>
-        <li><code>GET /health</code> — service status</li>
-      </ul>
-      <p><strong>${ruleCount}</strong> rules loaded from <code>brain/resume.rive</code>.
-      Edit that file and the brain reloads automatically in development.</p>
+      <div class="hero">
+        <h1>Career Assistant API</h1>
+        <p>Interactive backend service powering the official assistant on abdisamadjoe.com.</p>
+      </div>
 
-      <form id="probe">
-        <input id="q" value="What certifications does he have?" aria-label="Question" />
-        <button type="submit">Send test question</button>
-      </form>
-      <pre id="out" hidden></pre>
+      <div class="grid">
+        <div class="card">
+          <div class="card-title">
+            <span>Interactive Playground</span>
+          </div>
+          
+          <div class="suggestions">
+            <button type="button" class="chip" onclick="setQuestion('What cybersecurity experience does he have?')">Cybersecurity experience</button>
+            <button type="button" class="chip" onclick="setQuestion('What certifications does he hold?')">Certifications</button>
+            <button type="button" class="chip" onclick="setQuestion('Tell me about his projects')">Projects</button>
+            <button type="button" class="chip" onclick="setQuestion('Why should we hire him?')">Why hire him</button>
+          </div>
 
-      <small>
-        Rule-based RiveScript. No AI, no API key, no database — answers come only
-        from Abdisamad's resume file.
-      </small>
+          <form id="probe">
+            <div class="form-group">
+              <input id="q" type="text" value="What certifications does he hold?" placeholder="Type a question..." required />
+              <button type="submit" class="btn-primary">Send Query</button>
+            </div>
+          </form>
+
+          <pre id="out" class="response-box">Click "Send Query" or select a prompt above to test the API response...</pre>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Available Endpoints</div>
+          <div class="api-routes">
+            <div class="route-item">
+              <span class="method post">POST</span>
+              <span class="path">/api/chat</span>
+              <span class="desc">Query career assistant</span>
+            </div>
+            <div class="route-item">
+              <span class="method get">GET</span>
+              <span class="path">/health</span>
+              <span class="desc">Service health status</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
+
+    <footer>
+      <p>&copy; ${new Date().getFullYear()} Abdisamad Yusuf &bull; <a href="https://abdisamadjoe.com">Return to Portfolio</a></p>
+    </footer>
+
     <script>
-      // Tiny inline tester so the endpoint can be checked without the site.
+      function setQuestion(text) {
+        document.getElementById("q").value = text;
+        document.getElementById("probe").dispatchEvent(new Event("submit"));
+      }
+
       document.getElementById("probe").addEventListener("submit", async (event) => {
         event.preventDefault();
         const out = document.getElementById("out");
-        out.hidden = false;
-        out.textContent = "…";
+        out.textContent = "Processing query...";
         try {
           const response = await fetch("/api/chat", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify({
               message: document.getElementById("q").value,
-              userId: "browser-probe",
+              userId: "playground-tester",
             }),
           });
           const data = await response.json();
-          out.textContent = data.reply || JSON.stringify(data);
+          out.textContent = JSON.stringify(data, null, 2);
         } catch (error) {
-          out.textContent = "Request failed: " + error.message;
+          out.textContent = "Error: " + error.message;
         }
       });
     </script>

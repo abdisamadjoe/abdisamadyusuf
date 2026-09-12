@@ -54,5 +54,5 @@ Ask me about his experience, cybersecurity background, projects, certifications,
     "Why should we hire him?",
   ],
   inputPlaceholder: "Ask about his experience, certifications, projects…",
-  disclaimer: "Rule-based answers from Abdisamad's resume — not an AI.",
+  disclaimer: "Official Career Assistant for Abdisamad Yusuf",
 } as const
