@@ -4,6 +4,7 @@ import { onRequestGet } from "../functions/api/youtube-views"
 interface Env {
   ASSETS: Fetcher
   YOUTUBE_API_KEY: string
+  CHATBOT_APP_URL?: string
 }
 
 export default {
