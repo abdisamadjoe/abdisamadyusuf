@@ -291,18 +291,23 @@ CORS_ORIGIN=https://abdisamadjoe.com,https://www.abdisamadjoe.com
 Point your DNS at the host (for example `chat.abdisamadjoe.com` → CNAME to the
 Railway/Render hostname). `PORT` is injected by most hosts automatically.
 
-**2. Frontend → Cloudflare Pages** (as it is today). Vite inlines
-`import.meta.env.*` **at build time**, so this is a *build* variable, not a
-runtime one. In the Pages project: **Settings → Environment variables →
-Production**, add
+**2. Frontend → Cloudflare Workers / Pages**
 
-```env
-CHATBOT_APP_URL=https://chat.abdisamadjoe.com
+Secrets and API keys are stored securely on Cloudflare without committing sensitive keys to Git or `wrangler.jsonc`.
+
+Upload encrypted environment secrets using Wrangler CLI:
+
+```bash
+# Upload YouTube API Key
+npx wrangler secret put YOUTUBE_API_KEY
+
+# Upload Chatbot Backend URL
+npx wrangler secret put CHATBOT_APP_URL
 ```
 
-then redeploy. If the variable is missing from a production build, the widget
-logs a clear error to the browser console instead of silently calling
-`localhost` — check for that first if the chat ever fails only in production.
+When prompted, enter:
+* `YOUTUBE_API_KEY`: Your Google Cloud YouTube Data API key
+* `CHATBOT_APP_URL`: `https://chat.abdisamadjoe.com`
 
 > `chatbot/` is excluded from the root `tsconfig.json` and has its own
 > `package.json`, so the site build never compiles or bundles the backend, and
