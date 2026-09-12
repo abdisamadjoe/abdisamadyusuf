@@ -117,6 +117,28 @@ app.get("/", (_req, res) => {
   })
 })
 
+/**
+ * Normalizes user queries before passing them to RiveScript.
+ *
+ * Strips common conversational filler phrases ("can you please tell me",
+ * "do you happen to know", "I'd like to ask about") so user queries match
+ * RiveScript pattern rules reliably.
+ */
+function normalizeQuery(rawText) {
+  let cleaned = rawText.trim().toLowerCase()
+
+  // Remove common conversational preamble filler
+  cleaned = cleaned
+    .replace(/^(can|could|would|will)\s+(you|u)\s+(please\s+)?(tell|show|explain|give)\s+(me|us)(\s+(about|info on|details on))?/i, "")
+    .replace(/^(can|could|would)\s+(you|u)\s+(please\s+)?(answer|share|provide)/i, "")
+    .replace(/^(i\s+(want|would like|d like)\s+to\s+(know|ask|hear)(\s+(about|more about))?)/i, "")
+    .replace(/^(do\s+you\s+know|do\s+u\s+know|tell\s+me\s+about|tell\s+me|what\s+about|how\s+about)/i, "")
+    .replace(/^(please\s+tell\s+me|please\s+share|please\s+explain|please\s+give\s+me)/i, "")
+    .trim()
+
+  return cleaned.length > 0 ? cleaned : rawText.trim()
+}
+
 app.post("/api/chat", chatLimiter, async (req, res) => {
   const { message, userId } = req.body ?? {}
 
@@ -125,27 +147,30 @@ app.post("/api/chat", chatLimiter, async (req, res) => {
     return
   }
 
-  const text = message.trim().slice(0, MAX_MESSAGE_LENGTH)
+  const rawText = message.trim().slice(0, MAX_MESSAGE_LENGTH)
+  const normalizedText = normalizeQuery(rawText)
 
   // The React client sends a per-session id; fall back to the client IP so
   // conversations never leak between visitors.
   const session = typeof userId === "string" && userId ? userId : req.ip || "anon"
 
   try {
-    const reply = await bot.reply(session, text)
+    // Try normalized input first, fall back to raw input if needed
+    let reply = await bot.reply(session, normalizedText)
+    if (!reply || reply.includes("[ERR: No Reply Match]")) {
+      reply = await bot.reply(session, rawText)
+    }
 
-    // `bot.reply` returns an empty string when the brain has no reply - the
-    // `*` fallback in resume.rive means this should not happen in practice.
     res.json({
       reply:
         reply ||
-        "I don't have that information in Abdisamad's profile.\n\nTry asking me about his experience, cybersecurity background, projects, certifications, education, or skills.",
+        "I don't have that exact detail in Abdisamad's profile.\n\nTry asking me about his experience, cybersecurity background, projects, certifications, education, or technical skills.",
     })
   } catch (error) {
     console.error("[chat] RiveScript error:", error)
     res.status(500).json({
       error:
-        "The assistant hit an unexpected error. Please try again, or email hello@abdisamadjoe.com.",
+        "The assistant hit an unexpected error. Please try again, or email abdisamadjoe@gmail.com.",
     })
   }
 })

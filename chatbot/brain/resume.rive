@@ -1,5 +1,9 @@
 ! version = 2.0
 
+! array tech = nextjs next.js react nestjs nest.js node nodejs express flutter postgresql postgres docker nginx cloud aws azure devsecops python typescript javascript
+! array cert = google cybersecurity isc2 comptia sc-900 sc900 az-900 az900 aws cloud practitioner ielts
+! array role = developer engineer founder it specialist soc analyst devsecops engineer fullstack full-stack
+
 // =============================================================================
 //  Abdisamad E. Yusuf - Resume Assistant brain (RiveScript)
 //  ---------------------------------------------------------------------------
@@ -127,8 +131,12 @@
 + [*] experience [*] {weight=1}
 - Abdisamad has 5+ years of experience across software development, IT operations, and DevSecOps.\n\nHighlight roles: Founder of Groundwork Technologies (May 2023 – present), IT Specialist at Koor Jobs (January 2024 – present), IT Officer at the Ministry of Finance in Somalia (February 2023 – October 2023), and IT Support Specialist at Samakaal Hospital (November 2021 – January 2023).\n\nHe is currently focused on DevSecOps, cloud security, and building web platforms end to end with Next.js, NestJS, Flutter, and PostgreSQL.
 
-+ ([*] (groundwork|groundwork technologies) [*]|[*] tell me about (his|your) (company|startup|business) [*]) {weight=50}
++ ([*] (groundwork|groundwork technologies) [*]|[*] tell me about (his|your) (company|startup|business) [*]) {weight=85}
 - Groundwork Technologies - Founder, May 2023 to present.\n\n- Builds and manages web platforms for businesses: development, deployments, integrations, and ongoing technical support.\n- Runs servers and production environments: troubleshooting, performance optimization, and availability.\n- Secures applications and infrastructure through access control, security updates, vulnerability fixes, and system hardening.\n\nProducts shipped under Groundwork: Nidamiye (property management for East African property managers), Hearline, Snap2Sell, and DifaacSec.
+
++ [*] (tell me more|what tech|what stack|tools|technologies|how is it built|what did he build) [*] {weight=100}
+% groundwork technologies founder *
+- Under Groundwork Technologies, Abdisamad uses Next.js and React for web applications, NestJS and Node.js with PostgreSQL for backends, Docker and NGINX for deployments, and GitHub Actions for CI/CD.\n\nKey products built include Nidamiye (property management), Hearline (reading assistant), Snap2Sell (Kenyan marketplace), and DifaacSec (Somali cybersecurity learning platform).
 
 + [*] (koor|koor jobs|koorjobs) [*] {weight=50}
 - Koor Jobs - IT Specialist, January 2024 to present (remote).\n\nHe provides technical support to job seekers and recruiters, resolving issues and improving user satisfaction with a 25% faster response time. He monitors server and application performance, maintaining 99.9% uptime and addressing downtime swiftly.\n\nHe also maintains platform security by applying updates and managing user access, preventing unauthorized access and protecting user data.
@@ -155,6 +163,10 @@
 
 + ([*] (cybersecurity|cyber security) (background|experience|skills) [*]|[*] (security) (background|experience) [*]|[*] (what|which) (cybersecurity|security) (experience|background|skills) does (he|abdisamad) have [*]|([*] (cybersecurity|cyber security|infosec|information security|appsec|application security|devsecops|blue team|defensive security) [*]|[*] (is|does) (he|abdisamad) (know|good at|skilled in|experienced in) security [*]|[*] does (he|abdisamad) know security [*])) {weight=70}
 - Abdisamad works at the intersection of software engineering and security - a DevSecOps engineer rather than a purely theoretical one.\n\n- DevSecOps and hardening: access control, security updates, vulnerability fixes, and system hardening across the servers and products he runs\n- Platform security at Koor Jobs: applying updates, managing user access, and preventing unauthorized access to user data\n- Healthcare data protection at Samakaal Hospital: implemented and enforced security protocols, cutting potential security incidents by 40%\n- Cloud security: AWS and Azure fundamentals, identity and access management, Microsoft SC-900\n- Infrastructure: Linux and Ubuntu servers, NGINX, Docker, Kubernetes, Terraform, and CI/CD with GitHub Actions\n- Defensive practice: LetsDefend SOC Analyst Learning Path and hands-on labs on TryHackMe (Top 1% globally), LetsDefend, and CyberDefenders\n- Community: built DifaacSec, a free hands-on cybersecurity platform for Somali learners\n\nHe is currently working toward Microsoft SC-200 (Security Operations Analyst) and AWS Certified Solutions Architect – Associate.
+
++ [*] (tell me more|certs|certifications|credentials|tools|how does he secure) [*] {weight=100}
+% abdisamad works at the intersection *
+- He secures systems across the pipeline: access control, security updates, vulnerability fixes, and system hardening on production servers.\n\nHis security credentials include ISC2 CC, Google Cybersecurity, Microsoft SC-900, and the LetsDefend SOC Analyst Learning Path (plus Top 1% globally on TryHackMe).
 
 + [*] security [*] {weight=1}
 - Abdisamad is a DevSecOps engineer: he secures applications and infrastructure through access control, security updates, vulnerability fixes, and system hardening.\n\nHe holds ISC2 Certified in Cybersecurity (CC), the Google Cybersecurity Professional Certificate, and Microsoft SC-900, completed the LetsDefend SOC Analyst Learning Path, and ranks in the Top 1% globally on TryHackMe.\n\nAsk me about his cybersecurity background, certifications, or SOC suitability for detail.
