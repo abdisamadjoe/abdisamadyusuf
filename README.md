@@ -100,7 +100,7 @@ npm run start
 
 ## Resume Chatbot
 
-The site includes a floating **Ask Abdisamad** resume assistant — a small chat
+The site includes a floating **Ask Abdisamad** resume assistant - a small chat
 widget that answers recruiter questions about experience, certifications,
 projects, education, and skills.
 
@@ -130,14 +130,14 @@ leaves the portfolio); the rule engine needs a long-running Node process, which
 Cloudflare Pages cannot host.
 
 ```
-chatbot/                         # backend — deploy independently
+chatbot/                         # backend - deploy independently
 ├── server.js                    # Express: POST /api/chat, GET /health, GET / status page
 ├── package.json                 # isolated deps: express, cors, rivescript, express-rate-limit
 ├── .env.example                 # PORT, CORS_ORIGIN
 └── brain/
     └── resume.rive              # ← ALL resume knowledge lives here
 
-src/components/ResumeChatbot/    # frontend — ships with the site
+src/components/ResumeChatbot/    # frontend - ships with the site
 ├── ResumeChatbot.tsx            # floating button + chat window
 ├── ResumeChatbot.css            # styles built on the site's design tokens
 ├── api.ts                       # POST /api/chat client
@@ -155,7 +155,7 @@ folder-isolated; that is what makes it independently deployable.
 ### Editing the answers
 
 `chatbot/brain/resume.rive` is the single source of truth. Nothing about
-the resume is hardcoded in JavaScript — to change an answer, edit one rule:
+the resume is hardcoded in JavaScript - to change an answer, edit one rule:
 
 ```
 + [*] what certifications does (he|abdisamad) (have|hold) [*] {weight=80}
@@ -229,7 +229,7 @@ cp .env.example .env
 npm run dev                      # http://localhost:3001
 ```
 
-Open the site at **http://localhost:5173** — the launcher is in the bottom-right
+Open the site at **http://localhost:5173** - the launcher is in the bottom-right
 corner. http://localhost:3001 is the API only and serves a small status page
 (plus a one-question tester) rather than the chat itself.
 
@@ -308,10 +308,6 @@ npx wrangler secret put CHATBOT_APP_URL
 When prompted, enter:
 * `YOUTUBE_API_KEY`: Your Google Cloud YouTube Data API key
 * `CHATBOT_APP_URL`: `https://chat.abdisamadjoe.com`
-
-> `chatbot/` is excluded from the root `tsconfig.json` and has its own
-> `package.json`, so the site build never compiles or bundles the backend, and
-> root `npm install` does not pull in Express or RiveScript.
 
 ### Tests
 
