@@ -12,7 +12,7 @@ const MILESTONE_CONTENT: Record<number, string> = {
   2025: `Launched [DifaacSec](https://difaacsec.groundwork.co.ke), a free cybersecurity training platform for Somali learners.
 
 Earned Microsoft Azure Fundamentals and the LetsDefend SOC Analyst Learning Path certification.`,
-  2026: `Launched [Snap2Sell](https://www.snap2sell.co.ke), [Hearline](https://hearline.groundwork.co.ke), and [Nidamiye](https://nidamiye.com).
+  2026: `Launched [Snap2Sell](https://www.snap2sell.co.ke), [Hearline](https://hearline.groundwork.co.ke), and [Daarly](https://daarly.app/).
 
 Earned the Microsoft Security, Compliance, and Identity Fundamentals and Google Project Management Professional certifications.
 

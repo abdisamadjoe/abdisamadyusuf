@@ -2,16 +2,16 @@ import type { Project } from "../types/projects"
 
 export const PROJECTS: Project[] = [
   {
-    id: "nidamiye",
-    title: "Nidamiye",
+    id: "daarly",
+    title: "Daarly",
     period: {
       start: "04.2026",
     },
-    link: "https://nidamiye.com",
+    link: "https://daarly.app/",
     skills: ["M-Pesa API", "WhatsApp API", "SaaS", "Multi-tenant"],
     description:
       "Cloud property management platform for landlords in Kenya and Somalia - M-Pesa rent collection, automated WhatsApp payment reminders, and multi-property dashboards.",
-    logo: "/Projects/nidamiye.svg",
+    logo: "/Projects/daarly.svg",
     isExpanded: true,
   },
   {

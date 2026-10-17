@@ -36,7 +36,7 @@ export const TESTIMONIALS_1: Testimonial[] = [
     authorTagline: "Founder @Yoolify",
     url: "https://www.linkedin.com/in/abdiwahid-ali",
     quote:
-      "Abdisamad and I built Nidamiye together. Clear communicator, turns ideas into working solutions. Great co-founder.",
+      "Abdisamad and I built Daarly together. Clear communicator, turns ideas into working solutions. Great co-founder.",
     date: "2026-08-22",
     isVerified: true,
     isFeatured: true,
