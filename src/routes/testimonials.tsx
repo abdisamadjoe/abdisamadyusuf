@@ -1,6 +1,6 @@
 import { X_HANDLE } from "@/config/site"
 import { jsonLdBreadcrumbList, JsonLdScript } from "@/lib/json-ld"
-import { cn } from "@/lib/utils"
+import { absoluteUrl, cn } from "@/lib/utils"
 import {
   PageHeading,
   PageHeadingTagline,
@@ -22,20 +22,21 @@ import {
   TESTIMONIALS_2,
 } from "@/features/portfolio/data/testimonials"
 
-const title = "Testimonials"
-const description = "Trusted by top builders."
+const title = "Client Testimonials"
+const description =
+  "What founders and clients say about the websites and web apps I built for them. Read their feedback before you hire."
 const ogImage = `/og/simple?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`
 
 export function meta() {
   return [
-    { title: `${title} – Abdisamad Yusuf` },
+    { title: `Abdisamad Yusuf: ${title}` },
     { name: "description", content: description },
     {
       tagName: "link",
       rel: "canonical",
-      href: "/testimonials",
+      href: absoluteUrl("/testimonials"),
     },
-    { property: "og:url", content: "/testimonials" },
+    { property: "og:url", content: absoluteUrl("/testimonials") },
     { property: "og:type", content: "website" },
     { property: "og:image", content: ogImage },
     { name: "twitter:card", content: "summary_large_image" },
@@ -69,7 +70,7 @@ export default function TestimonialsPage() {
         <PageHeading>
           <PageHeadingTagline>Testimonials</PageHeadingTagline>
           <PageHeadingTitle>
-            Trusted by top builders on <span aria-label="X">𝕏</span>
+            What founders say after working with me
           </PageHeadingTitle>
         </PageHeading>
 

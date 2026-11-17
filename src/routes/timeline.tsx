@@ -1,5 +1,6 @@
 import { X_HANDLE } from "@/config/site"
 import { jsonLdBreadcrumbList, JsonLdScript } from "@/lib/json-ld"
+import { absoluteUrl } from "@/lib/utils"
 import {
   PageHeading,
   PageHeadingTagline,
@@ -8,20 +9,21 @@ import {
 import { TimescaleIntroScroll } from "@/registry/components/timescale"
 import { Timeline } from "@/features/portfolio/components/timeline"
 
-const title = "Timeline"
-const description = "A life in milestones."
+const title = "Career Timeline"
+const description =
+  "From a Computer Science degree to founding Groundwork Technologies and shipping SaaS products. See the milestones behind my DevSecOps career."
 const ogImage = `/og/simple?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`
 
 export function meta() {
   return [
-    { title: `${title} – Abdisamad Yusuf` }, // Or get SITE_INFO.name dynamically
+    { title: `Abdisamad Yusuf: ${title}` },
     { name: "description", content: description },
     {
       tagName: "link",
       rel: "canonical",
-      href: "/timeline",
+      href: absoluteUrl("/timeline"),
     },
-    { property: "og:url", content: "/timeline" },
+    { property: "og:url", content: absoluteUrl("/timeline") },
     { property: "og:type", content: "website" },
     { property: "og:image", content: ogImage },
     { name: "twitter:card", content: "summary_large_image" },
@@ -49,7 +51,9 @@ export default function TimelinePage() {
 
       <PageHeading>
         <PageHeadingTagline>Timeline</PageHeadingTagline>
-        <PageHeadingTitle>A life in milestones.</PageHeadingTitle>
+        <PageHeadingTitle>
+          From Computer Science graduate to SaaS founder.
+        </PageHeadingTitle>
       </PageHeading>
 
       <div className="h-4" />

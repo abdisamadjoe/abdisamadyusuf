@@ -5,7 +5,7 @@ import { useLoaderData } from "react-router"
 
 import { X_HANDLE } from "@/config/site"
 import { getRegistryItem } from "@/lib/registry.server"
-import { cn } from "@/lib/utils"
+import { absoluteUrl, cn } from "@/lib/utils"
 import { Index } from "@/registry/__index__"
 
 const getCachedRegistryItem = cache(async (name: string) => {
@@ -42,14 +42,14 @@ export function meta({
   const ogImage = `/og/simple?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`
 
   return [
-    { title: `${title} – Abdisamad Yusuf` },
+    { title: `Abdisamad Yusuf: ${title}` },
     { name: "description", content: description },
     {
       tagName: "link",
       rel: "canonical",
-      href: blockUrl,
+      href: absoluteUrl(blockUrl),
     },
-    { property: "og:url", content: blockUrl },
+    { property: "og:url", content: absoluteUrl(blockUrl) },
     { property: "og:type", content: "website" },
     { property: "og:image", content: ogImage },
     { name: "twitter:card", content: "summary_large_image" },

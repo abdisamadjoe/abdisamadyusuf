@@ -7,7 +7,7 @@ export const SITE_INFO = {
   name: USER.displayName,
   url: process.env.NEXT_PUBLIC_APP_URL || "https://abdisamadjoe.com",
   ogImage: USER.ogImage,
-  description: USER.bio,
+  description: USER.metaDescription,
   keywords: USER.keywords,
 }
 

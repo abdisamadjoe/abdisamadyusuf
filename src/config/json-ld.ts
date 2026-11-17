@@ -22,6 +22,13 @@ export const personJsonLd: Person = {
   identifier: USER.username,
   image: USER.avatar,
   url: SITE_INFO.url,
+  jobTitle: USER.jobTitle,
+  description: USER.metaDescription,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Nairobi",
+    addressCountry: "KE",
+  },
   // Public profiles opt in via their `sameAs` flag (Knowledge Graph).
   sameAs: SOCIAL_LINKS.filter((link) => link.sameAs).map((link) => link.href),
 }

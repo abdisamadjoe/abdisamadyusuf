@@ -64,14 +64,14 @@ export function meta({ data }: { data: { doc: Doc } | undefined }) {
     `/og/simple?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`
 
   return [
-    { title: `${title} – Abdisamad Yusuf` },
+    { title: `Abdisamad Yusuf: ${title}` },
     { name: "description", content: description },
     {
       tagName: "link",
       rel: "canonical",
-      href: postUrl,
+      href: absoluteUrl(postUrl),
     },
-    { property: "og:url", content: postUrl },
+    { property: "og:url", content: absoluteUrl(postUrl) },
     { property: "og:type", content: "article" },
     {
       property: "og:article:published_time",

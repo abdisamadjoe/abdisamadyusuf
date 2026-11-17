@@ -11,6 +11,10 @@ export type User = {
   /** e.g. "he/him", "she/her", "they/them" */
   pronouns: string
   bio: string
+  /** Home page title suffix, used as "Name: Tagline" */
+  tagline: string
+  /** Home page meta description, under 160 characters */
+  metaDescription: string
   /** Short phrases rotated in UI (e.g., homepage flip effect) */
   flipSentences: string[]
   /** General location for display */

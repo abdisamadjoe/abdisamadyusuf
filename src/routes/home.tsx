@@ -27,8 +27,11 @@ import { USER } from "@/features/portfolio/data/user"
 
 export function meta() {
   return [
-    { title: `${USER.displayName} – ${USER.jobTitle}` },
-    { name: "description", content: USER.bio },
+    { title: `${USER.displayName}: ${USER.tagline}` },
+    { name: "description", content: USER.metaDescription },
+    { property: "og:title", content: `${USER.displayName}: ${USER.tagline}` },
+    { property: "og:description", content: USER.metaDescription },
+    { property: "og:url", content: absoluteUrl("/") },
     {
       tagName: "link",
       rel: "canonical",

@@ -34,14 +34,14 @@ export function meta({
   const ogImage = `/og/simple?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`
 
   return [
-    { title: `${title} – Abdisamad Yusuf` },
+    { title: `Abdisamad Yusuf: ${title}` },
     { name: "description", content: description },
     {
       tagName: "link",
       rel: "canonical",
-      href: canonicalUrl,
+      href: absoluteUrl(canonicalUrl),
     },
-    { property: "og:url", content: canonicalUrl },
+    { property: "og:url", content: absoluteUrl(canonicalUrl) },
     { property: "og:type", content: "website" },
     { property: "og:image", content: ogImage },
     { name: "twitter:card", content: "summary_large_image" },

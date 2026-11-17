@@ -2,17 +2,23 @@ import { Suspense } from "react"
 import { useSearchParams } from "react-router"
 
 import { X_HANDLE } from "@/config/site"
+import { absoluteUrl } from "@/lib/utils"
 import { Daikanoid } from "@/components/daikanoid"
 
 export function meta() {
   return [
-    { title: "Daikanoid – Abdisamad Yusuf" },
+    { title: "Abdisamad Yusuf: Daikanoid Browser Game" },
+    {
+      name: "description",
+      content:
+        "Play Daikanoid, a free brick-breaker game in your browser, built by Abdisamad Yusuf.",
+    },
     {
       tagName: "link",
       rel: "canonical",
-      href: "/game",
+      href: absoluteUrl("/game"),
     },
-    { property: "og:url", content: "/game" },
+    { property: "og:url", content: absoluteUrl("/game") },
     { property: "og:type", content: "website" },
     {
       property: "og:image",

@@ -21,21 +21,21 @@ export async function loader() {
   return { allPosts }
 }
 
-const title = "Blog"
+const title = "Cybersecurity and Cloud Blog"
 const description =
-  "Writing about code, Cybersecurity, and everything in between."
+  "Cybersecurity, cloud certification and privacy guides from a DevSecOps engineer. Learn what worked for me."
 const ogImage = `/og/simple?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`
 
 export function meta() {
   return [
-    { title: `${title} – Abdisamad Yusuf` },
+    { title: `Abdisamad Yusuf: ${title}` },
     { name: "description", content: description },
     {
       tagName: "link",
       rel: "canonical",
-      href: "/blog",
+      href: absoluteUrl("/blog"),
     },
-    { property: "og:url", content: "/blog" },
+    { property: "og:url", content: absoluteUrl("/blog") },
     { property: "og:type", content: "website" },
     { property: "og:image", content: ogImage },
     { name: "twitter:card", content: "summary_large_image" },
@@ -90,7 +90,7 @@ export default function BlogIndexPage() {
         <PageHeading>
           <PageHeadingTagline>Blog</PageHeadingTagline>
           <PageHeadingTitle>
-            Writing about code, Cybersecurity, and everything in between.
+            Practical guides on cybersecurity and cloud certifications.
           </PageHeadingTitle>
         </PageHeading>
 

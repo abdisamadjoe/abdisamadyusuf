@@ -7,7 +7,7 @@ export async function loader() {
     lastModified: new Date(post.metadata.updatedAt).toISOString(),
   }))
 
-  const routes = ["", "/blog", "/testimonials"].map((route) => ({
+  const routes = ["", "/blog", "/timeline", "/testimonials"].map((route) => ({
     url: `${SITE_INFO.url}${route}`,
     lastModified: new Date().toISOString(),
   }))

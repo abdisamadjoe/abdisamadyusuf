@@ -120,7 +120,7 @@ export function Testimonials() {
           nativeButton={false}
           render={<Link href="/testimonials" />}
         >
-          All testimonials
+          Read all testimonials
           <ArrowRightIcon />
         </Button>
       </div>
