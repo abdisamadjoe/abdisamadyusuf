@@ -215,6 +215,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
         </Providers>
         <ScrollRestoration />
         <Scripts />
+        {/* Groundwork credit element (rendered in the footer) */}
+        <script src="https://www.groundwork.co.ke/credit.js" async />
       </body>
     </html>
   )

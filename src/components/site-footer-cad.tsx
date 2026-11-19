@@ -1,8 +1,8 @@
 import Link from "next/link"
 
 import { Separator } from "@/components/base/ui/separator"
+import { GroundworkCredit } from "@/components/groundwork-credit"
 import { DmcaIcon, GitHubIcon, LinkedInIcon, XIcon } from "@/components/icons"
-import { SiteFooterInteractiveLogotype } from "@/components/site-footer-brand"
 import { SOCIAL } from "@/features/portfolio/data/social-links"
 
 // Imported here rather than through `@/config/site`, which client components
@@ -103,9 +103,11 @@ export function SiteFooterCad() {
             <DmcaIcon className="h-4 w-auto" />
           </a>
         </div>
-      </div>
 
-      <SiteFooterInteractiveLogotype />
+        <div className="screen-line-bottom flex justify-center px-4 py-3 text-muted-foreground">
+          <GroundworkCredit />
+        </div>
+      </div>
 
       <div className="h-(--fade-bottom-height)" />
       <div className="pb-[env(safe-area-inset-bottom,0)]" />
